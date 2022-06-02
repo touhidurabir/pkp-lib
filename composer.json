@@ -37,7 +37,8 @@
 		"mockery/mockery": "^1.4",
 		"captainhook/captainhook": "^5.10",
 		"captainhook/plugin-composer": "^5.3",
-		"phpstan/phpstan": "^1.7"
+		"phpstan/phpstan": "^1.7",
+		"vimeo/psalm": "^4.23"
 	},
 	"config": {
 		"component-dir": "lib/components",
