@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "88aaadb338da728d50490f9c1432939b",
+    "content-hash": "7767a71e8a2857ef6d1c3dd478e4218d",
     "packages": [
         {
             "name": "adodb/adodb-php",
@@ -8066,6 +8066,65 @@
             "time": "2021-12-08T12:19:24+00:00"
         },
         {
+            "name": "phpstan/phpstan",
+            "version": "1.7.7",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/phpstan/phpstan.git",
+                "reference": "cadad14ac63d8a432e01ae89ac5d0ff6fc3b16ab"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/phpstan/phpstan/zipball/cadad14ac63d8a432e01ae89ac5d0ff6fc3b16ab",
+                "reference": "cadad14ac63d8a432e01ae89ac5d0ff6fc3b16ab",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^7.2|^8.0"
+            },
+            "conflict": {
+                "phpstan/phpstan-shim": "*"
+            },
+            "bin": [
+                "phpstan",
+                "phpstan.phar"
+            ],
+            "type": "library",
+            "autoload": {
+                "files": [
+                    "bootstrap.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "description": "PHPStan - PHP Static Analysis Tool",
+            "support": {
+                "issues": "https://github.com/phpstan/phpstan/issues",
+                "source": "https://github.com/phpstan/phpstan/tree/1.7.7"
+            },
+            "funding": [
+                {
+                    "url": "https://github.com/ondrejmirtes",
+                    "type": "github"
+                },
+                {
+                    "url": "https://github.com/phpstan",
+                    "type": "github"
+                },
+                {
+                    "url": "https://www.patreon.com/phpstan",
+                    "type": "patreon"
+                },
+                {
+                    "url": "https://tidelift.com/funding/github/packagist/phpstan/phpstan",
+                    "type": "tidelift"
+                }
+            ],
+            "time": "2022-05-31T13:58:21+00:00"
+        },
+        {
             "name": "phpunit/php-code-coverage",
             "version": "9.2.10",
             "source": {
@@ -10005,5 +10064,5 @@
     "platform-overrides": {
         "php": "8.0.2"
     },
-    "plugin-api-version": "2.3.0"
+    "plugin-api-version": "2.1.0"
 }

@@ -36,7 +36,8 @@
 		"friendsofphp/php-cs-fixer": "^3.8",
 		"mockery/mockery": "^1.4",
 		"captainhook/captainhook": "^5.10",
-		"captainhook/plugin-composer": "^5.3"
+		"captainhook/plugin-composer": "^5.3",
+		"phpstan/phpstan": "^1.7"
 	},
 	"config": {
 		"component-dir": "lib/components",
