@@ -1,5 +1,8 @@
 parameters:
 
+    bootstrapFiles:
+        - static-analysis-bootstrap.php
+
     paths:
         - api
 
