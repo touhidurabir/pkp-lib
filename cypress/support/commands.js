@@ -95,8 +95,8 @@ Cypress.Commands.add('install', function() {
 	cy.get('input[id^=filesDir-]').clear().type(Cypress.env('FILESDIR'), {delay: 0});
 
 	// Locale configuration
-	cy.get('input[id=additionalLocales-en_US').check();
-	cy.get('input[id=additionalLocales-fr_CA').check();
+	cy.get('input[id="additionalLocales-en_US"').check();
+	cy.get('input[id="additionalLocales-fr_CA"').check();
 
 	// Complete the installation
 	cy.get('button[id^=submitFormButton-]').click();
@@ -104,12 +104,29 @@ Cypress.Commands.add('install', function() {
 });
 
 Cypress.Commands.add('login', (username, password, context) => {
+	if (Cypress.env('loginViaForm')) {
+		cy.loginViaForm(username, password, context);
+		return;
+	}
+	
 	context = context || 'index';
 	password = password || (username + username);
 	cy.visit('index.php/' + context + '/login/signIn', {
 		method: 'POST',
 		body: {username: username, password: password}
 	});
+});
+
+Cypress.Commands.add('loginViaForm', (username, password, context) => {
+	context = context || 'index';
+	password = password || (username + username);
+	
+	cy.visit('index.php/' + context + '/login');
+
+	cy.get('input[name=username]').clear().type(username);
+	cy.get('input[name=password]').clear().type(password);
+
+	cy.get('button').contains('Login').click();
 });
 
 Cypress.Commands.add('logout', function() {
