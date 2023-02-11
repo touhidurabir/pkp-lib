@@ -15,6 +15,7 @@
 
 namespace PKP\controllers\review\linkAction;
 
+use APP\submission\Submission;
 use PKP\db\DAORegistry;
 use PKP\linkAction\LinkAction;
 use PKP\linkAction\request\AjaxModal;
@@ -51,7 +52,7 @@ class ReviewNotesLinkAction extends LinkAction
                 null,
                 $actionArgs
             ),
-            __('editor.review') . ': ' . htmlspecialchars($submission->getLocalizedTitle()),
+            __('editor.review') . ': ' . htmlspecialchars($submission->getCurrentPublication()->getLocalizedTitle(null, 'html')),
             'modal_information'
         );
 
