@@ -29,6 +29,8 @@
 			<li><a name="changePassword" href="{url router=\PKP\core\PKPApplication::ROUTE_COMPONENT component="tab.user.ProfileTabHandler" op="changePassword"}">{translate key="user.password"}</a></li>
 			<li><a name="notificationSettings" href="{url router=\PKP\core\PKPApplication::ROUTE_COMPONENT component="tab.user.ProfileTabHandler" op="notificationSettings"}">{translate key="notification.notifications"}</a></li>
 			<li><a name="apiSettings" href="{url router=\PKP\core\PKPApplication::ROUTE_COMPONENT component="tab.user.ProfileTabHandler" op="apiProfile"}">{translate key="user.apiKey"}</a></li>
+
+			{call_hook name="Template::User::profile"}
 		</ul>
 	</div>
 {/block}
