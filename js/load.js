@@ -24,6 +24,7 @@ import dialog from '@/mixins/dialog.js';
 import localizeMoment from '@/mixins/localizeMoment.js';
 
 // Global components of UI Library
+import PkpForm from '@/components/Form/Form.vue';
 import Badge from '@/components/Badge/Badge.vue';
 import Dropdown from '@/components/Dropdown/Dropdown.vue';
 import Icon from '@/components/Icon/Icon.vue';
