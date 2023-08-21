@@ -85,9 +85,8 @@ class PKPPublication extends \PKP\core\DataObject
      */
     public function getLocalizedTitle($preferredLocale = null, string $format = 'text')
     {
-        $usedLocale = null;
-        $title = $this->getLocalizedData('title', $preferredLocale, $usedLocale);
-        $prefix = $this->getData('prefix', $usedLocale);
+        $title = $this->getLocalizedData('title', $preferredLocale);
+        $prefix = $this->getLocalizedData('prefix', $preferredLocale);
 
         switch (strtolower($format)) {
             case 'html':

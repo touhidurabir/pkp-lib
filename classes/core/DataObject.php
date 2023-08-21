@@ -82,7 +82,10 @@ class DataObject
             }
         }
 
-        return null;
+        // No data available; return null.
+        unset($data);
+        $data = null;
+        return $data;
     }
 
     /**
