@@ -76,6 +76,43 @@ class SettingsBuilder extends Builder
         $us = $this->model->getSettingsTable();
         $primaryKey = $this->model->getKeyName();
 
+        // check if new settings value or multilingual value added and store those to DB
+        $modelWithGivenSettings = static::find($this->model->getKey(), $settingValues->keys()->toArray());
+        $rows = [];
+        $settingValues->each(function (mixed $settingValue, string $settingName) use ($modelWithGivenSettings, &$rows) {
+            $settingName = Str::camel($settingName);
+            
+            if (!$modelWithGivenSettings->{$settingName} || is_array($modelWithGivenSettings->{$settingName})) {
+                if ($this->isMultilingual($settingName)) {
+                    $existingLocales = array_keys($modelWithGivenSettings->{$settingName} ?? []);
+                    
+                    foreach ($settingValue as $locale => $localizedValue) {
+                        if (in_array($locale, $existingLocales)) {
+                            continue;
+                        }
+
+                        $rows[] = [
+                            $this->model->getKeyName() => $this->model->getKey(),
+                            'locale' => $locale,
+                            'setting_name' => $settingName,
+                            'setting_value' => $localizedValue,
+                        ];
+                    }
+                } else {
+                    $rows[] = [
+                        $this->model->getKeyName() => $this->model->getKey(),
+                        'locale' => '',
+                        'setting_name' => $settingName,
+                        'setting_value' => $settingValue,
+                    ];
+                }
+            }
+        });
+
+        if (count($rows) > 0) {
+            DB::table($this->model->getSettingsTable())->insert($rows);
+        }
+
         $sql = $this->buildUpdateSql($settingValues, $us, $newQuery);
 
         // Build a query for update
@@ -112,12 +149,18 @@ class SettingsBuilder extends Builder
             if ($this->isMultilingual($settingName)) {
                 foreach ($settingValue as $locale => $localizedValue) {
                     $rows[] = [
-                        $this->model->getKeyName() => $id, 'locale' => $locale, 'setting_name' => $settingName, 'setting_value' => $localizedValue
+                        $this->model->getKeyName() => $id,
+                        'locale' => $locale,
+                        'setting_name' => $settingName,
+                        'setting_value' => $localizedValue,
                     ];
                 }
             } else {
                 $rows[] = [
-                    $this->model->getKeyName() => $id, 'locale' => '', 'setting_name' => $settingName, 'setting_value' => $settingValue
+                    $this->model->getKeyName() => $id,
+                    'locale' => '',
+                    'setting_name' => $settingName,
+                    'setting_value' => $settingValue,
                 ];
             }
         });
