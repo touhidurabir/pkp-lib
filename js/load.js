@@ -293,6 +293,75 @@ function pkpCreateVueApp(createAppArgs) {
 	return vueApp;
 }
 
+
+async function loadAngularDependencies() {
+	if (!window.angularDependenciesLoaded) {
+	  console.log('Loading Angular and SciFlow dependencies...');
+  
+	  try {
+		const [
+		  zone,
+		  { NgZone, createNgModuleRef, createComponentRef, importProvidersFrom },
+		  { CommonModule },
+		  { HttpClientModule },
+		  { FormsModule },
+		  { createCustomElement },
+		  { Compiler },
+		  { ApplicationRef },
+		  { platformBrowserDynamic },
+		  { EditorComponent },
+		] = await Promise.all([
+		  import('zone.js').catch(err => { console.error('Failed to load zone.js:', err); throw err; }),
+		  import('@angular/core').catch(err => { console.error('Failed to load @angular/core:', err); throw err; }),
+		  import('@angular/common').catch(err => { console.error('Failed to load @angular/common:', err); throw err; }),
+		  import('/Users/abir/Sites/code/ojs-main/lib/ui-library/node_modules/@angular/common/fesm2022/http.mjs').catch(err => { console.error('Failed to load @angular/common/http:', err); throw err; }),
+		  import('@angular/forms').catch(err => { console.error('Failed to load @angular/forms:', err); throw err; }),
+		  import('@angular/elements').catch(err => { console.error('Failed to load @angular/elements:', err); throw err; }),
+		  import('@angular/compiler').catch(err => { console.error('Failed to load @angular/compiler:', err); throw err; }),
+		  import('@angular/platform-browser').catch(err => { console.error('Failed to load @angular/platform-browser:', err); throw err; }),
+		  import('@angular/platform-browser-dynamic').catch(err => { console.error('Failed to load @angular/platform-browser-dynamic:', err); throw err; }),
+		  import('@sciflow/ui').catch(err => { console.error('Failed to load @sciflow/ui:', err); throw err; }),
+		]);
+  
+		console.log('All imports resolved successfully');
+  
+		// Bootstrap platform with JIT
+		const platform = platformBrowserDynamic([
+		  { provide: Compiler, useValue: new Compiler() },
+		  { provide: 'APP_INITIALIZER', useFactory: () => () => {}, multi: true },
+		]);
+  
+		window.Zone = zone;
+		window.ngCore = { NgZone, createNgModuleRef, createComponentRef, importProvidersFrom };
+		window.ngCommon = { CommonModule };
+		window.ngForms = { FormsModule };
+		window.ngElements = { createCustomElement };
+		window.ngCompiler = { Compiler };
+		window.ngPlatformBrowser = { ApplicationRef };
+		window.ngPlatformBrowserDynamic = { platformBrowserDynamic, platform };
+		window.ngHttp = { HttpClientModule };
+		window.sciflowUI = { EditorComponent };
+  
+		window.angularDependenciesLoaded = true;
+  
+		console.log('Dependencies loaded:', {
+		  zone: !!window.Zone,
+		  ngCore: !!window.ngCore,
+		  platform: !!window.ngPlatformBrowserDynamic.platform,
+		  sciflowUI: !!window.sciflowUI,
+		});
+	  } catch (err) {
+		console.error('Error loading dependencies:', err);
+		throw err;
+	  }
+	}
+	return window.angularDependenciesLoaded;
+}
+  
+// Execute immediately for IIFE
+// loadAngularDependencies().catch(err => console.error('Load failed:', err));
+  
+
 // Need to add this before the export of sciflow editor com
 async function loadSciflowEditor() {
 	if (!window.sciflowEditorLoaded) {
@@ -333,4 +402,5 @@ export default {
 		dialog,
 	},
 	loadSciflowEditor,
+	loadAngularDependencies,
 };
