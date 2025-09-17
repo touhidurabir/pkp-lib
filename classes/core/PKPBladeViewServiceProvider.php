@@ -17,6 +17,8 @@ use PKP\core\PKPString;
 
 class PKPBladeViewServiceProvider extends ViewServiceProvider
 {
+    public const VIEW_NAMESPACE_PATH = 'view\\components\\';
+
     /**
      * Boot the service provider
      *
@@ -40,11 +42,65 @@ class PKPBladeViewServiceProvider extends ViewServiceProvider
         collect($this->app->get('config')->get('view.components.namespace'))
             ->each(fn ($namespace, $prefix) => Blade::componentNamespace($namespace, $prefix));
         
-        // Register the @url directive
+        // Register the @url directive compatible with Smarty url function,
+        // use as following in a blade view
+        // "@url([
+        //     'page' => 'citationstylelanguage',
+        //     'op' => 'get',
+        //     'path' => $citationStyle['id'],
+        //     'params' => $citationArgsJson
+        // ])"
         Blade::directive('url', function ($expression) {
             return "<?php
                 \$parameters = $expression ? (array) ($expression) : [];
                 echo \PKP\\template\\PKPTemplateManager::getManager()->smartyUrl(\$parameters);
+            ?>";
+        });
+
+        // use as @loadScript(['context' => 'frontend'])
+        Blade::directive('loadScript', function ($expression) {
+            return "<?php
+                \$parameters = $expression ? (array) ($expression) : [];
+                echo \PKP\\template\\PKPTemplateManager::getManager()->smartyLoadScript(\$parameters);
+            ?>";
+        });
+
+        // use as @loadStylesheet(['context' => 'frontend'])
+        Blade::directive('loadStylesheet', function ($expression) {
+            return "<?php
+                \$parameters = $expression ? (array) ($expression) : [];
+                echo \PKP\\template\\PKPTemplateManager::getManager()->smartyLoadStylesheet(\$parameters);
+            ?>";
+        });
+
+        // use as @loadHeader(['context' => 'frontend'])
+        Blade::directive('loadHeader', function ($expression) {
+            return "<?php
+                \$parameters = $expression ? (array) ($expression) : [];
+                echo \PKP\\template\\PKPTemplateManager::getManager()->smartyLoadHeader(\$parameters);
+            ?>";
+        });
+
+        // use as @loadMenu(['name' => 'user', 'id' => 'navigationUser', 'ulClass' => 'pkp_navigation_user', 'liClass' => 'profile'])
+        Blade::directive('loadMenu', function ($expression) {
+            return "<?php
+                \$parameters = $expression ? (array) ($expression) : [];
+                echo \PKP\\template\\PKPTemplateManager::getManager()->smartyLoadNavigationMenuArea(\$parameters);
+            ?>";
+        });
+
+        // use as @callHook(['name' => 'Templates::Common::Footer::PageFooter'])
+        Blade::directive('callHook', function ($expression) {
+            return "<?php
+                \$parameters = $expression ? (array) ($expression) : [];
+                echo \PKP\\template\\PKPTemplateManager::getManager()->smartyCallHook(\$parameters);
+            ?>";
+        });
+
+        Blade::directive('runHook', function ($expression) {
+            return "<?php
+                \$parameters = $expression ? (array) ($expression) : [];
+                \PKP\\template\\PKPTemplateManager::getManager()->smartyRunHook(\$parameters);
             ?>";
         });
 
