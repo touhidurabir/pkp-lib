@@ -13,6 +13,7 @@ use PKP\core\PKPContainer;
 use PKP\core\blade\BladeCompiler;
 use PKP\core\blade\DynamicComponent;
 use Illuminate\Support\Str;
+use Illuminate\Foundation\AliasLoader;
 use PKP\core\PKPString;
 
 class PKPBladeViewServiceProvider extends ViewServiceProvider
@@ -30,6 +31,8 @@ class PKPBladeViewServiceProvider extends ViewServiceProvider
         // but still allow to render views as .blade.php to accommodate default behavior.
         View::addExtension('blade', 'blade');
 
+        AliasLoader::getInstance()->alias('Js', \Illuminate\Support\Js::class);
+
         // This allows templates to be referenced explicitly, 
         // e.g., @include('VIEW_NAMESPACE::some-template') or @include('VIEW_NAMESPACE::some-template'),
         // or even allow to render view as view('VIEW_NAMESPACE::some-template', [....])
@@ -41,6 +44,22 @@ class PKPBladeViewServiceProvider extends ViewServiceProvider
         // which allow to render components from any namespace ambiguity and improving maintainability.
         collect($this->app->get('config')->get('view.components.namespace'))
             ->each(fn ($namespace, $prefix) => Blade::componentNamespace($namespace, $prefix));
+
+        // Use this macro to resolve the view path for a plugin class based component in the component class
+        // in the render method as `View:resolvePluginComponentViewPath($this, 'COMPONENTS_VIEW_PATH')`
+        View::macro(
+            'resolvePluginComponentViewPath',
+            function (\Illuminate\View\Component $component, string $viewPath): string {
+                $bladeCompiler = app()->get('blade.compiler'); /** @var \PKP\core\blade\BladeCompiler $bladeCompiler */
+                $classComponentNamespaces = $bladeCompiler->getClassComponentNamespaces();
+
+                $className = get_class($component);
+                $componentNamespace = substr($className, 0, strrpos($className, '\\'));
+                $pluginViewNamespace = array_search($componentNamespace, $classComponentNamespaces);
+
+                return "{$pluginViewNamespace}::{$viewPath}";
+            }
+        );
         
         // Register the @url directive compatible with Smarty url function,
         // use as following in a blade view
