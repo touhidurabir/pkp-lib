@@ -97,13 +97,19 @@ class APIRouter extends PKPRouter
     //
     // Implement template methods from PKPRouter
     //
+
     /**
      * @copydoc \PKP\core\PKPRouter::route()
+     * 
+     * @hook APIHandler::endpoints::plugin [[$this]]
      */
     public function route(PKPRequest $request): void
     {
+        // Give the plugin a chance to register its API controllers
         Hook::run('APIHandler::endpoints::plugin', [$this]);
 
+        // If any plugin API controllers were registered and request path match with it
+        // that plugin api controller will be used to handle the request
         if (!empty($this->registeredPluginApiControllers)) {
             $requestPath = $request->getRequestPath();
             foreach ($this->registeredPluginApiControllers as $handlerPath => $apiController) {
@@ -142,6 +148,9 @@ class APIRouter extends PKPRouter
 
     /**
      * Register API controllers from plugin
+     *
+     * When receiving the instance of this class from the hook, the plugin should 
+     * call this method and add in any custom api controllers.
      */
     public function registerPluginApiControllers(array $apiControllers): void
     {
