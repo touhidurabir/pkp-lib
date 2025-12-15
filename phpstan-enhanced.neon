@@ -1,0 +1,138 @@
+# Enhanced PHPStan Configuration for OJS/OPS/OMP
+# See: claude/PHPSTAN_INTEGRATION.md for full documentation
+
+includes:
+    # Include baseline to ignore existing errors (generate first with --generate-baseline)
+    # - phpstan-baseline.neon
+
+parameters:
+    # Analysis level (0-9, start at 5 and gradually increase)
+    level: 5
+
+    # Bootstrap files for autoloading and constants
+    bootstrapFiles:
+        - includes/bootstrap.php
+        # - includes/phpstan-bootstrap.php  # Create this for PHPStan-specific stubs
+
+    # Paths to analyze
+    paths:
+        # Application-specific paths (OJS/OPS/OMP)
+        - ../../api
+        - ../../classes
+        - ../../controllers
+        - ../../jobs
+        - ../../pages
+
+        # Core PKP library paths
+        - api
+        - classes
+        - controllers
+        - Domains
+        - jobs
+        - pages
+        - Support
+
+        # Uncomment to include tests
+        # - tests
+        # - ../../tests
+
+    # Exclude paths from analysis
+    excludePaths:
+        # Analyzed for symbol discovery but not checked for errors
+        analyse:
+            - ../../lib/vendor/*
+            - lib/vendor/*
+            - ../../lib/components/*
+            - lib/components/*
+
+        # Completely excluded from analysis and symbol discovery
+        analyseAndScan:
+            # Cache and temporary files
+            - ../../cache/*
+            - ../../templates_c/*
+            - ../../public/lib/*
+
+            # Node modules and build artifacts
+            - ../../node_modules/*
+            - ../../js/build/*
+            - ../../styles/build/*
+
+            # Templates (Smarty and Blade are not PHP for static analysis)
+            - '*/templates/*'
+            - '*/resources/views/*'
+
+            # Locale files
+            - '*/locale/*'
+
+            # Third-party plugin libraries
+            - ../../plugins/*/lib/*
+            - ../../plugins/*/vendor/*
+
+            # Testing infrastructure
+            - ../../cypress/*
+
+            # Frontend assets
+            - ../../js/*
+            - ../../styles/*
+
+            # Vendor directories everywhere
+            - '*/vendor/*'
+
+            # Specific problematic directories
+            - ../../docs/*
+            - ../../dbscripts/*
+
+    # Parallel processing configuration
+    parallel:
+        # Reduced job size for better memory management (default: 20)
+        jobSize: 10
+
+        # Limit parallel processes to reduce memory usage (default: 32)
+        # Set to 1 to disable parallelization if memory issues persist
+        maximumNumberOfProcesses: 8
+
+        # Minimum jobs per process (default: 2)
+        minimumNumberOfJobsPerProcess: 2
+
+        # Timeout per job in seconds (default: 600)
+        processTimeout: 900.0  # 15 minutes
+
+    # Cache directory for result caching
+    tmpDir: ../../cache/phpstan
+
+    # Type checking configuration
+    checkMissingIterableValueType: false
+    checkGenericClassInNonGenericObjectType: false
+    checkBenevolentUnionTypes: true
+
+    # Report unmatched ignored errors (disable until baseline stabilizes)
+    reportUnmatchedIgnoredErrors: false
+
+    # Strict rules (enable gradually as code improves)
+    checkAlwaysTrueCheckTypeFunctionCall: false
+    checkAlwaysTrueInstanceof: false
+    checkAlwaysTrueStrictComparison: false
+    checkExplicitMixedMissingReturn: false
+    checkPhpDocMissingReturn: false
+    checkTooWideReturnTypesInProtectedAndPublicMethods: false
+
+    # Additional strict checks for future consideration
+    # checkUninitializedProperties: true
+    # checkMissingCallableSignature: true
+    # polluteScopeWithAlwaysIterableForeach: false
+
+    # Ignore errors by pattern (use sparingly - prefer baseline)
+    ignoreErrors:
+        # Legacy DAO patterns - to be refactored over time
+        # - '#Call to an undefined method PKP\\.*DAO::(retrieve|update|insert)#'
+
+        # Smarty template variable assignments (dynamic by nature)
+        # - '#Variable \$templateMgr might not be defined#'
+
+        # Plugin dynamic loading (if analyzing core without all plugins)
+        # - '#Instantiated class .*Plugin not found#'
+
+# Optional: Include Larastan for better Laravel support
+# Uncomment after: composer require --dev larastan/larastan
+# includes:
+#     - ./lib/vendor/larastan/larastan/extension.neon

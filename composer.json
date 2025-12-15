@@ -40,12 +40,13 @@
 		"zing/laravel-scout-opensearch": "^3.4"
 	},
 	"require-dev": {
-		"phpunit/phpunit": "~11",
-		"psy/psysh": "@stable",
+		"captainhook/captainhook": "^5.10",
+		"captainhook/plugin-composer": "^5.3",
 		"friendsofphp/php-cs-fixer": "^3.8",
 		"mockery/mockery": "^1.6",
-		"captainhook/captainhook": "^5.10",
-		"captainhook/plugin-composer": "^5.3"
+		"phpstan/phpstan": "^2.1",
+		"phpunit/phpunit": "~11",
+		"psy/psysh": "@stable"
 	},
 	"config": {
 		"component-dir": "lib/components",

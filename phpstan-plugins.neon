@@ -1,0 +1,57 @@
+# PHPStan Configuration for Plugin Analysis
+# Lower strictness level due to varying code quality across plugins
+
+includes:
+    - phpstan.neon
+
+parameters:
+    # Lower level for plugins (3-4 instead of 5-7 for core)
+    level: 3
+
+    # Override paths to analyze plugins only
+    paths:
+        - ../../plugins/generic
+        - ../../plugins/blocks
+        - ../../plugins/importexport
+        - ../../plugins/themes
+        - ../../plugins/reports
+        - ../../plugins/gateways
+        - ../../plugins/pubIds
+        - ../../plugins/paymethod
+        - ../../plugins/oaiMetadataFormats
+        - ../../plugins/metadata
+
+    # Exclude plugin-specific paths
+    excludePaths:
+        analyseAndScan:
+            # Third-party plugin libraries
+            - ../../plugins/*/vendor/*
+            - ../../plugins/*/node_modules/*
+            - ../../plugins/*/lib/*
+
+            # Plugin templates
+            - ../../plugins/*/templates/*
+            - ../../plugins/*/resources/views/*
+
+            # Plugin locales
+            - ../../plugins/*/locale/*
+
+            # Specific problematic plugins (add as needed)
+            # - ../../plugins/generic/someProblematicPlugin/*
+
+    # More lenient error ignoring for plugins
+    ignoreErrors:
+        # Plugins may extend classes not in analysis scope
+        - '#.*Plugin not found#'
+        - '#Instantiated class .* not found#'
+
+        # Plugin hook callbacks may have flexible signatures
+        - '#Method .*Plugin::.* has parameter .* with no value type specified#'
+
+        # Plugins may use dynamic properties
+        - '#Access to an undefined property#'
+
+    # Disable strict checks for plugins
+    checkMissingIterableValueType: false
+    checkGenericClassInNonGenericObjectType: false
+    reportUnmatchedIgnoredErrors: false

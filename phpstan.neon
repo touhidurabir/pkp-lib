@@ -1,0 +1,29 @@
+parameters:
+
+    bootstrapFiles:
+        - includes/bootstrap.php
+
+    paths:
+        # Application[OJS, OPS, OMP] specific paths
+        - ./../../api
+        - ./../../classes
+        - ./../../controllers
+        - ./../../Jobs
+        - ./../../pages
+        - ./../../tests
+
+        # Core pkp/lib paths
+        - api
+        - classes
+        - controllers
+        - Domains
+        - Jobs
+        - pages
+        - Support
+        - tests
+        - tools
+
+    # The level 9 is the highest level
+    level: 5
+
+    checkMissingIterableValueType: false
