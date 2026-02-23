@@ -44,7 +44,6 @@ use PKP\security\Validation;
 use PKP\services\PKPSchemaService;
 use PKP\submission\Genre;
 use PKP\submission\PKPSubmission;
-use PKP\submission\reviewAssignment\ReviewAssignment;
 use PKP\submission\reviewRound\authorResponse\AuthorResponse;
 use PKP\submission\reviewRound\ReviewRoundDAO;
 use PKP\submission\traits\HasWordCountValidation;
@@ -791,7 +790,7 @@ abstract class Repository
      *
      * @hook Publication::delete::before [[&$publication]]
      */
-    public function delete(Publication $publication, false|int|null $submissionStatus = null): null
+    public function delete(Publication $publication, false|int|null $submissionStatus = null): void
     {
         Hook::call('Publication::delete::before', [&$publication]);
 
@@ -1060,9 +1059,9 @@ abstract class Repository
     /**
      * Retrieve completed review assignments for publications.
      *
-     * @param array $publicationIds
      *
      * @throws \Exception
+     *
      * @return Enumerable Completed Review assignments
      */
     public function getCompletedReviewAssignments(array $publicationIds): Enumerable
@@ -1077,9 +1076,9 @@ abstract class Repository
     /**
      * Retrieve author responses associated with review rounds of the specified publications
      *
-     * @param array $publicationIds
      *
      * @throws \Exception
+     *
      * @return Enumerable - Author responses
      */
     public function getReviewAuthorResponses(array $publicationIds): Enumerable
@@ -1101,6 +1100,7 @@ abstract class Repository
      * @param int[] $publicationIds
      *
      * @throws \Exception
+     *
      * @return array<int, array<array{pubObjectType: string, pubObjectId: int, doiObject: Doi|null}>>
      */
     public function getReviewDoiItemsGroupedByPublication(array $publicationIds): array
