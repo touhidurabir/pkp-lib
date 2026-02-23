@@ -1008,7 +1008,7 @@ class EditorialTaskController extends PKPBaseController
                 ],
                 null,
                 PKPApplication::ASSOC_TYPE_SUBMISSION,
-                $this->getAssocId()
+                $submission->getId()
             );
         }
         $users = Repo::user()->getCollector()->filterByUserIds($participantIds)->getMany();
