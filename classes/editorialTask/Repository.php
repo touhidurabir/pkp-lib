@@ -240,10 +240,11 @@ class Repository
     public function deleteBySubmissionId(int $submissionId): void
     {
         $editorialTasks = EditorialTask::withAssoc(PKPApplication::ASSOC_TYPE_SUBMISSION, $submissionId)->get();
-        $taskIds = $editorialTasks->pluck('query_id')->all();
+        $primaryKeyName = (new EditorialTask())->getKeyName();
+        $taskIds = $editorialTasks->pluck($primaryKeyName)->all();
 
         if (!empty($taskIds)) {
-            EditorialTask::whereIn('query_id', $taskIds)->delete();
+            EditorialTask::whereIn($primaryKeyName, $taskIds)->delete();
             Note::whereIn('assoc_id', $taskIds)->delete();
             Notification::whereIn('assoc_id', $taskIds)->delete();
         }
