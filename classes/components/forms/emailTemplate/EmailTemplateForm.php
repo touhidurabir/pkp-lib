@@ -20,6 +20,7 @@ use PKP\components\forms\FieldOptions;
 use PKP\components\forms\FieldPreparedContent;
 use PKP\components\forms\FieldText;
 use PKP\components\forms\FormComponent;
+use PKP\context\Context;
 use PKP\emailTemplate\EmailTemplate;
 use PKP\security\Role;
 use PKP\userGroup\UserGroup;
@@ -29,14 +30,14 @@ class EmailTemplateForm extends FormComponent
     public const FORM_EMAIL_TEMPLATE = 'editEmailTemplate';
     public $id = self::FORM_EMAIL_TEMPLATE;
 
-    public function __construct(string $action, array $locales)
+    public function __construct(string $action, array $locales, Context $context)
     {
         $this->action = $action;
         $this->method = 'POST';
         $this->locales = $locales;
         $userGroups = collect();
 
-        UserGroup::all()
+        UserGroup::withContextIds([$context->getId()])
             ->each(function (UserGroup $group) use ($userGroups) {
                 if ($group->roleId !== Role::ROLE_ID_SITE_ADMIN) {
                     $userGroups->add([

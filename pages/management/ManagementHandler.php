@@ -661,7 +661,7 @@ class ManagementHandler extends Handler
         $locales = $context->getSupportedFormLocaleNames();
         $locales = array_map(fn (string $locale, string $name) => ['key' => $locale, 'label' => $name], array_keys($locales), $locales);
 
-        return new EmailTemplateForm($apiUrl, $locales);
+        return new EmailTemplateForm($apiUrl, $locales, $context);
     }
 
     protected function getEmailGroupFilters(): array
