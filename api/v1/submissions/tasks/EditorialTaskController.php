@@ -1195,9 +1195,9 @@ class EditorialTaskController extends PKPBaseController
             'submissionId' => $submission->getId(),
             'taskOwnerModifiedDate' => now()->format('Y-m-d H:i:s'),
             'taskOwnerOldUserId' => $oldOwner->userId,
-            'taskOwnerOldUsername' => Repo::user()->get($oldOwner->userId)->getUsername(),
+            'taskOwnerOldUsername' => $oldOwner->userId ? Repo::user()->get($oldOwner->userId)->getUsername() : '',
             'taskOwnerNewUserId' => $newOwner->userId,
-            'taskOwnerNewUsername' => Repo::user()->get($newOwner->userId)->getUsername(),
+            'taskOwnerNewUsername' => $newOwner->userId ? Repo::user()->get($newOwner->userId)->getUsername() : '',
             'username' => $uploaderUser->getUsername(),
         ]);
         Repo::eventLog()->add($eventLog);
