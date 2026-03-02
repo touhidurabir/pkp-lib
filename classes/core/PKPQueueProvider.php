@@ -68,6 +68,19 @@ class PKPQueueProvider extends IlluminateQueueServiceProvider
         ?int $contextId = null
     ): EloquentBuilder|QueryBuilder
     {
+        if (DB::connection() instanceof PostgresConnection) {
+            return $jobQuery->where(
+                fn ($query) => $query
+                    ->whereRaw(
+                        "\"payload\"::jsonb->>'context_id' = ?",
+                        [(string) $contextId]
+                    )
+                    ->orWhereRaw(
+                        "\"payload\"::jsonb->>'context_id' IS NULL"
+                    )
+            );
+        }
+
         return $jobQuery->where(
             fn ($query) => $query
                 ->where('payload->context_id', $contextId)
