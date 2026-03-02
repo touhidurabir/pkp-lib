@@ -68,19 +68,6 @@ class PKPQueueProvider extends IlluminateQueueServiceProvider
         ?int $contextId = null
     ): EloquentBuilder|QueryBuilder
     {
-        if (DB::connection() instanceof PostgresConnection) {
-            return $jobQuery->where(
-                fn ($query) => $query
-                    ->whereRaw(
-                        "REGEXP_REPLACE(payload, '.*\"context_id\":\\s*([0-9]+).*', '\\1') = ?",
-                        [(string) $contextId]
-                    )
-                    ->orWhereRaw(
-                        "payload !~ '\"context_id\":\\s*[0-9]+'"
-                    )
-            );
-        }
-
         return $jobQuery->where(
             fn ($query) => $query
                 ->where('payload->context_id', $contextId)
