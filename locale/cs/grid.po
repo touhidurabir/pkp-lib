@@ -1,11 +1,12 @@
 # Jiří Dlouhý <jiri.dlouhy@czp.cuni.cz>, 2021, 2022, 2023, 2024, 2025.
+# Michal Jelínek <jelinek@synetix.cz>, 2026.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:41+00:00\n"
-"PO-Revision-Date: 2025-04-03 18:30+0000\n"
-"Last-Translator: Jiří Dlouhý <jiri.dlouhy@czp.cuni.cz>\n"
+"PO-Revision-Date: 2026-03-13 01:35+0000\n"
+"Last-Translator: Michal Jelínek <jelinek@synetix.cz>\n"
 "Language-Team: Czech <http://translate.pkp.sfu.ca/projects/pkp-lib/grid/cs/>"
 "\n"
 "Language: cs\n"
@@ -413,7 +414,7 @@ msgstr "Smazat autora"
 
 msgid "grid.action.deleteContributor.confirmationMessage"
 msgstr ""
-"Jste si jisti, že chcete odebrat {$jméno} jako přispěvatele? Tuto akci nelze "
+"Jste si jisti, že chcete odebrat {$name} jako přispěvatele? Tuto akci nelze "
 "vzít zpět."
 
 msgid "grid.action.newVersion"
