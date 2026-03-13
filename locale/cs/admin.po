@@ -1,12 +1,12 @@
-# Jiří Dlouhý <jiri.dlouhy@czp.cuni.cz>, 2022, 2023, 2024, 2025.
+# Jiří Dlouhý <jiri.dlouhy@czp.cuni.cz>, 2022, 2023, 2024, 2025, 2026.
 # Michal Jelínek <jelinek@synetix.cz>, 2026.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:40+00:00\n"
-"PO-Revision-Date: 2026-03-12 16:27+0000\n"
-"Last-Translator: Michal Jelínek <jelinek@synetix.cz>\n"
+"PO-Revision-Date: 2026-03-13 19:12+0000\n"
+"Last-Translator: Jiří Dlouhý <jiri.dlouhy@czp.cuni.cz>\n"
 "Language-Team: Czech <http://translate.pkp.sfu.ca/projects/pkp-lib/admin/cs/>"
 "\n"
 "Language: cs\n"
@@ -1068,3 +1068,9 @@ msgstr ""
 
 msgid "admin.cli.tool.scheduler.tasks.notFound"
 msgstr "Nebyla nalezena žádná odpovídající naplánovaná úloha."
+
+msgid "admin.scheduledTask.UpdateRorRegistryDataset.error.checksum"
+msgstr ""
+"Datový soubor registru ROR nelze aktualizovat z důvodu nesouladu kontrolních "
+"součtů. Očekávaný kontrolní součet: {$expected}. Skutečný kontrolní součet: "
+"{$actual}"
