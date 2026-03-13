@@ -3,8 +3,8 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-12-02T16:17:17-08:00\n"
-"PO-Revision-Date: 2025-07-30 00:34+0000\n"
-"Last-Translator: Henri De Plaen <henri.deplaen@gmail.com>\n"
+"PO-Revision-Date: 2026-03-13 16:14+0000\n"
+"Last-Translator: Gwenn Dossmann Ritter <gwenn.dossmann@openedition.org>\n"
 "Language-Team: French <http://translate.pkp.sfu.ca/projects/pkp-lib/emails/"
 "fr/>\n"
 "Language: fr\n"
@@ -601,3 +601,79 @@ msgstr "E-mail envoyé à un utilisateur lorsqu'il est supprimé d'un rôle."
 
 msgid "emails.userRoleEndNotify.subject"
 msgstr "Vous avez été supprimé d'un rôle"
+
+msgid "emails.userRoleAssignmentInvitationNotify.newlyAssignedRoles"
+msgstr "<h2>Rôles nouvellement attribués</h2>"
+
+msgid "emailTemplate.variable.invitation.inviterName"
+msgstr "Il s'agit du nom de l'expéditeur/ice de l'invitation"
+
+msgid "emailTemplate.variable.invitation.inviterRole"
+msgstr "Il s'agit du rôle de l'expéditeur/ice de l'invitation"
+
+msgid "emailTemplate.variable.invitation.rolesAdded"
+msgstr ""
+"Cette section décrit les rôles qui seront attribués à l'utilisateur/ice dès "
+"que l'invitation aura été acceptée"
+
+msgid "mailable.userRoleAssignmentInvitationNotify.name"
+msgstr "Notification d'invitation à un rôle"
+
+msgid "emails.userRoleAssignmentInvitationNotify.userGroupSectionEndingDate"
+msgstr "Échéance au {$dateEnd}"
+
+msgid "emails.userRoleAssignmentInvitationNotify.userGroupSectionWillNotAppear"
+msgstr ""
+"Votre nom ne sera pas affiché dans l'équipe éditoriale de {$contextName} en "
+"tant que {$sectionName}."
+
+msgid "emails.userRoleAssignmentInvitationNotify.alreadyAssignedRoles"
+msgstr "<h2>Rôles déjà attribués</h2>"
+
+msgid "emailTemplate.variable.invitation.recipientName"
+msgstr "Il s'agit du nom du destinataire de l'invitation"
+
+msgid "emailTemplate.variable.invitation.existingRoles"
+msgstr "Cette section décrit les rôles que l'utilisateur/ice possède déjà."
+
+msgid "emailTemplate.variable.invitation.acceptUrl"
+msgstr "Il s'agit de l'URL d'acceptation de l'invitation"
+
+msgid "emailTemplate.variable.invitation.declineUrl"
+msgstr "Il s'agit de l'URL de refus de l'invitation"
+
+msgid "emails.changeProfileEmailInvitationNotify.body"
+msgstr ""
+"<p>Bonjour {$recipientName},</p><p>Vous recevez ce courriel car nous avons "
+"reçu une demande de modification de votre adresse de courriel par "
+"{$newEmail}.</p><p>Si vous êtes à l'origine de cette demande, merci de <a "
+"href=\"{$acceptInvitationUrl}\">confirmer</a> ce changement.</p><p>Sinon, "
+"merci de <a href=\"{$declineInvitationUrl}\">refuser</a> ce changement.</"
+"p><p>N'hésitez pas à nous contacter pour toute question au sujet de la "
+"soumission et du processus d'évaluation. </p><p>Bien "
+"cordialement,</p>{$siteContactName}"
+
+msgid "emails.orcidRequestUpdateScope.description"
+msgstr "Ce courriel est envoyé pour demander l'API OAuth scope pour ORCID."
+
+msgid "emails.orcidRequestUpdateScope.subject"
+msgstr "Demande de mise à jour de l'accès à ORCID"
+
+msgid "orcid.orcidRequestAuthorAuthorization.name"
+msgstr "orcidRequestAuthorAuthorization"
+
+msgid "orcid.orcidCollectAuthorId.name"
+msgstr "orcidCollectAuthorId"
+
+msgid "emails.userRoleAssignmentInvitationNotify.subject"
+msgstr "Un nouveau rôle vous a été attribué"
+
+msgid "emails.userRoleAssignmentInvitationNotify.userGroupSectionWillAppear"
+msgstr ""
+"Votre nom sera affiché dans l'équipe éditoriale de {$contextName} en tant "
+"que {$sectionName}."
+
+msgid "mailable.userRoleAssignmentInvitationNotify.description"
+msgstr ""
+"Ce courriel d'invitation est envoyé aux utilisateur/ices pour accepter un "
+"rôle"
