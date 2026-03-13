@@ -13,8 +13,8 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
-"n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
+"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
 "X-Generator: Weblate 4.18.2\n"
 
 msgid "user.accountInformation"
@@ -329,7 +329,8 @@ msgstr ""
 "<a href=\"{$privacyUrl}\" target=\"_blank\">politikom privatnosti</a>."
 
 msgid "user.register.form.emailConsent"
-msgstr "Želim da dobijam informacije o novim publikacijama i druga obaveštenja."
+msgstr ""
+"Želim da dobijam informacije o novim publikacijama i druga obaveštenja."
 
 msgid "user.register.form.emailExists"
 msgstr "Odabranu adresu već koristi drugi korisnik."
@@ -511,7 +512,6 @@ msgstr ""
 msgid "user.usernameOrEmail"
 msgstr "Korisničko ime ili mejl"
 
-#, fuzzy
 msgid "user.affiliations.description"
 msgstr ""
 "Unesite puni naziv institucije ispod, izbegavajući skraćenice. Izaberite "
@@ -545,11 +545,9 @@ msgstr "Svi dostupni prevodi"
 msgid "user.affiliations.translationsSomeAvailable"
 msgstr "Završeno {$count} od {$total} jezika"
 
-#, fuzzy
 msgid "user.affiliations.typeTranslationNameInLanguageLabel"
 msgstr "Unesite naziv instituta na {$language}"
 
-#, fuzzy
 msgid "user.affiliations.translationNameInLanguage"
 msgstr "Naziv instituta na {$language}"
 
@@ -559,7 +557,6 @@ msgstr "Da li se sigurni?"
 msgid "user.affiliations.deleteModal.message"
 msgstr "Afilijacija <strong>{$affiliation}</strong> biće obrisana."
 
-#, fuzzy
 msgid "user.affiliations.searchPhraseLabel"
 msgstr "Unesite naziv institucije na {$language}"
 
@@ -585,3 +582,107 @@ msgstr "Podešavanja ORCID API-ja"
 
 msgid "orcid.manager.settings.hidden"
 msgstr "sakriveno"
+
+msgid "orcid.author.orcidEmptyNotice"
+msgstr "Pogledajte dole kako biste zatražili autentifikovani ORCID iD"
+
+msgid "orcid.author.unauthenticated"
+msgstr ""
+"ORCID iD nije autentifikovan! Molimo zatražite autentifikaciju od saradnika."
+
+msgid "orcid.verify.sendSubmissionToOrcid.success"
+msgstr "Prijava je dodata u vaš ORCID zapis."
+
+msgid "orcid.verify.duplicateOrcid"
+msgstr "Za ovu prijavu je već sačuvan ORCID iD."
+
+msgid "orcid.manager.settings.orcidProfileAPIPath.public"
+msgstr "Javno"
+
+msgid "orcid.manager.settings.sendMailToAuthorsOnPublication"
+msgstr ""
+"Pošalji e-poruku autorima sa zahtevom za ORCID autorizaciju kada je članak "
+"prihvaćen, odnosno poslat na lekturu"
+
+msgid "orcid.manager.settings.logLevel.error"
+msgstr "Greške"
+
+msgid "orcid.manager.settings.logLevel.help"
+msgstr "Izaberite nivo zapisa u dnevniku koje proizvodi ORCID funkcija"
+
+msgid "orcid.manager.settings.logLevel.all"
+msgstr "Sve"
+
+msgid "orcid.manager.settings.city"
+msgstr "Grad"
+
+msgid "orcid.author.requestAuthorization"
+msgstr "Pošalji e-poruku saradniku sa zahtevom za ORCID autorizaciju"
+
+msgid "orcid.author.deleteORCID"
+msgstr "Obriši ORCID iD i pristupni token!"
+
+msgid "orcid.unauthenticated"
+msgstr "(neautentifikovan)"
+
+msgid "orcid.verify.title"
+msgstr "ORCID autorizacija"
+
+msgid "orcid.verify.sendSubmissionToOrcid.failure"
+msgstr "Prijava nije mogla biti dodata u vaš ORCID zapis."
+
+msgid "orcid.verify.sendSubmissionToOrcid.notpublished"
+msgstr "Prijava će biti dodata u vaš ORCID zapis tokom objavljivanja."
+
+msgid "orcid.verify.failure"
+msgstr "Vaš ORCID iD nije mogao biti verifikovan. Veza više nije važeća."
+
+msgid "orcid.verify.denied"
+msgstr "Odbili ste pristup svom ORCID zapisu."
+
+msgid "orcid.authFailure"
+msgstr "Veza za ORCID autorizaciju je već iskorišćena ili nije važeća."
+
+msgid "orcid.manager.settings.orcidClientSecret"
+msgstr "Tajni ključ klijenta"
+
+msgid "orcid.manager.settings.orcidScope"
+msgstr "Opseg pristupa profilu"
+
+msgid "orcid.manager.settings.mailSectionTitle"
+msgstr "Podešavanja e-maila"
+
+msgid "orcid.manager.settings.orcidProfileAPIPath.member"
+msgstr "Član"
+
+msgid "orcid.manager.settings.orcidProfileAPIPath.memberSandbox"
+msgstr "Sandbox za članove"
+
+msgid "orcid.manager.settings.orcidClientId"
+msgstr "ID klijenta"
+
+msgid "orcid.manager.settings.saved"
+msgstr "Podešavanja sačuvana"
+
+msgid "orcid.author.accessTokenStored"
+msgstr "Pristup ORCID zapisu odobren sa opsegom {$orcidAccessScope}, važi do"
+
+msgid "orcid.verify.success.redirect"
+msgstr "Sada ćete biti automatski preusmereni nazad na {$contextName}."
+
+msgid "orcid.verify.success"
+msgstr "Vaš ORCID iD je potvrđen i uspešno povezan sa prijavom."
+
+msgid "orcid.manager.settings.logSectionTitle"
+msgstr "Dnevnik ORCID zahteva"
+
+msgid "orcid.author.accessDenied"
+msgstr "Pristup ORCID-u je odbijen u"
+
+msgid "user.preferredAvatarInitials"
+msgstr "Željeni inicijali za avatar"
+
+msgid "user.preferredAvatarInitials.description"
+msgstr ""
+"Unesite dva slova koja želite da koristite kao avatar. Ovi inicijali će vas "
+"predstavljati u sistemu."
