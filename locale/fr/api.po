@@ -2,13 +2,14 @@
 # Germán Huélamo Bautista <germanhuelamo@gmail.com>, 2023, 2024.
 # Jean-Blaise Claivaz <jean-blaise.claivaz@unige.ch>, 2023.
 # Henri De Plaen <henri.deplaen@gmail.com>, 2025.
+# Gwenn Dossmann Ritter <gwenn.dossmann@openedition.org>, 2026.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:49+00:00\n"
-"PO-Revision-Date: 2025-07-30 00:34+0000\n"
-"Last-Translator: Henri De Plaen <henri.deplaen@gmail.com>\n"
+"PO-Revision-Date: 2026-03-13 16:14+0000\n"
+"Last-Translator: Gwenn Dossmann Ritter <gwenn.dossmann@openedition.org>\n"
 "Language-Team: French <http://translate.pkp.sfu.ca/projects/pkp-lib/api/fr/>"
 "\n"
 "Language: fr\n"
@@ -487,3 +488,9 @@ msgstr ""
 "La requête ne contient pas le paramètre de requête obligatoire « ids ». "
 "Veuillez fournir les identifiants « ids » des soumissions que vous souhaitez "
 "supprimer."
+
+msgid "api.orcid.403.cannotUpdateAuthorOrcid"
+msgstr ""
+"Vous ne pouvez pas assigner un identifiant ORCID via les endpoints Edit/Add "
+"Author. Pour demander aux auteur/ices d'actualiser leur identifiant ORCID, "
+"merci d'utiliser le endpoint \"orcid/requestAuthorVerification/{authorId}\"."
