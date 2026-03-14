@@ -254,10 +254,12 @@ msgid "user.profile.form.emailRequired"
 msgstr "Ispravna imejl adresa je neophodna."
 
 msgid "user.profile.form.givenNameRequired"
-msgstr ""
+msgstr "Ime je obavezno."
 
 msgid "user.profile.form.givenNameRequired.locale"
 msgstr ""
+"Uneli ste prezime za jezik za koji nije uneto ime. Molimo unesite ime za "
+"ovaj jezik."
 
 msgid "user.profile.form.mailingAddressRequired"
 msgstr "Poštanska adresa je neophodna."
@@ -372,7 +374,7 @@ msgstr ""
 "uredite vaš korisnički profil."
 
 msgid "user.role.assistant"
-msgstr ""
+msgstr "Asistent"
 
 msgid "user.role.author"
 msgstr "Autor"
@@ -471,43 +473,51 @@ msgid "user.profile.public"
 msgstr "Javno"
 
 msgid "user.apiKey"
-msgstr ""
+msgstr "API ključ"
 
 msgid "user.apiKeyEnabled"
-msgstr ""
+msgstr "Omogućava spoljnim aplikacijama pristup ovom nalogu putem API ključa"
 
 msgid "user.apiKey.generate"
-msgstr ""
+msgstr "Kreiraj API ključ"
 
 msgid "user.apiKey.remove"
-msgstr ""
+msgstr "Izbriši"
 
 msgid "user.apiKey.generateWarning"
 msgstr ""
+"Generisanjem novog API ključa svi postojeći ključevi za ovog korisnika "
+"postaće nevažeći."
 
 msgid "user.apiKey.removeWarning"
 msgstr ""
+"Brisanjem ključa biće opozvan pristup svim aplikacijama koje ga koriste."
 
 msgid "user.apiKey.remove.confirmation.message"
-msgstr ""
+msgstr "Da li ste sigurni da želite da obrišete ovaj API ključ?"
 
 msgid "user.apiKey.secretRequired"
 msgstr ""
+"Pre nego što generišete API ključ, administrator sajta mora u "
+"konfiguracionom fajlu postaviti tajni ključ („api_key_secret“)."
 
 msgid "user.privacyLink"
 msgstr ""
+"Vaši podaci se čuvaju u skladu sa našom <a href=\"{$privacyUrl}\" target="
+"\"_blank\">izjavom o privatnosti</a>."
 
 msgid "user.login.lostPassword.invalidUser"
 msgstr ""
 
 msgid "user.login.lostPassword.confirmationSentFailedWithReason"
-msgstr ""
+msgstr "Nije moguće dovršiti zahtev za resetovanje lozinke zbog {$reason}."
 
 msgid "user.login.passwordResetProcessInstructions"
-msgstr ""
+msgstr "Unesite novu lozinku da biste ažurirali lozinku za prijavu."
 
 msgid "user.login.resetPassword.passwordUpdated"
 msgstr ""
+"Lozinka je uspešno ažurirana. Molimo prijavite se koristeći novu lozinku."
 
 msgid "user.usernameOrEmail"
 msgstr "Korisničko ime ili mejl"
@@ -686,3 +696,60 @@ msgid "user.preferredAvatarInitials.description"
 msgstr ""
 "Unesite dva slova koja želite da koristite kao avatar. Ovi inicijali će vas "
 "predstavljati u sistemu."
+
+msgid "user.pendingEmailChange"
+msgstr ""
+"Zatražili ste promenu vaše adrese e-pošte u „{$pendingEmail}“. Već smo vam "
+"poslali e-poruku sa uputstvima kako da potvrdite novu adresu e-pošte."
+
+msgid "orcid.manager.settings.description"
+msgstr ""
+"Molimo podesite pristup ORCID API-ju kako bi se omogućilo preuzimanje "
+"informacija sa ORCID profila u korisničke i autorske profile, kao i "
+"ažuriranje povezanih ORCID zapisa novim publikacijama (samo za ORCID "
+"članove)."
+
+msgid "orcid.manager.settings.description.globallyconfigured"
+msgstr ""
+"ORCID API je podešen globalno od strane hosta. API, Client ID i Client "
+"Secret su postavljeni na nivou sajta i ne mogu se ovde menjati. Obratite se "
+"administratoru sajta za isključivanje ORCID funkcionalnosti ili promenu "
+"akreditiva."
+
+msgid "user.profile.form.affiliationRequired.locale"
+msgstr "Molimo unesite afilijaciju na jeziku prijave."
+
+msgid "user.role.ended"
+msgstr "Uloga je završena"
+
+msgid "orcid.displayName"
+msgstr "ORCID"
+
+msgid "orcid.description"
+msgstr "Omogućava uvoz informacija iz korisničkog ORCID profila."
+
+msgid "orcid.instructions"
+msgstr ""
+"Ovaj obrazac možete unapred popuniti informacijama iz ORCID profila. Unesite "
+"adresu e-pošte ili ORCID iD povezane sa ORCID profilom, a zatim kliknite na "
+"„Pošalji“."
+
+msgid "orcid.noData"
+msgstr "Nije pronađen nijedan podatak sa ORCID-a."
+
+msgid "orcid.manager.settings.orcidProfileAPIPath"
+msgstr "ORCID API"
+
+msgid "orcid.manager.settings.orcidProfileAPIPath.publicSandbox"
+msgstr "Javni sandbox"
+
+msgid "orcid.invalidClient"
+msgstr "Nevažeći akreditivi klijenta"
+
+msgid "orcid.failure.contact"
+msgstr ""
+"Molimo kontaktirajte urednika časopisa sa vašim imenom, ORCID iD-om i "
+"detaljima vaše prijave."
+
+msgid "orcid.fieldset"
+msgstr "ORCID"
