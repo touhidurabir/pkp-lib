@@ -855,3 +855,64 @@ msgstr "Kako i zašto prikupljamo ORCID iD-ove?"
 
 msgid "orcid.manager.settings.orcidClientId.error"
 msgstr "Nevažeći ID klijenta"
+
+msgid "orcid.field.verification.requested"
+msgstr "Poslat je zahtev za ORCID verifikaciju!"
+
+msgid "orcid.field.authorEmailModal.message"
+msgstr ""
+"Da li želite da pošaljete e-poruku ovom autoru sa zahtevom da verifikuje "
+"svoj ORCID?"
+
+msgid "user.removeRole.message"
+msgstr ""
+"Da li ste sigurni da želite trajno ukloniti ovu ulogu? Ova akcija će "
+"opozvati korisnikov pristup svim informacijama i dozvolama povezanima sa "
+"ovom ulogom."
+
+msgid "orcid.field.verification.resendRequest"
+msgstr "Pošalji ponovo verifikacionu e-poruku"
+
+msgid "orcid.manager.context.enabled"
+msgstr "Omogući ORCID funkcionalnost"
+
+msgid "orcid.manager.siteWide.enabled"
+msgstr "Omogući ORCID funkcionalnost na nivou celog sajta"
+
+msgid "orcid.manager.siteWide.description"
+msgstr ""
+"ORCID funkcionalnost se može opciono omogućiti i podesiti na nivou sajta za "
+"sve časopise/izdavačke platforme/servere. Ako je uključena, ova postavka će "
+"zameniti sve akreditive na nivou konteksta i primeniće sledeće akreditive na "
+"sve časopise/izdavačke platforme/servere u ovoj instalaciji."
+
+msgid "orcid.field.verification.request"
+msgstr "Zatraži verifikaciju"
+
+msgid "orcid.field.authorEmailModal.title"
+msgstr "Zatraži ORCID verifikaciju"
+
+msgid "orcid.field.deleteOrcidModal.title"
+msgstr "Obriši ORCID iD"
+
+msgid "user.disabledModal.description"
+msgstr "Trenutne uloge: {$roles}"
+
+msgid "orcid.field.authorEmailModal.message.noAuthor"
+msgstr "E-poruka će biti poslata kada autor bude kreiran."
+
+msgid "orcid.field.deleteOrcidModal.message"
+msgstr "Da li ste sigurni da želite da uklonite ovaj ORCID iD?"
+
+msgid "orcid.field.unverified.shouldRequest"
+msgstr ""
+"Ovaj ORCID iD nije verifikovan. Molimo uklonite ovaj neverifikovani ORCID iD "
+"i direktno zatražite verifikaciju od korisnika/autora."
+
+msgid "user.futureRole.notification.message"
+msgstr "Vaša uloga je zakazana da počne {$roleStartDate}"
+
+msgid "user.futureRole.notification.description"
+msgstr ""
+"Do tada možete pregledati i ažurirati svoj profil. Ako smatrate da je došlo "
+"do greške, obratite se administratoru."
