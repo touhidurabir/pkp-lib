@@ -273,9 +273,7 @@ class PluginHelper
             'unixSocket' => Config::getVar('database', 'unix_socket'),
             'databaseUsername' => Config::getVar('database', 'username'),
             'databasePassword' => Config::getVar('database', 'password'),
-            'databaseName' => Config::getVar('database', 'name'),
-            'databaseCapath' => Config::getVar('database', 'capath'),
-            'databaseVerify' => Config::getVar('database', 'verify', true),
+            'databaseName' => Config::getVar('database', 'name')
         ];
     }
 
