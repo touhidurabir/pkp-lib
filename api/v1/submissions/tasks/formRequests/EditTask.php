@@ -74,7 +74,26 @@ class EditTask extends FormRequest
                 Rule::date()->format('Y-m-d'),
                 'after_or_equal:today',
             ],
-            EditorialTask::ATTRIBUTE_HEADNOTE => ['sometimes', 'string'],
+            EditorialTask::ATTRIBUTE_HEADNOTE => [
+                'sometimes',
+                'string',
+                function (string $attribute, string $value, Closure $fail) {
+                    $headnote = $this->task->notes()->where('is_headnote', true)->first();
+
+                    if (!$headnote) {
+                        return;
+                    }
+
+                    if ($headnote->userId != Application::get()->getRequest()?->getUser()?->getId()) {
+                        $fail(__('api.403.forbidden'));
+                        return;
+                    }
+
+                    if (time() - strtotime($headnote->dateCreated) >= 3600) {
+                        $fail(__('api.403.forbidden'));
+                    }
+                },
+            ],
             EditorialTask::ATTRIBUTE_PARTICIPANTS => [
                 'required',
                 'array',
