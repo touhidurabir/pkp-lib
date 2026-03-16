@@ -957,7 +957,7 @@ class Schema extends \PKP\core\maps\Schema
 
                 // Get only recommendation decisions
                 $decisionType = Repo::decision()->getDecisionType($decision->getData('decision'));
-                if (!Repo::decision()->isRecommendation($decisionType->getDecision())) {
+                if (!$decisionType || !Repo::decision()->isRecommendation($decisionType->getDecision())) {
                     continue;
                 }
 
@@ -988,9 +988,14 @@ class Schema extends \PKP\core\maps\Schema
                     strtotime($recommendation->getData('dateDecided'))
                 )->first();
 
+                $latestDecisionType = Repo::decision()->getDecisionType($latestRecommendation->getData('decision'));
+                if (!$latestDecisionType) {
+                    continue;
+                }
+
                 $recommendationData = [
                     'decision' => $latestRecommendation->getData('decision'),
-                    'label' => Repo::decision()->getDecisionType($latestRecommendation->getData('decision'))->getRecommendationLabel(),
+                    'label' => $latestDecisionType->getRecommendationLabel(),
                 ];
 
                 $latestRecommendations[] = $recommendationData;
