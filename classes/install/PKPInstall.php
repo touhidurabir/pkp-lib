@@ -84,38 +84,43 @@ class PKPInstall extends Installer
             array_push($this->installedLocales, $this->locale);
         }
 
-        // Map valid config options to Illuminate database drivers
-        $driver = PKPContainer::getDatabaseDriverName(strtolower($this->getParam('databaseDriver')));
+        // For fresh app installs, configure the database connection from form/CLI params
+        // since config.inc.php may not yet have valid DB credentials.
+        // For plugin installs/upgrade, the connection already exists from config.inc.php 
+        // so it is safe to skip reconfiguration.
+        if (!$this->isPlugin) {
+            $driver = PKPContainer::getDatabaseDriverName(strtolower($this->getParam('databaseDriver')));
 
-        $config = FacadesConfig::get('database');
-        $config['default'] = $driver;
-        $config['connections'][$driver] = [
-            'driver' => $driver,
-            'host' => $this->getParam('databaseHost'),
-            'port' => $this->getParam('databasePort'),
-            'unix_socket' => $this->getParam('unixSocket'),
-            'database' => $this->getParam('databaseName'),
-            'username' => $this->getParam('databaseUsername'),
-            'password' => $this->getParam('databasePassword'),
-            'charset' => 'utf8',
-            'collation' => 'utf8_general_ci',
-        ];
+            $config = FacadesConfig::get('database');
+            $config['default'] = $driver;
+            $config['connections'][$driver] = [
+                'driver' => $driver,
+                'host' => $this->getParam('databaseHost'),
+                'port' => $this->getParam('databasePort'),
+                'unix_socket' => $this->getParam('unixSocket'),
+                'database' => $this->getParam('databaseName'),
+                'username' => $this->getParam('databaseUsername'),
+                'password' => $this->getParam('databasePassword'),
+                'charset' => 'utf8',
+                'collation' => 'utf8_general_ci',
+            ];
 
-        // Apply SSL/TLS options from config.inc.php if enabled
-        if (Config::getVar('database', 'secure', false)) {
-            $config['connections'][$driver] = PKPContainer::addDatabaseSslOptionsToConnection(
-                $driver,
-                $config['connections'][$driver]
-            );
+            // Apply SSL/TLS options from config.inc.php if enabled
+            if (Config::getVar('database', 'secure', false)) {
+                $config['connections'][$driver] = PKPContainer::addDatabaseSslOptionsToConnection(
+                    $driver,
+                    $config['connections'][$driver]
+                );
+            }
+
+            FacadesConfig::set('database', $config);
+
+            // Need to register the `DatabaseServiceProvider` as when the `SessionServiceProvider`
+            // registers itself in the `\PKP\core\PKPContainer::registerConfiguredProviders`, it
+            // registers an instance of `\Illuminate\Database\ConnectionInterface` which contains the
+            // initial details from the `config.inc.php` rather than what is set through the install form.
+            app()->register(new \Illuminate\Database\DatabaseServiceProvider(app()));
         }
-
-        FacadesConfig::set('database', $config);
-
-        // Need to register the `DatabaseServiceProvider` as when the `SessionServiceProvider`
-        // registers itself in the `\PKP\core\PKPContainer::registerConfiguredProviders`, it
-        // registers an instance of `\Illuminate\Database\ConnectionInterface` which contains the
-        // initial details from the `config.inc.php` rather than what is set through the install form.
-        app()->register(new \Illuminate\Database\DatabaseServiceProvider(app()));
 
         $result = parent::preInstall();
 

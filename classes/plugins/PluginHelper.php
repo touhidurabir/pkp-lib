@@ -244,10 +244,10 @@ class PluginHelper
 
                 $siteDao = DAORegistry::getDAO('SiteDAO'); /** @var SiteDAO $siteDao */
                 $site = $siteDao->getSite();
-                $params = $this->_getConnectionParams();
-                $params['locale'] = $site->getPrimaryLocale();
-                $params['additionalLocales'] = $site->getSupportedLocales();
-                $installer = new Install($params, $installFile, true);
+                $installer = new Install([
+                    'locale' => $site->getPrimaryLocale(),
+                    'additionalLocales' => $site->getSupportedLocales(),
+                ], $installFile, true);
                 $installer->setCurrentVersion($pluginVersion);
                 $installer->execute() || throw new Exception(__('manager.plugins.installFailed', ['errorString' => $installer->getErrorString()]));
                 $versionDao->insertVersion($pluginVersion, true);
@@ -258,23 +258,6 @@ class PluginHelper
                 throw $e;
             }
         });
-    }
-
-    /**
-     * Load database connection parameters into an array (needed for upgrade).
-     */
-    protected function _getConnectionParams(): array
-    {
-        return [
-            'connectionCharset' => Config::getVar('i18n', 'connection_charset'),
-            'databaseDriver' => Config::getVar('database', 'driver'),
-            'databaseHost' => Config::getVar('database', 'host'),
-            'databasePort' => Config::getVar('database', 'port'),
-            'unixSocket' => Config::getVar('database', 'unix_socket'),
-            'databaseUsername' => Config::getVar('database', 'username'),
-            'databasePassword' => Config::getVar('database', 'password'),
-            'databaseName' => Config::getVar('database', 'name')
-        ];
     }
 
     /**
@@ -335,10 +318,10 @@ class PluginHelper
                     /** @var SiteDAO */
                     $siteDao = DAORegistry::getDAO('SiteDAO');
                     $site = $siteDao->getSite();
-                    $params = $this->_getConnectionParams();
-                    $params['locale'] = $site->getPrimaryLocale();
-                    $params['additionalLocales'] = $site->getSupportedLocales();
-                    $installer = new Upgrade($params, $upgradeFile, true);
+                    $installer = new Upgrade([
+                        'locale' => $site->getPrimaryLocale(),
+                        'additionalLocales' => $site->getSupportedLocales(),
+                    ], $upgradeFile, true);
                     // Run the upgrade/migration
                     $installer->execute() || throw new Exception(__('manager.plugins.upgradeFailed', ['errorString' => $installer->getErrorString()]));
                 }
