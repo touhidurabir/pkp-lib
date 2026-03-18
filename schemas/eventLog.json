@@ -284,6 +284,7 @@
 		"taskParticipantsModifiedUsernames": {
 			"type": "string",
 			"description": "The usernames and roles of the participants added or removed for the task.",
+			"multilingual": true,
 			"validation": [
 				"nullable"
 			]

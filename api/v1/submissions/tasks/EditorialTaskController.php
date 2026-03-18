@@ -514,7 +514,7 @@ class EditorialTaskController extends PKPBaseController
             'submissionId' => $submission->getId(),
             'username' => $currentUser->getUsername(),
             'userGroupNames' => $currentUserUserGroups,
-            'userFullName' => $currentUser->getFullName(),
+            'userFullName' => $currentUser->getFullNames(),
             'taskType' => $editTask->type,
         ]);
         Repo::eventLog()->add($eventLog);
@@ -564,7 +564,7 @@ class EditorialTaskController extends PKPBaseController
             'submissionId' => $submission->getId(),
             'username' => $currentUser->getUsername(),
             'userGroupNames' => $this->getCurrentUserUserGroups($submission, $currentUser, $editTask),
-            'userFullName' => $currentUser->getFullName(),
+            'userFullName' => $currentUser->getFullNames(),
             'taskType' => $editTask->type,
         ]);
         Repo::eventLog()->add($eventLog);
@@ -730,7 +730,7 @@ class EditorialTaskController extends PKPBaseController
             'submissionId' => $submission->getId(),
             'username' => $currentUser->getUsername(),
             'userGroupNames' => $this->getCurrentUserUserGroups($submission, $currentUser, $task),
-            'userFullName' => $currentUser->getFullName(),
+            'userFullName' => $currentUser->getFullNames(),
         ]);
         Repo::eventLog()->add($eventLog);
 
@@ -1179,8 +1179,8 @@ class EditorialTaskController extends PKPBaseController
                 'submissionId' => $submission->getId(),
                 'username' => $uploaderUser->getUsername(),
                 'userGroupNames' => $currentUserUserGroups,
-                'userFullName' => $uploaderUser->getFullName(),
-                'filename' => $file->getLocalizedData('name'),
+                'userFullName' => $uploaderUser->getFullNames(),
+                'filename' => $file->getData('name'),
                 'fileId' => $file->getId(),
                 'stageId' => $editorialTask->stageId,
             ]);
@@ -1199,8 +1199,8 @@ class EditorialTaskController extends PKPBaseController
                 'submissionId' => $submission->getId(),
                 'username' => $uploaderUser->getUsername(),
                 'userGroupNames' => $currentUserUserGroups,
-                'userFullName' => $uploaderUser->getFullName(),
-                'filename' => $file->getLocalizedData('name'),
+                'userFullName' => $uploaderUser->getFullNames(),
+                'filename' => $file->getData('name'),
                 'fileId' => $file->getId(),
                 'stageId' => $editorialTask->stageId,
             ]);
@@ -1235,7 +1235,7 @@ class EditorialTaskController extends PKPBaseController
             'taskDateDueNew' => $newDueDate->format('Y-m-d H:i:s'),
             'username' => $currentUser->getUsername(),
             'userGroupNames' => $this->getCurrentUserUserGroups($submission, $currentUser, $editorialTask),
-            'userFullName' => $currentUser->getFullName(),
+            'userFullName' => $currentUser->getFullNames(),
         ]);
         Repo::eventLog()->add($eventLog);
     }
@@ -1270,7 +1270,7 @@ class EditorialTaskController extends PKPBaseController
             'taskOwnerNewUsername' => $newOwner->userId ? Repo::user()->get($newOwner->userId)->getUsername() : '',
             'username' => $currentUser->getUsername(),
             'userGroupNames' => $this->getCurrentUserUserGroups($submission, $currentUser, $editorialTask),
-            'userFullName' => $currentUser->getFullName(),
+            'userFullName' => $currentUser->getFullNames(),
         ]);
         Repo::eventLog()->add($eventLog);
     }
@@ -1308,15 +1308,32 @@ class EditorialTaskController extends PKPBaseController
             'submission.event.task.participantsRemoved';
 
         $usersToRecord = Repo::user()->getCollector()->filterByUserIds($participantIds)->getMany()->toArray();
-        $taskParticipants = '';
-        $lastKey = array_key_last($usersToRecord);
-        foreach ($usersToRecord as $key => $user) {
-            $userRoles = $this->getCurrentUserUserGroups($submission, $user, $editorialTask);
-            $taskParticipants .= $user->getUsername() . ' (' . implode(', ', $userRoles) . ')';
-            if ($key != $lastKey) {
-                $taskParticipants .= ', ';
+
+        /*
+        * Get localized roles for each user
+        * [
+        *   'en' => [
+        *       'username1' => ['Journal Editor', 'Reviewer'],
+        *       'username2' => ['Author'],
+        *   ]
+        * ]
+        */
+        $rolesLocalized = [];
+
+        foreach ($usersToRecord as $user) { /** @var User $user */
+            $userRolesLocalized = $this->getCurrentUserUserGroups($submission, $user, $editorialTask);
+            foreach ($userRolesLocalized as $locale => $roles) {
+                $rolesLocalized[$locale][$user->getUsername()] = $roles;
             }
         }
+
+        $rolesLocalized = array_map(function ($usernamesRoles) {
+            $result = [];
+            foreach ($usernamesRoles as $username => $roles) {
+                $result[] = $username . ' (' . implode(', ', $roles) . ')';
+            }
+            return implode(', ', $result);
+        }, $rolesLocalized);
 
         $eventLog = Repo::eventLog()->newDataObject([
             'assocType' => PKPApplication::ASSOC_TYPE_QUERY,
@@ -1328,10 +1345,10 @@ class EditorialTaskController extends PKPBaseController
             'dateLogged' => Core::getCurrentDate(),
             'submissionId' => $submission->getId(),
             'taskParticipantsModifiedUserIds' => array_values($participantIds),
-            'taskParticipantsModifiedUsernames' => $taskParticipants,
+            'taskParticipantsModifiedUsernames' => $rolesLocalized,
             'username' => $currentUser->getUsername(),
             'userGroupNames' => $this->getCurrentUserUserGroups($submission, $currentUser, $editorialTask),
-            'userFullName' => $currentUser->getFullName(),
+            'userFullName' => $currentUser->getFullNames(),
         ]);
         Repo::eventLog()->add($eventLog);
     }
