@@ -90,10 +90,10 @@ class TaskResource extends JsonResource
                 'userGroupName' => $activity->getData('userGroupName') ?? implode(', ', $activity->getLocalizedData('userGroupNames') ?? []),
                 'taskDateDueOld' => $taskDateDueOld ? Carbon::parse($taskDateDueOld)->format('Y-m-d') : null,
                 'taskDateDueNew' => $taskDateDueNew ? Carbon::parse($taskDateDueNew)->format('Y-m-d') : null,
-                'filename' => $activity->getData('filename'),
+                'filename' => $activity->getLocalizedData('filename'),
                 'taskOwnerOldUsername' => $activity->getData('taskOwnerOldUsername'),
                 'taskOwnerNewUsername' => $activity->getData('taskOwnerNewUsername'),
-                'taskParticipantsModifiedUsernames' => $activity->getData('taskParticipantsModifiedUsernames'),
+                'taskParticipantsModifiedUsernames' => $activity->getLocalizedData('taskParticipantsModifiedUsernames'),
                 'userFullName' => $activity->getLocalizedData('userFullName'),
             ]);
 
@@ -102,7 +102,7 @@ class TaskResource extends JsonResource
                 'message' => $activityMessage,
                 'type' => $activity->getEventType(),
                 'date' => $activity->getDateLogged(),
-                'userFullName' => $activity->getData('userFullName'),
+                'userFullName' => $activity->getLocalizedData('userFullName'),
                 'userId' => $activity->getData('userId'),
             ];
         }
