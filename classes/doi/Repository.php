@@ -17,7 +17,7 @@ namespace PKP\doi;
 use APP\core\Request;
 use APP\facades\Repo;
 use APP\publication\Publication;
-use Exception;
+use Illuminate\Support\Enumerable;
 use Illuminate\Support\Facades\App;
 use PKP\context\Context;
 use PKP\doi\exceptions\DoiException;
@@ -332,10 +332,10 @@ abstract class Repository
                 ->getQueryBuilder()
                 ->getCountForPagination() > 0,
             Repo::doi()::TYPE_PEER_REVIEW => Repo::reviewAssignment()
-                    ->getCollector()
-                    ->filterByDoiIds([$doiId])
-                    ->getQueryBuilder()
-                    ->getCountForPagination() > 0,
+                ->getCollector()
+                ->filterByDoiIds([$doiId])
+                ->getQueryBuilder()
+                ->getCountForPagination() > 0,
             Repo::doi()::TYPE_AUTHOR_RESPONSE => AuthorResponse::withDoiIds([$doiId])->count() > 0,
             default => false,
         };
@@ -399,6 +399,39 @@ abstract class Repository
      * @return array<int> DOI IDs
      */
     abstract public function getDoisForPublication(Publication $publication): array;
+
+    /**
+     * Get the latest minor published publication with a DOI for each version stage and major version,
+     * for use by DOI export/deposit plugins (Crossref, DataCite, mEDRA, etc.).
+     *
+     * @param Enumerable<int,Publication> $publications
+     *
+     * @return array<string, array<int, Publication>> Keyed by versionStage, then versionMajor
+     */
+    public function getLatestMinorPublicationsForDoiDeposit(Enumerable $publications): array
+    {
+        $result = [];
+        foreach ($publications as $publication) {
+            if (!$publication->getDoi() ||
+                $publication->getData('status') != Publication::STATUS_PUBLISHED) {
+                continue;
+            }
+            $versionStage = $publication->getData('versionStage');
+            $versionMajor = $publication->getData('versionMajor');
+            $versionMinor = $publication->getData('versionMinor');
+            if (!array_key_exists($versionStage, $result)) {
+                $result[$versionStage] = [];
+            }
+            if (!array_key_exists($versionMajor, $result[$versionStage])) {
+                $result[$versionStage][$versionMajor] = $publication;
+                continue;
+            }
+            if ($versionMinor > $result[$versionStage][$versionMajor]->getData('versionMinor')) {
+                $result[$versionStage][$versionMajor] = $publication;
+            }
+        }
+        return $result;
+    }
 
     /**
      * Compose final DOI and save to database
