@@ -36,6 +36,7 @@ use PKP\security\authorization\UserRolesRequiredPolicy;
 use PKP\security\authorization\internal\SubmissionCompletePolicy;
 use PKP\security\authorization\internal\SubmissionRequiredPolicy;
 use PKP\security\authorization\ContextRequiredPolicy;
+use PKP\security\authorization\internal\PublicationIsSubmissionPolicy;
 use PKP\security\authorization\internal\PublicationRequiredPolicy;
 use PKP\security\Role;
 use PKP\services\PKPSchemaService;
@@ -89,7 +90,7 @@ class PKPJatsController extends PKPBaseController
 
         })->whereNumber(['submissionId', 'publicationId']);
 
-        // Public route for JATS download which requried no authentication
+        // Public route for JATS download which requires no authentication
         Route::get('download', $this->publicDownload(...))
             ->name('publication.jats.publicDownload')
             ->whereNumber(['submissionId', 'publicationId']);
@@ -109,8 +110,9 @@ class PKPJatsController extends PKPBaseController
 
         if ($actionName === 'publicDownload') {
             $this->addPolicy(new PublicationRequiredPolicy($request, $args, 'publicationId'));
-            
-            // For the public api endpoint, we don't need to role/access based authorization
+            $this->addPolicy(new PublicationIsSubmissionPolicy(__('api.publications.403.submissionsDidNotMatch')));
+
+            // For the public api endpoint, we don't need role/access based authorization
             return parent::authorize($request, $args, $roleAssignments);
         }
 
@@ -270,35 +272,33 @@ class PKPJatsController extends PKPBaseController
 
     /**
      * Public endpoint to download JATS XML.
-     * This endpoint does not require authentication.
-     * Response is cached as per defined in \PKP\jats\Repository::JATS_FILE_CACHE_LIFETIME to prevent DDOS.
      */
     public function publicDownload(Request $illuminateRequest): Response|JsonResponse
     {
         $submission = $this->getAuthorizedContextObject(Application::ASSOC_TYPE_SUBMISSION); /** @var \APP\submission\Submission $submission */
         $publication = $this->getAuthorizedContextObject(Application::ASSOC_TYPE_PUBLICATION); /** @var \APP\publication\Publication $publication */
 
-        // Verify publication is published and has public visibility enabled
+        // Verify public visibility is enabled
         if (!$publication->getData('jatsPublicVisibility')) {
             return response()->json([
                 'error' => __('api.403.unauthorized'),
             ], Response::HTTP_FORBIDDEN);
         }
 
-        // If publication is not published yet,
-        // still woule be available for public download if public visibility enabled
-        // but only for authorised roles such as Admin, JM and & Editor.
-        // This is to support the non published submission preview mode only.
-        if ($publication->getData('status') != PKPPublication::STATUS_PUBLISHED) {
+        $isPublished = $publication->getData('status') == PKPPublication::STATUS_PUBLISHED;
+
+        // If publication is not published yet, allow download only for users
+        // who can preview (e.g. managers, sub-editors, assistants, assigned authors).
+        // This supports the article preview mode.
+        if (!$isPublished) {
             $user = $this->getRequest()->getUser();
-            if (!$user || !$user->hasRole([Role::ROLE_ID_SITE_ADMIN, Role::ROLE_ID_MANAGER, Role::ROLE_ID_SUB_EDITOR], $submission->getData('contextId'))) {
+            if (!$user || !Repo::submission()->canPreview($user, $submission)) {
                 return response()->json([
                     'error' => __('api.403.unauthorized'),
                 ], Response::HTTP_FORBIDDEN);
             }
         }
 
-        // Get cached JATS content
         $jatsContent = Repo::jats()->getPublicJatsContent($publication->getId(), $submission->getId());
 
         if (!$jatsContent) {
@@ -307,13 +307,30 @@ class PKPJatsController extends PKPBaseController
             ], Response::HTTP_NOT_FOUND);
         }
 
-        // Build filename
         $urlPath = ($publication->getData('urlPath') ?? ("submission-{$submission->getBestId()}-")) . "publication-{$publication->getId()}";
         $filename = $urlPath . '-jats.xml';
+
+        // ETag for conditional request support
+        $etag = '"' . md5($jatsContent) . '"';
+
+        // Use private, no-store for unpublished content to prevent intermediary cache leakage.
+        // For published content, use 'public, no-cache' which allows caching but forces
+        // revalidation on every request via ETag. This ensures browsers always get fresh
+        // content while server-side Cache::remember() (24h) still provides DDOS protection.
+        $cacheControl = $isPublished
+            ? 'public, no-cache'
+            : 'private, no-store';
+
+        if ($illuminateRequest->header('If-None-Match') === $etag) {
+            return response('', Response::HTTP_NOT_MODIFIED)
+                ->header('ETag', $etag)
+                ->header('Cache-Control', $cacheControl);
+        }
 
         return response($jatsContent, Response::HTTP_OK)
             ->header('Content-Type', 'application/xml; charset=utf-8')
             ->header('Content-Disposition', 'attachment; filename="' . $filename . '"')
-            ->header('Cache-Control', 'public, max-age=' . Repo::jats()::JATS_FILE_CACHE_LIFETIME);
+            ->header('Cache-Control', $cacheControl)
+            ->header('ETag', $etag);
     }
 }
