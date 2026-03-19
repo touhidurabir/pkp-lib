@@ -279,10 +279,23 @@ class PKPJatsController extends PKPBaseController
         $publication = $this->getAuthorizedContextObject(Application::ASSOC_TYPE_PUBLICATION); /** @var \APP\publication\Publication $publication */
 
         // Verify publication is published and has public visibility enabled
-        if ($publication->getData('status') != PKPPublication::STATUS_PUBLISHED || !$publication->getData('jatsPublicVisibility')) {
+        if (!$publication->getData('jatsPublicVisibility')) {
             return response()->json([
                 'error' => __('api.403.unauthorized'),
             ], Response::HTTP_FORBIDDEN);
+        }
+
+        // If publication is not published yet,
+        // still woule be available for public download if public visibility enabled
+        // but only for authorised roles such as Admin, JM and & Editor.
+        // This is to support the non published submission preview mode only.
+        if ($publication->getData('status') != PKPPublication::STATUS_PUBLISHED) {
+            $user = $this->getRequest()->getUser();
+            if (!$user || !$user->hasRole([Role::ROLE_ID_SITE_ADMIN, Role::ROLE_ID_MANAGER, Role::ROLE_ID_SUB_EDITOR], $submission->getData('contextId'))) {
+                return response()->json([
+                    'error' => __('api.403.unauthorized'),
+                ], Response::HTTP_FORBIDDEN);
+            }
         }
 
         // Get cached JATS content
