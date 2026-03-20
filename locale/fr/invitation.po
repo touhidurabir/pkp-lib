@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2026-03-20 14:01+0000\n"
+"PO-Revision-Date: 2026-03-20 14:04+0000\n"
 "Last-Translator: Gwenn Dossmann Ritter <gwenn.dossmann@openedition.org>\n"
 "Language-Team: French <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "invitation/fr/>\n"
@@ -416,5 +416,13 @@ msgstr ""
 
 msgid "userInvitation.searchField"
 msgstr ""
-"Rechercher un/e utilisateur/ice soit par son courriel, son identifiant ou "
-"son ORCID."
+"Rechercher un/e utilisateur/ice par son courriel ou son identifiant ou son "
+"ORCID."
+
+msgid "userInvitation.user.disableTitle"
+msgstr "Cet/te utilisateur/ice a été désactivé/e."
+
+msgid "userInvitation.user.disableMessage"
+msgstr ""
+"L'utilisateur/ice a été désactivé/e et vous ne pouvez pas lui attribuer un "
+"rôle. Veuillez d'abord l'activer avant de l'inviter à un rôle."
