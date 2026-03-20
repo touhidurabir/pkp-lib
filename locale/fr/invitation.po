@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "PO-Revision-Date: 2026-03-20 19:09+0000\n"
-"Last-Translator: Jean-Blaise Claivaz <jean-blaise.claivaz@unige.ch>\n"
+"Last-Translator: Gwenn Dossmann Ritter <gwenn.dossmann@openedition.org>\n"
 "Language-Team: French <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "invitation/fr/>\n"
 "Language: fr\n"
@@ -431,3 +431,8 @@ msgstr ""
 
 msgid "acceptInvitation.privacyConsent"
 msgstr "Consentement relatif à la protection des données"
+
+msgid "invitation.userRoleAssignment.validation.error.userRoles.unexpectedProperties"
+msgstr ""
+"Des propriétés inattendues ont été détectées dans l'élément à l'index "
+"{$attribute} : {$properties}."
