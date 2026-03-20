@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2026-03-20 14:17+0000\n"
+"PO-Revision-Date: 2026-03-20 14:20+0000\n"
 "Last-Translator: Jean-Blaise Claivaz <jean-blaise.claivaz@unige.ch>\n"
 "Language-Team: French <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "invitation/fr/>\n"
@@ -36,7 +36,8 @@ msgstr "Veuillez fournir un nom de famille"
 
 msgid "invitation.userRoleAssignment.validation.error.addUserRoles.dateStartMandatory"
 msgstr ""
-"Veuillez fournir une date de début pour les groupes d'utilisateurs ajoutés"
+"Veuillez fournir une date de début pour les groupes d'utilisateur/rices "
+"ajoutés"
 
 msgid "invitation.userRoleAssignment.validation.error.addUserRoles.notExisting"
 msgstr "Au moins un groupe d'utilisateur/rices à ajouter doit être défini"
@@ -73,8 +74,8 @@ msgstr "Veuillez fournir un mot de passe"
 
 msgid "invitation.userRoleAssignment.validation.error.addUserRoles.userGroupIdMandatory"
 msgstr ""
-"Veuillez fournir un identifiant de groupe d'utilisateurs pour les groupes "
-"d'utilisateurs ajoutés"
+"Veuillez fournir un identifiant de groupe d'utilisateur/rices pour les "
+"groupes d'utilisateur/rices ajoutés"
 
 msgid "invitation.header"
 msgstr "Invitations en cours"
