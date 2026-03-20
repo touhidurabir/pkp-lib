@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "PO-Revision-Date: 2026-03-20 13:18+0000\n"
-"Last-Translator: Gwenn Dossmann Ritter <gwenn.dossmann@openedition.org>\n"
+"Last-Translator: Jean-Blaise Claivaz <jean-blaise.claivaz@unige.ch>\n"
 "Language-Team: French <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "invitation/fr/>\n"
 "Language: fr\n"
@@ -128,7 +128,7 @@ msgid "userInvitation.enterDetails.stepLabel"
 msgstr "{$step} - Renseigner les détails et inviter à des rôles"
 
 msgid "userInvitation.enterDetails.nextButtonLabel"
-msgstr "Enregistrer et continuer"
+msgstr "Enregistrer et poursuivre"
 
 msgid "invitation.role.selectRole"
 msgstr "Sélectionner un nouveau rôle"
