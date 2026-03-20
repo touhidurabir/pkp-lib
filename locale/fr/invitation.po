@@ -364,3 +364,6 @@ msgstr ""
 
 msgid "invitation.role.modifyRole.button"
 msgstr "Modifier le rôle"
+
+msgid "userInvitation.cancel.goBack"
+msgstr "Retour"
