@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2026-03-20 13:37+0000\n"
+"PO-Revision-Date: 2026-03-20 13:39+0000\n"
 "Last-Translator: Gwenn Dossmann Ritter <gwenn.dossmann@openedition.org>\n"
 "Language-Team: French <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "invitation/fr/>\n"
@@ -329,3 +329,9 @@ msgstr "Détails du compte"
 
 msgid "acceptInvitation.review.userDetails"
 msgstr "Détails de l'utilisateur/ice"
+
+msgid "acceptInvitation.modal.button"
+msgstr "Voir toutes les soumissions"
+
+msgid "invitation.searchForm.emptyError"
+msgstr "Renseigner au moins un critère de recherche."
