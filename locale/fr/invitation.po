@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2026-03-20 13:43+0000\n"
+"PO-Revision-Date: 2026-03-20 13:45+0000\n"
 "Last-Translator: Gwenn Dossmann Ritter <gwenn.dossmann@openedition.org>\n"
 "Language-Team: French <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "invitation/fr/>\n"
@@ -370,3 +370,6 @@ msgstr "Retour"
 
 msgid "userInvitation.status.invited"
 msgstr "Invité/e le {$date}"
+
+msgid "userInvitation.edit.title"
+msgstr "Éditer l'invitation"
