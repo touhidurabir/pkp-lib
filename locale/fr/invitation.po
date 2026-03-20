@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2026-03-20 13:45+0000\n"
+"PO-Revision-Date: 2026-03-20 13:50+0000\n"
 "Last-Translator: Gwenn Dossmann Ritter <gwenn.dossmann@openedition.org>\n"
 "Language-Team: French <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "invitation/fr/>\n"
@@ -379,3 +379,14 @@ msgstr ""
 "Si vous modifiez cette invitation ou ajoutez un nouveau rôle, l'invitation "
 "sera annulée et une nouvelle sera envoyée. Êtes-vous sûr/e de vouloir "
 "poursuivre ?"
+
+msgid "validation.after_or_equal"
+msgstr "La date de début doit être postérieure ou égale à la date du jour"
+
+msgid "invitation.removeRoles"
+msgstr "Rôle supprimé pour l'utilisateur/ice"
+
+msgid "acceptInvitation.privacyStatement.validation"
+msgstr ""
+"Merci de confirmer que vous avez lu et accepté la déclaration de "
+"confidentialité"
