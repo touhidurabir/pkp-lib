@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2026-03-20 13:24+0000\n"
+"PO-Revision-Date: 2026-03-20 13:26+0000\n"
 "Last-Translator: Gwenn Dossmann Ritter <gwenn.dossmann@openedition.org>\n"
 "Language-Team: French <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "invitation/fr/>\n"
@@ -272,3 +272,20 @@ msgstr ""
 
 msgid "acceptInvitation.userDetails.form.name"
 msgstr "Formulaire utilisateur/ice d'acceptation d'une invitation"
+
+msgid "acceptInvitation.userDetails.form.description"
+msgstr ""
+"Merci de fournir les informations suivantes pour nous aider à gérer votre "
+"compte"
+
+msgid "acceptInvitation.detailsReview.stepName"
+msgstr "Vérifier et créer le compte"
+
+msgid "acceptInvitation.detailsReview.stepLabel"
+msgstr "{$step} - Vérifier et créer le compte"
+
+msgid "acceptInvitation.skipVerifyOrcid"
+msgstr "Passer l'étape de vérification de l'ORCID"
+
+msgid "acceptInvitation.verifyOrcid"
+msgstr "Vérifier l'identifiant ORCID"
