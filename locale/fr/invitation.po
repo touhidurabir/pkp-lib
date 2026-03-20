@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2026-03-20 13:18+0000\n"
+"PO-Revision-Date: 2026-03-20 13:21+0000\n"
 "Last-Translator: Jean-Blaise Claivaz <jean-blaise.claivaz@unige.ch>\n"
 "Language-Team: French <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "invitation/fr/>\n"
@@ -259,3 +259,6 @@ msgstr "Saisir les détails"
 
 msgid "acceptInvitation.userDetails.stepLabel"
 msgstr "{$step} - Saisir les détails"
+
+msgid "acceptInvitation.userDetails.nextButtonLabel"
+msgstr "Enregistrer et poursuivre"
