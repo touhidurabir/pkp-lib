@@ -367,3 +367,6 @@ msgstr "Modifier le rôle"
 
 msgid "userInvitation.cancel.goBack"
 msgstr "Retour"
+
+msgid "userInvitation.status.invited"
+msgstr "Invité/e le {$date}"
