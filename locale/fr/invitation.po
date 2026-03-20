@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2026-03-20 13:26+0000\n"
+"PO-Revision-Date: 2026-03-20 13:34+0000\n"
 "Last-Translator: Gwenn Dossmann Ritter <gwenn.dossmann@openedition.org>\n"
 "Language-Team: French <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "invitation/fr/>\n"
@@ -289,3 +289,22 @@ msgstr "Passer l'étape de vérification de l'ORCID"
 
 msgid "acceptInvitation.verifyOrcid"
 msgstr "Vérifier l'identifiant ORCID"
+
+msgid "acceptInvitation.passwordField.description"
+msgstr ""
+"Le mot de passe doit être composé au minimum de 6 caractères et doit "
+"contenir des lettres majuscules, minuscules, des chiffres et des caractères "
+"spéciaux"
+
+msgid "acceptInvitation.privacyStatement.label"
+msgstr ""
+"Oui, j'accepte que mes données soient collectées et conservées selon le "
+"traitement décrit ici : {$url}"
+
+msgid "acceptInvitation.privacyStatement.btn"
+msgstr "Déclaration de confidentialité"
+
+msgid "acceptInvitation.usernameField.description"
+msgstr ""
+"Ce peut être une combinaison de lettres majuscules, minuscules ou de "
+"chiffres, sans espaces"
