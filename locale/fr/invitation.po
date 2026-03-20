@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2026-03-20 13:34+0000\n"
+"PO-Revision-Date: 2026-03-20 13:35+0000\n"
 "Last-Translator: Gwenn Dossmann Ritter <gwenn.dossmann@openedition.org>\n"
 "Language-Team: French <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "invitation/fr/>\n"
@@ -308,3 +308,9 @@ msgid "acceptInvitation.usernameField.description"
 msgstr ""
 "Ce peut être une combinaison de lettres majuscules, minuscules ou de "
 "chiffres, sans espaces"
+
+msgid "acceptInvitation.userDetailsForm.givenName.description"
+msgstr "Prénom"
+
+msgid "acceptInvitation.userDetailsForm.familyName.description"
+msgstr "Nom de famille"
