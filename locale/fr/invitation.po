@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2026-03-20 13:09+0000\n"
+"PO-Revision-Date: 2026-03-20 13:16+0000\n"
 "Last-Translator: Gwenn Dossmann Ritter <gwenn.dossmann@openedition.org>\n"
 "Language-Team: French <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "invitation/fr/>\n"
@@ -210,3 +210,43 @@ msgstr "Vérifier et inviter à des rôles"
 
 msgid "invitation.api.error.operationFailed"
 msgstr "Cette invitation a échoué"
+
+msgid "invitation.email.description"
+msgstr "par exemple : aeinstein@example.com"
+
+msgid "invitation.givenName.description"
+msgstr ""
+"Si vous connaissez le prénom de l'utilisateur/ice, vous pouvez le "
+"renseigner. Cependant, cette information peut être modifiée par l'"
+"utilisateur/ice."
+
+msgid "invitation.decline.confirm"
+msgstr "Confirmer le refus de l'invitation"
+
+msgid "invitation.decline.confirm.title"
+msgstr "Décliner l'invitation"
+
+msgid "acceptInvitation.verifyOrcid.stepName"
+msgstr "Veuillez vérifier votre identifiant ORCID"
+
+msgid "acceptInvitation.verifyOrcid.stepLabel"
+msgstr "{$step} - Vérifier l'identifiant ORCID"
+
+msgid "invitation.orcid.description"
+msgstr ""
+"En acceptant l'invitation, l'utilisateur/ice sera redirigé/e vers ORCID pour "
+"vérifier son compte si souhaité."
+
+msgid "invitation.familyName.description"
+msgstr ""
+"Si vous connaissez le nom de famille de l'utilisateur/ice, vous pouvez le "
+"renseigner. Cependant, cette information peut être modifiée par l'"
+"utilisateur/ice."
+
+msgid "invitation.decline.confirm.description"
+msgstr ""
+"Êtes-vous sûr/e de vouloir décliner cette invitation ? Merci de confirmer en "
+"cliquant sur le bouton ci-dessous."
+
+msgid "acceptInvitation.verifyOrcid.nextButtonLabel"
+msgstr "Enregistrer et continuer"
