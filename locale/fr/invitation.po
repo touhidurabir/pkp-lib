@@ -314,3 +314,9 @@ msgstr "Prénom"
 
 msgid "acceptInvitation.userDetailsForm.familyName.description"
 msgstr "Nom de famille"
+
+msgid "acceptInvitation.userDetailsForm.affiliation.description"
+msgstr "Affiliation"
+
+msgid "acceptInvitation.userDetailsForm.countryOfAffiliation.description"
+msgstr "Pays"
