@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2026-03-20 13:53+0000\n"
+"PO-Revision-Date: 2026-03-20 13:58+0000\n"
 "Last-Translator: Gwenn Dossmann Ritter <gwenn.dossmann@openedition.org>\n"
 "Language-Team: French <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "invitation/fr/>\n"
@@ -397,3 +397,14 @@ msgstr ""
 "processus d'acceptation du rôle sera interrompu et vous devrez accéder au "
 "courriel d'invitation pour relancer le processus. Si vous êtes déjà "
 "utilisateur/ice, vous serez redirigé/e vers le tableau de bord."
+
+msgid "acceptInvitation.cancelInvite.title"
+msgstr "Annuler le processus en cours d'invitation à un rôle ?"
+
+msgid "acceptInvitation.cancelInvite.button"
+msgstr "Annuler le processus d'invitation"
+
+msgid "acceptInvitation.authorization.shouldBeAnonymous"
+msgstr ""
+"L'invitation n'a pas été acceptée. Vous êtes connecté/e sous un autre compte "
+"utilisateur/ice."
