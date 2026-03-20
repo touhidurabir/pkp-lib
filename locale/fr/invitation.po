@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2026-03-20 13:39+0000\n"
+"PO-Revision-Date: 2026-03-20 13:43+0000\n"
 "Last-Translator: Gwenn Dossmann Ritter <gwenn.dossmann@openedition.org>\n"
 "Language-Team: French <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "invitation/fr/>\n"
@@ -341,3 +341,26 @@ msgstr "Vous visualisez le profil de {$name}"
 
 msgid "invitation.cancelInvite.actionName"
 msgstr "Annuler l'invitation"
+
+msgid "invitation.cancelInvite.title"
+msgstr "Annuler l'invitation"
+
+msgid "invitation.masthead.show"
+msgstr "Apparaître dans l'équipe éditoriale"
+
+msgid "invitation.masthead.hidden"
+msgstr "Ne pas apparaître dans l'équipe éditoriale"
+
+msgid "invitation.management.options"
+msgstr "Options de gestion des invitations"
+
+msgid "userInvitation.cancel.message"
+msgstr "Êtes-vous sûr/e de vouloir annuler cette invitation ?"
+
+msgid "invitation.cancelInvite.message"
+msgstr ""
+"Annuler l'invitation envoyée à {$givenName} {$familyName} désactivera le "
+"lien d'acceptation dans le courriel. Voici les détails de l'invitation : "
+
+msgid "invitation.role.modifyRole.button"
+msgstr "Modifier le rôle"
