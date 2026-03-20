@@ -335,3 +335,9 @@ msgstr "Voir toutes les soumissions"
 
 msgid "invitation.searchForm.emptyError"
 msgstr "Renseigner au moins un critère de recherche."
+
+msgid "invitation.wizard.viewPageTitleDescription"
+msgstr "Vous visualisez le profil de {$name}"
+
+msgid "invitation.cancelInvite.actionName"
+msgstr "Annuler l'invitation"
