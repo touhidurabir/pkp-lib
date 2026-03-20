@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2026-03-13 16:14+0000\n"
+"PO-Revision-Date: 2026-03-20 13:09+0000\n"
 "Last-Translator: Gwenn Dossmann Ritter <gwenn.dossmann@openedition.org>\n"
 "Language-Team: French <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "invitation/fr/>\n"
@@ -87,7 +87,7 @@ msgstr ""
 "avoir déclaré une équipe éditoriale"
 
 msgid "invitation.api.error.invitationTypeNotHasMailable"
-msgstr ""
+msgstr "Ce type d'invitation n'a pas de modèle de courriel renseigné"
 
 msgid "invitation.validation.required"
 msgstr "Le champ {$attribute} est requis."
@@ -207,3 +207,6 @@ msgstr "Date de fin"
 
 msgid "userInvitation.sendMail.stepName"
 msgstr "Vérifier et inviter à des rôles"
+
+msgid "invitation.api.error.operationFailed"
+msgstr "Cette invitation a échoué"
