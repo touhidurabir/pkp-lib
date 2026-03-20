@@ -373,3 +373,9 @@ msgstr "Invité/e le {$date}"
 
 msgid "userInvitation.edit.title"
 msgstr "Éditer l'invitation"
+
+msgid "userInvitation.edit.message"
+msgstr ""
+"Si vous modifiez cette invitation ou ajoutez un nouveau rôle, l'invitation "
+"sera annulée et une nouvelle sera envoyée. Êtes-vous sûr/e de vouloir "
+"poursuivre ?"
