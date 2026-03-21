@@ -806,44 +806,29 @@ class Collector implements CollectorInterface
             );
 
             $sortedSettings = array_values(
-                $this->orderBy === self::ORDERBY_GIVENNAME 
-                    ? $nameSettings 
+                $this->orderBy === self::ORDERBY_GIVENNAME
+                    ? $nameSettings
                     : array_reverse($nameSettings)
             );
 
-            $query->orderBy(
-                function (Builder $query) use ($sortedSettings, $locales): void {
-                    $aliasesBySetting = [];
+            $coalesceExpressions = [];
+            foreach ($sortedSettings as $i => $setting) {
+                $parts = [];
+                foreach ($locales as $j => $locale) {
+                    $alias = "us_{$i}_{$j}";
+                    $parts[] = "{$alias}.setting_value";
+                    $query->leftJoin("user_settings AS {$alias}", function (JoinClause $join) use ($alias, $setting, $locale) {
+                        $join->on("{$alias}.user_id", '=', 'u.user_id')
+                            ->where("{$alias}.setting_name", '=', $setting)
+                            ->where("{$alias}.locale", '=', $locale);
+                    });
+                }
+                $coalesceExpressions[] = sprintf("COALESCE(%s, '')", implode(', ', $parts));
+            }
 
-                    foreach ($sortedSettings as $i => $setting) {
-                        $aliases = [];
-                        foreach ($locales as $j => $locale) {
-                            $alias = "us_{$i}_{$j}";
-                            $aliases[] = $alias;
-
-                            $query->leftJoin("user_settings AS {$alias}", function (JoinClause $join) use ($alias, $setting, $locale) {
-                                $join->on("{$alias}.user_id", '=', 'u.user_id')
-                                    ->where("{$alias}.setting_name", '=', $setting)
-                                    ->where("{$alias}.locale", '=', $locale);
-                            });
-                        }
-                        $aliasesBySetting[] = $aliases;
-                    }
-                    
-                    $coalesceExpressions = array_map(
-                        fn(array $aliases) => sprintf(
-                            "COALESCE(%s, '')",
-                            implode(', ', array_map(fn($alias) => "{$alias}.setting_value", $aliases))
-                        ),
-                        $aliasesBySetting
-                    );
-                    
-                    $query->selectRaw(sprintf('CONCAT(%s)', implode(', ', $coalesceExpressions)));
-                },
-                $this->orderDirection
-            );
+            $query->orderByRaw(sprintf('CONCAT(%s) %s', implode(', ', $coalesceExpressions), $this->orderDirection));
+            
         }
-
         return $this;
     }
 }
