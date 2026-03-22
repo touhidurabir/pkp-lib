@@ -18,9 +18,7 @@
         </p>
         <form method="post" action="{$declineUrl}">
             {csrf}
-            <button type="submit" class="pkpButton inline-flex relative items-center gap-x-1 text-lg-semibold text-primary border-light hover:text-hover bg-secondary py-[0.4375rem] px-3 border rounded">
-                {translate key="invitation.decline.confirm"}
-            </button>
+            {fbvElement type="submit" id="declineInvitationSubmit" label="invitation.decline.confirm"}
         </form>
     </div>
 {/block}
