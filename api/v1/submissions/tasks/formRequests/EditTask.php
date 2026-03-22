@@ -78,19 +78,35 @@ class EditTask extends FormRequest
                 'sometimes',
                 'string',
                 function (string $attribute, string $value, Closure $fail) {
-                    $headnote = $this->task->notes()->where('is_headnote', true)->first();
+                    if (!$this->task) {
+                        return;
+                    }
+
+                    $currentUser = Application::get()->getRequest()?->getUser();
+                    if (!$currentUser) {
+                        return;
+                    }
+
+                    if (
+                        $currentUser->hasRole([Role::ROLE_ID_MANAGER, Role::ROLE_ID_SUB_EDITOR], $this->submission->getData('contextId'))
+                        || $currentUser->hasRole([Role::ROLE_ID_SITE_ADMIN], Application::CONTEXT_SITE)
+                    ) {
+                        return;
+                    }
+
+                    $headnote = $this->task->notes()->withHeadnote()->first();
 
                     if (!$headnote) {
                         return;
                     }
 
-                    if ($headnote->userId != Application::get()->getRequest()?->getUser()?->getId()) {
-                        $fail(__('api.403.forbidden'));
+                    if ($headnote->userId != $currentUser->getId()) {
+                        $fail(__('submission.task.validation.error.headnote.author'));
                         return;
                     }
 
                     if (time() - strtotime($headnote->dateCreated) >= 3600) {
-                        $fail(__('api.403.forbidden'));
+                        $fail(__('submission.task.validation.error.headnote.editExpired'));
                     }
                 },
             ],

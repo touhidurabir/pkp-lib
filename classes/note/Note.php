@@ -159,11 +159,19 @@ class Note extends Model
     }
 
     /**
-     * Scope a query to only include notes with a specific type.
+     * Scope a query to only include notes with a specific content.
      */
     public function scopeWithContents(Builder $query, string $contents): Builder
     {
         return $query->where('contents', $contents);
+    }
+
+    /**
+     * Scope a query to only include notes with a specific headnote.
+     */
+    public function scopeWithHeadnote($query)
+    {
+        return $query->where('is_headnote', true);
     }
 
     /**
