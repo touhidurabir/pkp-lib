@@ -5,7 +5,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:50:04+00:00\n"
-"PO-Revision-Date: 2026-03-05 16:36+0000\n"
+"PO-Revision-Date: 2026-03-23 01:26+0000\n"
 "Last-Translator: lena bojcic <lenabojcicck@gmail.com>\n"
 "Language-Team: Serbian (latin) <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "admin/sr_Latn/>\n"
@@ -85,6 +85,8 @@ msgstr "Učini korisničke sesije nevažećima"
 
 msgid "admin.expireSessions.description"
 msgstr ""
+"Svi korisnici će odmah biti odjavljeni iz aplikacije, uključujući i vas, i "
+"moraće ponovo da se prijave."
 
 msgid "admin.languages.cantDisable"
 msgstr ""
@@ -149,7 +151,7 @@ msgid "admin.scheduledTask.noLog"
 msgstr "Zadatak nije proizveo log zapis."
 
 msgid "admin.scheduledTask.depositDois"
-msgstr ""
+msgstr "Deponujte DOI oznake kod podešene registracione agencije"
 
 msgid "admin.scheduledTask.downloadLog"
 msgstr ""
@@ -158,12 +160,16 @@ msgstr ""
 
 msgid "admin.scheduledTask.editorialReminder"
 msgstr ""
+"Pošaljite e-poruku svakom uredniku kao podsetnik na njihove neizvršene "
+"zadatke"
 
 msgid "admin.scheduledTask.editorialReminder.logStart"
-msgstr ""
+msgstr "Identifikovanje urednika koje treba podsetiti u kontekstu {$contextId}"
 
 msgid "admin.scheduledTask.editorialReminder.logEnd"
 msgstr ""
+"Poslato je {$count} zadataka za slanje uredničkih podsetnika putem e-pošte "
+"korisnicima {$userIds} u kontekstu {$contextId}"
 
 msgid "admin.scheduledTask.confirmClearLogs"
 msgstr ""
@@ -174,10 +180,10 @@ msgid "admin.scheduledTask.clearLogs"
 msgstr "Obriši logove izvršenja planiranih zadataka"
 
 msgid "admin.scheduledTask.clearLogs.description"
-msgstr ""
+msgstr "Obrišite sve zapise o izvršenim procesima planiranih zadataka."
 
 msgid "admin.scheduledTask.clearLogs.delete"
-msgstr ""
+msgstr "Obriši evidenciju zadataka"
 
 msgid "admin.scheduledTask.publishSubmissions"
 msgstr "Objavi radove planirane za objavljivanje"
@@ -186,79 +192,96 @@ msgid "admin.scheduledTask.reviewReminder"
 msgstr "Podsetnik za recenzenta"
 
 msgid "admin.scheduledTask.statisticsReport"
-msgstr ""
+msgstr "Obaveštenje o uredničkom izveštaju"
 
 msgid "admin.scheduledTask.subscriptionExpiryReminder"
 msgstr "Podsetnik za istek pretplate"
 
 msgid "admin.scheduledTask.removeUnvalidatedExpiredUsers"
-msgstr ""
+msgstr "Ukloni nevalidirane korisnike sa istekom roka"
 
 msgid "admin.scheduledTask.removeFailedJobs"
-msgstr ""
+msgstr "Ukloni znatno starije neuspele zadatke sa liste neuspelih zadataka."
 
 msgid "admin.scheduledTask.processQueueJobs"
-msgstr ""
+msgstr "Obradi zadatke na čekanju"
 
 msgid "admin.scheduledTask.updateGeoDB"
-msgstr ""
+msgstr "Ažuriraj DB-IP City Lite bazu podataka"
 
 msgid "admin.scheduledTask.updateGeoDB.fileRename.error"
 msgstr ""
+"Preimenovanje DB-IP City Lite datoteke baze podataka {$sourceFilename} u "
+"{$targetFilename} nije uspelo."
 
 msgid "admin.scheduledTask.usageStatsLoader"
-msgstr ""
+msgstr "Zadatak učitavanja fajla sa statistikom korišćenja"
 
 msgid "admin.scheduledTask.usageStatsLoader.processingPathNotEmpty"
 msgstr ""
+"Direktorijum {$directory} nije prazan. Ovo može ukazivati na prethodno "
+"neuspeo proces ili na proces koji se trenutno izvršava. Ovaj fajl će biti "
+"automatski ponovo obrađen."
 
 msgid "admin.job.processLogFile.openFileFailed"
-msgstr ""
+msgstr "Fajl {$file} nije mogao da se otvori i odbijen je."
 
 msgid "admin.scheduledTask.usageStatsLoader.veryOldLogFile"
 msgstr ""
+"Fajl {$file} je u starom formatu log fajla koji se ne može obraditi i biće "
+"vraćen u direktorijum za pripremu."
 
 msgid "admin.scheduledTask.usageStatsLoader.monthExists"
 msgstr ""
+"Preskočen log fajl {$file} jer su statistike za taj mesec već izračunate. Da "
+"biste ponovo izračunali statistike za prethodni mesec, potrebno je da "
+"obnovite sve log fajlove za taj mesec i koristite CLI alat za ponovnu obradu "
+"statistika."
 
 msgid "admin.job.processLogFile.wrongLoglineFormat"
 msgstr ""
+"Linija {$lineNumber} u log fajlu {$file} je u neispravnom formatu i biće "
+"preskočena."
 
 msgid "admin.job.processLogFile.invalidLogEntry"
-msgstr ""
+msgstr "Nevažeći zapis u log fajlu {$file} na liniji {$lineNumber}: {$error}"
 
 msgid "admin.job.processLogFile.invalidLogEntry.time"
-msgstr ""
+msgstr "Vreme nije u odgovarajućem formatu datuma."
 
 msgid "admin.job.processLogFile.invalidLogEntry.contextId"
-msgstr ""
+msgstr "ID konteksta mora biti ceo broj."
 
 msgid "admin.job.processLogFile.invalidLogEntry.submissionId"
-msgstr ""
+msgstr "ID prijave mora biti ceo broj."
 
 msgid "admin.job.processLogFile.invalidLogEntry.representationId"
-msgstr ""
+msgstr "ID prikaza mora biti ceo broj."
 
 msgid "admin.job.processLogFile.invalidLogEntry.assocType"
-msgstr ""
+msgstr "Nepodržan tip asocijacije."
 
 msgid "admin.job.processLogFile.invalidLogEntry.fileType"
-msgstr ""
+msgstr "Nepodržani tip fajla."
 
 msgid "admin.job.processLogFile.invalidLogEntry.country"
-msgstr ""
+msgstr "Nevažeći format države: očekivana su dva slova."
 
 msgid "admin.job.processLogFile.invalidLogEntry.region"
-msgstr ""
+msgstr "Kod regije mora biti niz od najviše tri alfanumerička karaktera."
 
 msgid "admin.job.processLogFile.invalidLogEntry.institutionIds"
-msgstr ""
+msgstr "Identifikatori (ID) institucija moraju biti u obliku niza."
 
 msgid "admin.job.processLogFile.insertError"
 msgstr ""
+"Došlo je do greške prilikom obrade log fajla {$file} na liniji {$lineNumber}:"
+" {$msg}"
 
 msgid "admin.scheduledTask.usageStatsLoader.jobDispatched"
 msgstr ""
+"Pozadinski zadaci koji će obraditi log fajlove i sačuvati statističke "
+"podatke su pokrenuti."
 
 msgid "admin.server.apacheVersion"
 msgstr "Verzija Apache-a"
@@ -348,9 +371,11 @@ msgstr "Informacije o sistemu"
 
 msgid "admin.systemInformation.description"
 msgstr ""
+"Prikaži informacije o verziji i podešavanjima konfiguracije aplikacije i "
+"servera."
 
 msgid "admin.systemInformation.view"
-msgstr ""
+msgstr "Prikaži informacije o sistemu"
 
 msgid "admin.versionBuild"
 msgstr "Građa"
@@ -411,45 +436,73 @@ msgstr "Učitavač fajla"
 
 msgid "admin.error.gzDecompressFile.gzopen"
 msgstr ""
+"Fajl nije mogao da se dekompresuje. Izvorni gz-fajl {$filePath} nije mogao "
+"da se otvori pomoću gzopen funkcije."
 
 msgid "admin.error.gzDecompressFile.fopen"
 msgstr ""
+"Fajl nije mogao da se dekompresuje. Odredišni fajl {$filePath} nije mogao da "
+"se otvori pomoću funkcije fopen."
 
 msgid "admin.error.gzDecompressFile.gzread"
 msgstr ""
+"Fajl nije mogao da se dekompresuje. Izvorni gz-fajl {$file} nije mogao da se "
+"pročita pomoću funkcije gzread."
 
 msgid "admin.error.gzDecompressFile.fwrite"
 msgstr ""
+"Fajl nije mogao da se dekompresuje. Odredišni fajl {$filePath} nije mogao da "
+"se upiše pomoću funkcije fwrite."
 
 msgid "admin.error.gzDecompressFile.fclose"
 msgstr ""
+"Fajl nije mogao da se dekompresuje. Otvoreni odredišni fajl {$filePath} nije "
+"mogao da se zatvori pomoću funkcije fclose."
 
 msgid "admin.error.gzDecompressFile.gzclose"
 msgstr ""
+"Fajl nije mogao da se dekompresuje. Otvoreni izvorni gz-fajl {$filePath} "
+"nije mogao da se zatvori pomoću funkcije gzclose."
 
 msgid "admin.error.gzDecompressFile.unlink"
 msgstr ""
+"Fajl nije mogao da se dekompresuje. Dekompresovani izvorni gz-fajl "
+"{$filePath} nije mogao da se obriše pomoću funkcije unlink."
 
 msgid "admin.error.gzCompressFile.gzopen"
 msgstr ""
+"Fajl nije mogao da se kompresuje. Odredišni gz-fajl {$filePath} nije mogao "
+"da se otvori pomoću funkcije gzopen."
 
 msgid "admin.error.gzCompressFile.fopen"
 msgstr ""
+"Fajl nije mogao da se kompresuje. Izvorni fajl {$filePath} nije mogao da se "
+"otvori pomoću funkcije fopen."
 
 msgid "admin.error.gzCompressFile.fread"
 msgstr ""
+"Fajl nije mogao da se kompresuje. Izvorni fajl {$filePath} nije mogao da se "
+"pročita pomoću funkcije fread."
 
 msgid "admin.error.gzCompressFile.gzwrite"
 msgstr ""
+"Fajl nije mogao da se kompresuje. Odredišni gz-fajl {$filePath} nije mogao "
+"da se upiše pomoću funkcije gzwrite."
 
 msgid "admin.error.gzCompressFile.fclose"
 msgstr ""
+"Fajl nije mogao da se kompresuje. Otvoreni izvorni fajl {$filePath} nije "
+"mogao da se zatvori pomoću funkcije fclose."
 
 msgid "admin.error.gzCompressFile.gzclose"
 msgstr ""
+"Fajl nije mogao da se kompresuje. Otvoreni odredišni gz-fajl {$filePath} "
+"nije mogao da se zatvori pomoću funkcije gzclose."
 
 msgid "admin.error.gzCompressFile.unlink"
 msgstr ""
+"Fajl nije mogao da se kompresuje. Kompresovani izvorni fajl {$filePath} nije "
+"mogao da se obriše pomoću funkcije unlink."
 
 msgid "admin.languages.noLocalesToDownload"
 msgstr "Nema lokalizacija dostupnih za preuzimanje"
@@ -792,3 +845,27 @@ msgstr ""
 
 #~ msgid "admin.settings.oaiRegistration"
 #~ msgstr "Registrujte sajt za indeksiranje (sakupljanje metapodataka)"
+
+msgid "admin.scheduledTask.UpdateRorRegistryDataset"
+msgstr "Ažuriraj keš podataka ROR registra"
+
+msgid "admin.settings.sharedReviewerStatistics"
+msgstr "Statistika recenzenata"
+
+msgid "admin.settings.sharedReviewerStatistics.disable"
+msgstr "Onemogući objedinjene statistike recenzenata"
+
+msgid "admin.scheduledTask.UpdateRorRegistryDataset.error.checksum"
+msgstr ""
+"Nije moguće ažurirati ROR registarski skup podataka zbog neusaglašenosti "
+"kontrolne sume. Očekivana kontrolna suma: {$expected}. Stvarna kontrolna "
+"suma: {$actual}"
+
+msgid "admin.settings.sharedReviewerStatistics.description"
+msgstr ""
+"U instalaciji sa više konteksta, statistike recenzenata, kao što je broj "
+"podnetih recenzija, mogu se prikazivati pojedinačno za svaki kontekst ili "
+"objedinjeno za sve kontekste."
+
+msgid "admin.fileLoader.fileDispatched"
+msgstr "Fajl {$filename} je premešten u direktorijum za slanje."
