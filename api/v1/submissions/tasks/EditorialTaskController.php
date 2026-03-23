@@ -546,10 +546,24 @@ class EditorialTaskController extends PKPBaseController
             ], Response::HTTP_CONFLICT);
         }
 
+        // do not allow starting a task without participants (auto-created tasks may have none)
+        if ($editTask->participants()->count() < 1) {
+            return response()->json([
+                'error' => __('submission.task.validation.error.participant.required'),
+            ], Response::HTTP_UNPROCESSABLE_ENTITY);
+        }
+
+        // do not allow starting a task without an assignee
+        if ($editTask->participants()->where('is_responsible', true)->count() !== 1) {
+            return response()->json([
+                'error' => __('submission.task.validation.error.participant.responsible'),
+            ], Response::HTTP_UNPROCESSABLE_ENTITY);
+        }
+
         $dateStarted = Core::getCurrentDate();
         $editTask->fill([
             'dateStarted' => $dateStarted,
-            'startedBy' => $this->getRequest()->getUser()->getId(),
+            'startedBy' => $currentUser->getId(),
         ])->save();
         $editTask->refresh();
 
