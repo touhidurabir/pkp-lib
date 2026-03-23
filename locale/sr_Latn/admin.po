@@ -5,7 +5,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:50:04+00:00\n"
-"PO-Revision-Date: 2026-03-23 01:26+0000\n"
+"PO-Revision-Date: 2026-03-23 23:37+0000\n"
 "Last-Translator: lena bojcic <lenabojcicck@gmail.com>\n"
 "Language-Team: Serbian (latin) <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "admin/sr_Latn/>\n"
@@ -508,244 +508,282 @@ msgid "admin.languages.noLocalesToDownload"
 msgstr "Nema lokalizacija dostupnih za preuzimanje"
 
 msgid "admin.cli.tool.usage.title"
-msgstr ""
+msgstr "Upotreba:"
 
 msgid "admin.cli.tool.usage.parameters"
-msgstr ""
+msgstr "komanda [argumenti]"
 
 msgid "admin.cli.tool.available.commands"
-msgstr ""
+msgstr "Dostupne komande za imenski prostor {$namespace}:"
 
 msgid "admin.cli.tool.jobs.maintenance.message"
 msgstr ""
+"Nije moguće pokrenuti zadatke iz reda jer je uključen režim održavanja "
+"aplikacije."
 
 msgid "admin.cli.tool.jobs.available.options.list.description"
 msgstr ""
+"Prikaži sve zadatke u redu. Ako želite paginaciju rezultata, koristite "
+"parametre --page= i --perPage=. Prosledite opciju --failed za prikaz "
+"neuspelih zadataka."
 
 msgid "admin.cli.tool.jobs.available.options.purge.description"
 msgstr ""
+"Ukloni određeni zadatak iz reda na osnovu njegovog ID-a. Ako želite da "
+"uklonite sve, prosledite parametar --all. Ako želite da uklonite sve iz "
+"određenog reda, prosledite parametar --queue="
 
 msgid "admin.cli.tool.jobs.available.options.test.description"
 msgstr ""
+"Dodaj probni zadatak u probni red. Koristite opcioni parametar --only= i "
+"prosledite „failed“ ili „success“ za pokretanje neuspešnog ili uspešnog "
+"zadatka."
 
 msgid "admin.cli.tool.jobs.available.options.work.description"
 msgstr ""
+"Pokreni beskonačni daemon proces koji će kontinuirano obrađivati zadatke. "
+"Koristi opciju --help da vidiš dostupne parametre za ovu komandu."
 
 msgid "admin.cli.tool.jobs.available.options.failed.description"
 msgstr ""
+"Prikaži sve neuspele zadatke. Postavi parametre --queue=IME_REDA i --"
+"connection=IME_KONEKCIJE da filtriraš listu. Takođe, koristi parametre/"
+"oznake --redispatch i --clear za ponovno slanje u red ili brisanje svih/"
+"određenih neuspelih zadataka."
 
 msgid "admin.cli.tool.jobs.available.options.run.description"
 msgstr ""
+"Pošalji dostupne zadatke u red. Da pošalješ zadatak u određeni red, koristi "
+"parametar --queue=IME_REDA. Upotrebite --test za izvršenje probnog zadatka i "
+"--once da se zaustavi nakon jednog zadatka."
 
 msgid "admin.cli.tool.jobs.available.options.run.completed.description"
 msgstr ""
+"Završeno izvršavanje {$jobCount} zadataka u redu pod imenom {$queueName}."
 
 msgid "admin.cli.tool.jobs.available.options.run.empty.description"
-msgstr ""
+msgstr "Nema dostupnih zadataka za izvršenje u redu pod imenom {$queueName}."
 
 msgid "admin.cli.tool.jobs.available.options.total.description"
 msgstr ""
+"Prikaži ukupan broj zadataka u redu. Koristi opciju --failed da vidiš ukupan "
+"broj neuspelih zadataka."
 
 msgid "admin.cli.tool.jobs.available.options.help.description"
-msgstr ""
+msgstr "Prikaži uputstvo za korišćenje komande Jobs"
 
 msgid "admin.cli.tool.jobs.available.options.usage.description"
-msgstr ""
+msgstr "Prikaži parametre za korišćenje komande Jobs"
 
 msgid "admin.cli.tool.jobs.empty.option"
-msgstr ""
+msgstr "Opcija ne može biti prazna! Proveri način korišćenja."
 
 msgid "admin.cli.tool.jobs.queued.jobs.failed.title"
-msgstr ""
+msgstr "Neuspešni zadaci u redu"
 
 msgid "admin.cli.tool.jobs.queued.jobs.title"
-msgstr ""
+msgstr "Zadaci u redu"
 
 msgid "admin.cli.tool.jobs.queued.jobs.fields.id"
-msgstr ""
+msgstr "ID"
 
 msgid "admin.cli.tool.jobs.queued.jobs.fields.queue"
-msgstr ""
+msgstr "Red"
 
 msgid "admin.cli.tool.jobs.queued.jobs.fields.connection"
-msgstr ""
+msgstr "Konekcija"
 
 msgid "admin.cli.tool.jobs.queued.jobs.fields.job.display.name"
-msgstr ""
+msgstr "Naziv zadatka"
 
 msgid "admin.cli.tool.jobs.queued.jobs.fields.attempts"
-msgstr ""
+msgstr "Pokušaji"
 
 msgid "admin.cli.tool.jobs.queued.jobs.fields.reserved.at"
-msgstr ""
+msgstr "Rezervisano u"
 
 msgid "admin.cli.tool.jobs.queued.jobs.fields.available.at"
-msgstr ""
+msgstr "Dostupno u"
 
 msgid "admin.cli.tool.jobs.queued.jobs.fields.created.at"
-msgstr ""
+msgstr "Kreirano u"
 
 msgid "admin.cli.tool.jobs.queued.jobs.fields.failed.at"
-msgstr ""
+msgstr "Neuspelo u"
 
 msgid "admin.cli.tool.jobs.queued.jobs.fields.exception"
-msgstr ""
+msgstr "Poruka o izuzetku"
 
 msgid "admin.cli.tool.jobs.pagination"
-msgstr ""
+msgstr "Paginacija"
 
 msgid "admin.cli.tool.jobs.pagination.current"
-msgstr ""
+msgstr "Trenutni"
 
 msgid "admin.cli.tool.jobs.pagination.previous"
-msgstr ""
+msgstr "Prethodni"
 
 msgid "admin.cli.tool.jobs.pagination.next"
-msgstr ""
+msgstr "Sledeći"
 
 msgid "admin.cli.tool.jobs.purge.without.id"
 msgstr ""
+"Treba da proslediš bar ID zadatka, '--all' ili '--queue=' da bi koristio ovu "
+"komandu"
 
 msgid "admin.cli.tool.jobs.test.job.failed.dispatch.message"
 msgstr ""
+"Poslat probni zadatak koji je označen kao neuspešan u redu pod imenom "
+"{$queueName}"
 
 msgid "admin.cli.tool.jobs.test.job.success.dispatch.message"
 msgstr ""
+"Poslat probni zadatak koji je označen kao uspešan u redu pod imenom "
+"{$queueName}"
 
 msgid "admin.cli.tool.jobs.test.invalid.option"
 msgstr ""
+"Nevažeća opcija za probni zadatak. Parametar '--only=' može imati samo "
+"vrednosti 'failed' ili 'success'."
 
 msgid "admin.cli.tool.jobs.purge.invalid.id"
-msgstr ""
+msgstr "Nevažeći ID zadatka"
 
 msgid "admin.cli.tool.jobs.purge.successful"
-msgstr ""
+msgstr "Zadatak je obrisan!"
 
 msgid "admin.cli.tool.jobs.purge.impossible.to.purge.empty"
-msgstr ""
+msgstr "Nema zadataka za brisanje."
 
 msgid "admin.cli.tool.jobs.purge.impossible.to.purge.all"
-msgstr ""
+msgstr "Nije bilo moguće obrisati sve zadatke."
 
 msgid "admin.cli.tool.jobs.purge.successful.all"
-msgstr ""
+msgstr "Svi zadaci su obrisani!"
 
 msgid "admin.cli.tool.jobs.failed.clear.successful"
 msgstr ""
+"{$jobsCount} neuspelih zadataka je uspešno uklonjeno sa liste neuspelih "
+"zadataka."
 
 msgid "admin.cli.tool.jobs.failed.redispatch.successful"
-msgstr ""
+msgstr "{$jobsCount} zadataka je uspešno ponovo poslato u red."
 
 msgid "admin.cli.tool.jobs.total.failed.jobs"
-msgstr ""
+msgstr "Imamo {$total} neuspelih zadataka"
 
 msgid "admin.cli.tool.jobs.total.jobs"
-msgstr ""
+msgstr "Imamo {$total} zadataka u redu"
 
 msgid "admin.cli.tool.jobs.option.doesnt.exists"
-msgstr ""
+msgstr "Opcija {$option} ne postoji."
 
 msgid "admin.cli.tool.jobs.mean.those"
-msgstr ""
+msgstr "Da li ste mislili na neku od sledećih opcija?"
 
 msgid "admin.jobs.totalCount"
-msgstr ""
+msgstr "Ukupno ima <strong>{$total}</strong> zadatak(a) u redu"
 
 msgid "admin.jobs.failed.totalCount"
-msgstr ""
+msgstr "Ukupno ima <strong>{$total}</strong> zadatak(a) u redu."
 
 msgid "admin.jobs.viewQueuedJobs"
-msgstr ""
+msgstr "Prikaži zadatke u redu"
 
 msgid "navigation.tools.jobs"
-msgstr ""
+msgstr "Zadaci"
 
 msgid "navigation.tools.jobs.failed"
-msgstr ""
+msgstr "Neuspeli poslovi"
 
 msgid "navigation.tools.jobs.failed.details"
-msgstr ""
+msgstr "Detalji o neuspelom zadatku"
 
 msgid "navigation.tools.jobs.description"
-msgstr ""
+msgstr "Prikaži sve zadatke u redu u sistemu i prati neuspele pokušaje."
 
 msgid "navigation.tools.jobs.view"
-msgstr ""
+msgstr "Prikaži zadatke"
 
 msgid "navigation.tools.jobs.failed.view"
-msgstr ""
+msgstr "Prikaži neupele zadatke"
 
 msgid "navigation.tools.job.failed.details.view"
-msgstr ""
+msgstr "Prikaži detalje neuspelog zadatka: {$id}"
 
 msgid "admin.job.failed.list.attribute"
-msgstr ""
+msgstr "Svojstvo"
 
 msgid "admin.job.failed.list.attribute.value"
-msgstr ""
+msgstr "Vrednost svojstva"
 
 msgid "admin.jobs.list.id"
-msgstr ""
+msgstr "ID"
 
 msgid "admin.jobs.list.displayName"
-msgstr ""
+msgstr "Zadatak"
 
 msgid "admin.jobs.list.queue"
-msgstr ""
+msgstr "Red"
 
 msgid "admin.jobs.list.connection"
-msgstr ""
+msgstr "Konekcija"
 
 msgid "admin.jobs.list.attempts"
-msgstr ""
+msgstr "Pokušaji"
 
 msgid "admin.jobs.list.createdAt"
-msgstr ""
+msgstr "Kreirano u"
 
 msgid "admin.jobs.list.failedAt"
-msgstr ""
+msgstr "Neuspelo u"
 
 msgid "admin.jobs.list.payload"
-msgstr ""
+msgstr "Podaci za obradu"
 
 msgid "admin.jobs.list.exception"
-msgstr ""
+msgstr "Izuzetak"
 
 msgid "admin.jobs.list.actions"
-msgstr ""
+msgstr "Radnje"
 
 msgid "admin.jobs.failedAt"
-msgstr ""
+msgstr "Kreirano: {$failedAt}"
 
 msgid "admin.jobs.createdAt"
-msgstr ""
+msgstr "Kreirano: {$createdAt}"
 
 msgid "admin.jobs.failed.action.redispatch"
-msgstr ""
+msgstr "Pokušaj ponovo"
 
 msgid "admin.jobs.failed.action.redispatch.all"
-msgstr ""
+msgstr "Ponovno rasporedi sve neuspele zadatke"
 
 msgid "admin.job.compileMetrics.returnToStaging.error"
 msgstr ""
+"Zadatak koji učitava podatke o statistici korišćenja iz fajla {$file} nije "
+"uspeo, a fajl nije mogao da se premesti sa {$archivedFilePath} u "
+"{$stagingPath}."
 
 msgid "admin.job.compileMetrics.error"
 msgstr ""
+"Zadatak koji učitava podatke o statistici korišćenja iz fajla {$file} nije "
+"uspeo. Fajl je premešten u direktorijum za privremenu obradu."
 
 msgid "admin.settings.statistics.collection"
-msgstr ""
+msgstr "Skupljanje podataka"
 
 msgid "admin.settings.statistics.collection.description"
-msgstr ""
+msgstr "Podesi koje vrste statistike korišćenja treba prikupljati."
 
 msgid "admin.settings.statistics.storage"
-msgstr ""
+msgstr "Skladištenje podataka"
 
 msgid "admin.settings.statistics.storage.description"
-msgstr ""
+msgstr "Podesi koje statistike korišćenja treba čuvati na serveru."
 
 msgid "admin.settings.statistics.sushi"
-msgstr ""
+msgstr "SUSHI protokol"
 
 msgid "admin.settings.statistics.sushi.description"
 msgstr ""
@@ -869,3 +907,24 @@ msgstr ""
 
 msgid "admin.fileLoader.fileDispatched"
 msgstr "Fajl {$filename} je premešten u direktorijum za slanje."
+
+msgid "admin.cli.tool.jobs.sandbox.message"
+msgstr ""
+"Nije moguće pokrenuti zadatke iz reda jer je uključen sandbox režim "
+"aplikacije."
+
+msgid "admin.cli.tool.jobs.available.options.restart.description"
+msgstr "Ponovo pokreni daemon-e radnika reda nakon što završe trenutni zadatak."
+
+msgid "admin.cli.tool.jobs.available.options.restart.confirm"
+msgstr ""
+"Radnici će uredno završiti i izaći nakon što završe izvršavanje trenutnog "
+"zadatka."
+
+msgid "admin.job.processLogFile.fileNotFound"
+msgstr "Fajl {$file} ne postoji."
+
+msgid "admin.job.archiveLogFile.error"
+msgstr ""
+"Fajl {$file} nije mogao da se premesti sa {$dispatchFilePath} u "
+"{$archivedFilePath}."
