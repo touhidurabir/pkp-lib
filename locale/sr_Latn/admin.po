@@ -5,7 +5,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:50:04+00:00\n"
-"PO-Revision-Date: 2026-03-23 23:37+0000\n"
+"PO-Revision-Date: 2026-03-25 08:19+0000\n"
 "Last-Translator: lena bojcic <lenabojcicck@gmail.com>\n"
 "Language-Team: Serbian (latin) <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "admin/sr_Latn/>\n"
@@ -787,66 +787,89 @@ msgstr "SUSHI protokol"
 
 msgid "admin.settings.statistics.sushi.description"
 msgstr ""
+"Podesi <a href=\"https://www.projectcounter.org/counter-sushi/\">COUNTER 5 "
+"SUSHI</a> protokol, industrijski standard za distribuciju statistike "
+"korišćenja."
 
 msgid "admin.settings.statistics.keepDaily"
-msgstr ""
+msgstr "Mesečne ili dnevne statistike"
 
 msgid "admin.settings.statistics.keepDaily.description"
 msgstr ""
+"Odredi da li će se pratiti dnevne ili mesečne statistike korišćenja. "
+"Praćenje dnevnih statistika može značajno povećati veličinu baze podataka."
 
 msgid "admin.settings.statistics.keepDaily.keep"
-msgstr ""
+msgstr "Prati dnevne i mesečne statistike"
 
 msgid "admin.settings.statistics.keepDaily.discard"
-msgstr ""
+msgstr "Prati samo mesečne statistike"
 
 msgid "admin.settings.statistics.compressStatsLogs.label"
-msgstr ""
+msgstr "Kompresuj log fajlove"
 
 msgid "admin.settings.statistics.compressStatsLogs.description"
 msgstr ""
+"Statistike se generišu iz pristupnih log fajlova koji se, nakon obrade, "
+"premeštaju u <code>{$path}</code>. Da li log fajlove treba kompresovati u "
+"<code>.gz</code> fajlove nakon obrade? Kompresija log fajlova može smanjiti "
+"zauzeće prostora na disku servera."
 
 msgid "admin.settings.statistics.compressStatsLogs.default"
-msgstr ""
+msgstr "Ostavi log fajlove na mestu"
 
 msgid "admin.settings.statistics.compressStatsLogs.compress"
-msgstr ""
+msgstr "Kompresuj log fajlove"
 
 msgid "admin.settings.statistics.publicSushiApi.private"
 msgstr ""
+"Ograniči pristup COUNTER SUSHI API-ju za statistiku na menadžere i "
+"administratore"
 
 msgid "admin.settings.statistics.sushiPlatform"
-msgstr ""
+msgstr "Platforma"
 
 msgid "admin.settings.statistics.sushiPlatform.description"
 msgstr ""
+"Prema COUNTER SUSHI protokolu, svaki izveštaj o statistici mora "
+"identifikovati „platformu“ koja pruža statistiku. Po defaultu, časopis će "
+"biti označen kao platforma za sve statistike. Međutim, ako su svi časopisi "
+"na ovom sajtu objavljeni, u vlasništvu ili pod upravom istog izdavača, "
+"možete odabrati da sajt bude označen kao platforma."
 
 msgid "admin.settings.statistics.sushiPlatform.sushiPlatformID"
-msgstr ""
+msgstr "ID platforme"
 
 msgid "admin.settings.statistics.sushiPlatform.sushiPlatformID.description"
 msgstr ""
+"Kako identifikovati ovu platformu u COUNTER SUSHI izveštajima. ID platforme "
+"mora imati najviše 17 karaktera i može sadržati slova (a–z, A–Z), cifre (0–9)"
+", donje crte (_), tačke (.) i kosu crtu (/). ID platforme se koristi u više "
+"kolona i treba da bude što kraći, ali prepoznatljiv. Obično se zasniva na "
+"imenu izdavača ili platforme, nazivu domena ili dobro poznatoj, jedinstvenoj "
+"skraćenici."
 
 msgid "admin.settings.statistics.sushiPlatform.sushiPlatformID.required"
 msgstr ""
+"D platforme je obavezan kada će sajt biti identifikovan kao SUSHI platforma."
 
 msgid "admin.cli.tool.jobs.work.options.title"
-msgstr ""
+msgstr "Opcije komande work"
 
 msgid "admin.cli.tool.jobs.work.options.usage"
-msgstr ""
+msgstr "Upotreba: [--opcija1 --opcija2= ...]"
 
 msgid "admin.cli.tool.jobs.work.options.description"
-msgstr ""
+msgstr "Dostupne opcije za komandu work"
 
 msgid "admin.cli.tool.jobs.work.option.connection.description"
-msgstr ""
+msgstr "Ime konekcije reda koji će se obrađivati [podrazumevano: '{$default}']"
 
 msgid "admin.cli.tool.jobs.work.option.queue.description"
-msgstr ""
+msgstr "Ime reda koji će se obrađivati [podrazumevano: '{$default}']"
 
 msgid "admin.cli.tool.jobs.work.option.name.description"
-msgstr ""
+msgstr "Ime radnika [podrazumevano: '{$default}']"
 
 msgid "admin.cli.tool.jobs.work.option.backoff.description"
 msgstr ""
