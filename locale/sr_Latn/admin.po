@@ -5,7 +5,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:50:04+00:00\n"
-"PO-Revision-Date: 2026-03-25 08:19+0000\n"
+"PO-Revision-Date: 2026-03-25 22:00+0000\n"
 "Last-Translator: lena bojcic <lenabojcicck@gmail.com>\n"
 "Language-Team: Serbian (latin) <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "admin/sr_Latn/>\n"
@@ -873,36 +873,50 @@ msgstr "Ime radnika [podrazumevano: '{$default}']"
 
 msgid "admin.cli.tool.jobs.work.option.backoff.description"
 msgstr ""
+"Broj sekundi za čekanje pre ponovnog pokušaja izvršavanja zadatka koji je "
+"naišao na neobrađeni izuzetak [podrazumevano: '{$default}']"
 
 msgid "admin.cli.tool.jobs.work.option.memory.description"
-msgstr ""
+msgstr "Ograničenje memorije u megabajtima [podrazumevano: '{$default}']"
 
 msgid "admin.cli.tool.jobs.work.option.timeout.description"
 msgstr ""
+"Broj sekundi koliko podređeni proces može da se izvršava [podrazumevano: "
+"'{$default}']"
 
 msgid "admin.cli.tool.jobs.work.option.sleep.description"
 msgstr ""
+"Broj sekundi za čekanje kada nijedan zadatak nije dostupan [podrazumevano: "
+"'{$default}']"
 
 msgid "admin.cli.tool.jobs.work.option.tries.description"
 msgstr ""
+"Broj pokušaja izvršavanja zadatka pre nego što se označi kao neuspešan "
+"[podrazumevano: '{$default}']"
 
 msgid "admin.cli.tool.jobs.work.option.force.description"
 msgstr ""
+"Primoraj radni proces da se izvršava čak i u režimu održavanja "
+"[podrazumevano: {$default}]"
 
 msgid "admin.cli.tool.jobs.work.option.stopWhenEmpty.description"
-msgstr ""
+msgstr "Zaustavi se kada je red zadataka prazan [podrazumevano: {$default}]"
 
 msgid "admin.cli.tool.jobs.work.option.maxJobs.description"
 msgstr ""
+"Broj zadataka koji treba obraditi pre zaustavljanja [podrazumevano: "
+"'{$default}']"
 
 msgid "admin.cli.tool.jobs.work.option.maxTime.description"
 msgstr ""
+"Maksimalan broj sekundi tokom kojih radni proces može da se izvršava "
+"[podrazumevano: '{$default}']"
 
 msgid "admin.cli.tool.jobs.work.option.rest.description"
-msgstr ""
+msgstr "Broj sekundi za odmor između zadataka [podrazumevano: '{$default}']"
 
 msgid "admin.cli.tool.jobs.work.option.test.description"
-msgstr ""
+msgstr "Pokreni radni daemon za probni red zadataka"
 
 #~ msgid "admin.settings.oaiRegistration"
 #~ msgstr "Registrujte sajt za indeksiranje (sakupljanje metapodataka)"
@@ -951,3 +965,112 @@ msgid "admin.job.archiveLogFile.error"
 msgstr ""
 "Fajl {$file} nije mogao da se premesti sa {$dispatchFilePath} u "
 "{$archivedFilePath}."
+
+msgid "admin.settings.statistics.sushiPlatform.isSiteSushiPlatform"
+msgstr "Koristi sajt kao platformu za sve časopise."
+
+msgid "admin.cli.tool.appKey.options.usage.description"
+msgstr "Prikaži parametre korišćenja AppKey-a"
+
+msgid "admin.cli.tool.appKey.options.validate.description"
+msgstr "Proveri važeći app key ako je pronađen u konfig fajlu"
+
+msgid "admin.cli.tool.appKey.options.configure.description"
+msgstr "Dodaj konfiguracionu promenljivu app_key u fajl config.inc.php."
+
+msgid "admin.cli.tool.appKey.mean.those"
+msgstr "Da li ste mislili na neku od sledećih opcija?"
+
+msgid "admin.cli.tool.appKey.show"
+msgstr "Generisani App Key: {$appKey}"
+
+msgid "admin.cli.tool.appKey.error.alreadyKeyVariableExists"
+msgstr ""
+"Promenljiva app_key već postoji u general sekciji konfig fajla. Pokrenite "
+"komandu php lib/pkp/tools/appKey.php generate da postavite novi app key."
+
+msgid "admin.cli.tool.appKey.error.missingAppKey"
+msgstr "U konfig fajlu nije postavljen app key."
+
+msgid "admin.cli.tool.appKey.error.InvalidAppKey"
+msgstr ""
+"Nevažeći app key je postavljen, nepodržani šifarski algoritam ili pogrešna "
+"dužina ključa. Podržani šifarski algoritmi su: {$ciphers}."
+
+msgid "admin.cli.tool.appKey.warning.replaceValidKey"
+msgstr ""
+"Važeći APP Key je već postavljen u konfig fajlu. Da biste ga prepisali, "
+"koristite zastavicu --force uz komandu."
+
+msgid "admin.cli.tool.appKey.success.writtenToConfig"
+msgstr "App key je uspešno postavljen u konfig fajlu."
+
+msgid "admin.cli.tool.appKeyVariable.error.writtenToConfig"
+msgstr ""
+"Nije moguće postaviti promenljivu app_key u konfig fajlu. Ažurirajte general "
+"sekciju konfig fajla i dodajte liniju app_key = ."
+
+msgid "admin.cli.tool.appKey.success.valid"
+msgstr "Važeći app key je postavljen u konfig fajlu"
+
+msgid "admin.cli.tool.scheduler.options.run.description"
+msgstr "Pokreni raspoređivač zadataka (scheduler)."
+
+msgid "admin.cli.tool.scheduler.options.list.description"
+msgstr "Prikaži sve zakazane zadatke."
+
+msgid "admin.cli.tool.scheduler.options.work.description"
+msgstr "Pokreni radnika rasporeda (schedule worker)."
+
+msgid "admin.cli.tool.scheduler.options.usage.description"
+msgstr "Prikaži parametre korišćenja raspoređivača zadataka (Scheduler)."
+
+msgid "admin.cli.tool.scheduler.maintenance.message"
+msgstr ""
+"Nije moguće pokrenuti zakazane zadatke jer je režim održavanja aplikacije "
+"uključen."
+
+msgid "admin.cli.tool.scheduler.mean.those"
+msgstr "Da li ste mislili na neku od sledećih opcija?"
+
+msgid "admin.cli.tool.scheduler.options.work.running.info"
+msgstr "Zakazani zadaci se izvršavaju na svake minute."
+
+msgid "admin.cli.tool.scheduler.tasks.empty"
+msgstr "Nema registrovanih zakazanih zadataka."
+
+msgid "admin.cli.tool.scheduler.tasks.notFound"
+msgstr "Nije pronađen odgovarajući zakazani zadatak."
+
+msgid "admin.cli.tool.scheduler.run.prompt"
+msgstr "Koju komandu želite da izvršite?"
+
+msgid "admin.scheduledTask.removeExpiredInvitations"
+msgstr "Pokreni zadatak za automatsko uklanjanje isteklih pozivnica"
+
+msgid "admin.cli.tool.appKey.options.generate.description"
+msgstr ""
+"Generiši novi app key i zameni ga u konfig fajlu. Koristi zastavicu --show "
+"da samo prikažeš vrednost, a --force da prepišeš postojeći važeći app key."
+
+msgid "admin.cli.tool.appKey.error.missingKeyVariable"
+msgstr ""
+"Nije definisana promenljiva app_key u general sekciji konfig fajla. "
+"Ažurirajte general sekciju u konfig fajlu i dodajte liniju app_key = ili "
+"pokrenite komandu php lib/pkp/tools/appKey.php configure da je podesite."
+
+msgid "admin.cli.tool.appKeyVariable.success.writtenToConfig"
+msgstr ""
+"Promenljiva app key je uspešno postavljena u konfig fajlu. Pokrenite komandu "
+"php lib/pkp/tools/appKey.php generate da postavite novi app key."
+
+msgid "admin.cli.tool.scheduler.options.test.description"
+msgstr ""
+"Pokreni određeni zakazani zadatak sa liste ili koristi --name da pokreneš "
+"konkretan zadatak. Postavi zastavicu --no-scroll da prikažeš celu listu bez "
+"skrolovanja."
+
+msgid "admin.cli.tool.schedule.sandbox.message"
+msgstr ""
+"Nije moguće pokrenuti zakazane zadatke jer je uključen sandbox režim "
+"aplikacije."
