@@ -1,10 +1,10 @@
-# Jiří Dlouhý <jiri.dlouhy@czp.cuni.cz>, 2021, 2022, 2023, 2024, 2025.
+# Jiří Dlouhý <jiri.dlouhy@czp.cuni.cz>, 2021, 2022, 2023, 2024, 2025, 2026.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:41+00:00\n"
-"PO-Revision-Date: 2025-10-23 06:51+0000\n"
+"PO-Revision-Date: 2026-03-25 17:56+0000\n"
 "Last-Translator: Jiří Dlouhý <jiri.dlouhy@czp.cuni.cz>\n"
 "Language-Team: Czech <http://translate.pkp.sfu.ca/projects/pkp-lib/user/cs/>"
 "\n"
@@ -801,16 +801,14 @@ msgstr "Zjištěny duplicitní ORCiD pro přispěvatele."
 msgid "orcid.verify.hasUnauthenticatedOrcid"
 msgstr "Zjištěny neověřené ORCiD pro přispěvatele."
 
-#, fuzzy
 msgid "user.affiliations.description"
 msgstr ""
 "Níže uveďte celý název instituce a vyvarujte se jakýchkoli zkratek. Vyberte "
 "název z rozbalovacího seznamu a kliknutím na tlačítko \"Přidat\" zahrňte "
-"příslušnost do svého profilu. (např. \"Univerzita Karlova\")"
+"příslušnost do svého profilu. (např. \"Univerzita Karlova\")."
 
-#, fuzzy
 msgid "user.affiliations.translationNameInLanguage"
-msgstr "Název institutu v {$language}"
+msgstr "Název institutu v jazyce {$language}"
 
 msgid "user.affiliations.deleteModal.message"
 msgstr "Afiliace <strong>{$affiliation}</strong> bude smazána."
@@ -860,16 +858,14 @@ msgstr "Všechny dostupné překlady"
 msgid "user.affiliations.translationsSomeAvailable"
 msgstr "{$count} z {$total} jazyků je dokončeno"
 
-#, fuzzy
 msgid "user.affiliations.typeTranslationNameInLanguageLabel"
-msgstr "Zadejte název institutu v {$language}"
+msgstr "Zadejte název institutu v jazyce {$language}"
 
 msgid "user.affiliations.deleteModal.title"
 msgstr "Jste si jisti?"
 
-#, fuzzy
 msgid "user.affiliations.searchPhraseLabel"
-msgstr "Napište název instituce v {$language}"
+msgstr "Napište název instituce v jazyce {$language}"
 
 msgid "user.affiliations.searchPhraseNothingFound"
 msgstr "Vámi hledaná fráze nebyla nalezena"
@@ -959,3 +955,16 @@ msgstr "E-mail bude odeslán po vytvoření autora."
 
 msgid "user.login.activate.description"
 msgstr "Potvrďte a aktivujte svůj účet"
+
+msgid "user.affiliations.error.rorApiDeprecated"
+msgstr ""
+"Služba ROR API v této instalaci je zastaralá. Obraťte se, prosím, na správce "
+"systému."
+
+msgid "user.affiliations.error.rorApi"
+msgstr "Chyba rozhraní API ROR"
+
+msgid "user.affiliations.error.rorApiUnavailable"
+msgstr ""
+"Služba ROR API je momentálně nedostupná. Obnovte stránku nebo to zkuste "
+"později."
