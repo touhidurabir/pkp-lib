@@ -27,7 +27,7 @@ msgid "user.affiliations.description"
 msgstr ""
 "Enter the full name of the institution below, avoiding any acronyms. "
 "Select the name from the dropdown and click \"Add\" to include the "
-"affiliation in your profile. (e.g. \"Simon Fraser University\")"
+"affiliation in your profile (e.g. \"Simon Fraser University\")."
 
 msgid "user.affiliations.institution"
 msgstr "Institution"
