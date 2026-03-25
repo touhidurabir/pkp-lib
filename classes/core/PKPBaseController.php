@@ -20,6 +20,7 @@ use Exception;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Illuminate\Foundation\Bus\DispatchesJobs;
 use Illuminate\Foundation\Validation\ValidatesRequests;
+use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Pagination\LengthAwarePaginator;
@@ -583,6 +584,43 @@ abstract class PKPBaseController extends Controller
         }
 
         return true;
+    }
+
+    /**
+     * Helper method to get the appropriate response when an error
+     * has occurred during a file upload
+     *
+     * @param int $error One of the UPLOAD_ERR_ constants
+     */
+    protected function getUploadErrorResponse(int $error): JsonResponse
+    {
+        switch ($error) {
+            case UPLOAD_ERR_INI_SIZE:
+            case UPLOAD_ERR_FORM_SIZE:
+                return response()->json([
+                    'error' => __('api.files.400.fileSize', [
+                        'maxSize' => Application::getReadableMaxFileSize()
+                    ]),
+                ], Response::HTTP_BAD_REQUEST);
+            case UPLOAD_ERR_PARTIAL:
+                return response()->json([
+                    'error' => __('api.files.400.uploadFailed'),
+                ], Response::HTTP_BAD_REQUEST);
+            case UPLOAD_ERR_NO_FILE:
+                return response()->json([
+                    'error' => __('api.files.400.noUpload'),
+                ], Response::HTTP_BAD_REQUEST);
+            case UPLOAD_ERR_NO_TMP_DIR:
+            case UPLOAD_ERR_CANT_WRITE:
+            case UPLOAD_ERR_EXTENSION:
+                return response()->json([
+                    'error' => __('api.files.400.config'),
+                ], Response::HTTP_BAD_REQUEST);
+        }
+
+        return response()->json([
+            'error' => __('api.files.400.uploadFailed'),
+        ], Response::HTTP_BAD_REQUEST);
     }
 
     /**

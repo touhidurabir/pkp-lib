@@ -586,39 +586,4 @@ class PKPSubmissionFileController extends PKPBaseController
         $genreDao = DAORegistry::getDAO('GenreDAO');
         return $genreDao->getByContextId($this->getRequest()->getContext()->getId())->toAssociativeArray();
     }
-
-    /**
-     * Helper method to get the appropriate response when an error
-     * has occurred during a file upload
-     *
-     * @param int $error One of the UPLOAD_ERR_ constants
-     */
-    private function getUploadErrorResponse(int $error): JsonResponse
-    {
-        switch ($error) {
-            case UPLOAD_ERR_INI_SIZE:
-            case UPLOAD_ERR_FORM_SIZE:
-                return response()->json([
-                    'error' => __('api.files.400.fileSize', ['maxSize' => Application::getReadableMaxFileSize()]),
-                ], Response::HTTP_BAD_REQUEST);
-            case UPLOAD_ERR_PARTIAL:
-                return response()->json([
-                    'error' => __('api.files.400.uploadFailed'),
-                ], Response::HTTP_BAD_REQUEST);
-            case UPLOAD_ERR_NO_FILE:
-                return response()->json([
-                    'error' => __('api.files.400.noUpload'),
-                ], Response::HTTP_BAD_REQUEST);
-            case UPLOAD_ERR_NO_TMP_DIR:
-            case UPLOAD_ERR_CANT_WRITE:
-            case UPLOAD_ERR_EXTENSION:
-                return response()->json([
-                    'error' => __('api.files.400.config'),
-                ], Response::HTTP_BAD_REQUEST);
-        }
-
-        return response()->json([
-            'error' => __('api.files.400.uploadFailed'),
-        ], Response::HTTP_BAD_REQUEST);
-    }
 }
