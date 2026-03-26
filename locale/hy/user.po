@@ -1,8 +1,8 @@
 # Hovhannes Harutyunyan <hharutyunyan@gmail.com>, 2022.
-# Tigran Zargaryan <tigran@flib.sci.am>, 2022, 2023, 2024, 2025.
+# Tigran Zargaryan <tigran@flib.sci.am>, 2022, 2023, 2024, 2025, 2026.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2025-10-24 04:30+0000\n"
+"PO-Revision-Date: 2026-03-26 06:48+0000\n"
 "Last-Translator: Tigran Zargaryan <tigran@flib.sci.am>\n"
 "Language-Team: Armenian <http://translate.pkp.sfu.ca/projects/pkp-lib/user/"
 "hy/>\n"
@@ -799,27 +799,23 @@ msgstr "Բոլոր թարգմանությունները մատչելի են"
 msgid "user.affiliations.translationsSomeAvailable"
 msgstr "Ավարտված է {$count}-ը {$total} լեզուներից"
 
-#, fuzzy
 msgid "user.affiliations.typeTranslationNameInLanguageLabel"
 msgstr "Մուտքագրեք ինստիտուտի անունը {$language} -ում"
 
-#, fuzzy
 msgid "user.affiliations.description"
 msgstr ""
 "Ստորև մուտքագրեք հաստատության լրիվ անվանումը՝ խուսափելով որևէ հապավումից: "
 "Ընտրեք անունը բացվող ցանկից և սեղմեք «Ավելացնել»՝ պատկանելությունը ձեր "
-"պրոֆիլում ներառելու համար, (օրինակ՝ \"Simon Fraser University\")"
+"պրոֆիլում ներառելու համար, (օրինակ՝ \"Simon Fraser University\"):"
 
-#, fuzzy
 msgid "user.affiliations.translationNameInLanguage"
 msgstr "Հաստատության անունը {$language} -ում"
 
 msgid "user.affiliations.deleteModal.message"
 msgstr "<strong>{$affiliation}</strong> պատկանելությունը կջնջվի:"
 
-#, fuzzy
 msgid "user.affiliations.searchPhraseLabel"
-msgstr "Մուտքագրեք հաստատության անունը {$language} -ով"
+msgstr "Մուտքագրեք հաստատության անունը {$language} -ում"
 
 msgid "user.affiliations.searchPhraseNothingFound"
 msgstr "Որոնման ձեր արտահայտությունը չհաջողվեց գտնել"
@@ -938,3 +934,16 @@ msgstr "Էլ․ նամակ կուղարկվի հենց հեղինակը ստեղ
 
 msgid "user.login.activate.description"
 msgstr "Հաստատեք և ակտիվացրեք ձեր հաշիվը"
+
+msgid "user.affiliations.error.rorApi"
+msgstr "ROR API սխալ"
+
+msgid "user.affiliations.error.rorApiUnavailable"
+msgstr ""
+"ROR API ծառայությունը ներկայումս անհասանելի է: Խնդրում ենք թարմացնել էջը կամ "
+"փորձել կրկին ավելի ուշ:"
+
+msgid "user.affiliations.error.rorApiDeprecated"
+msgstr ""
+"Այս տեղադրման ROR API ծառայությունը հնացած է։ Խնդրում ենք կապվել ձեր "
+"համակարգի ադմինիստրատորի հետ։"
