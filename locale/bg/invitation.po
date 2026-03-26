@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2025-12-12 23:50+0000\n"
+"PO-Revision-Date: 2026-03-26 10:27+0000\n"
 "Last-Translator: Cyril Kamburov <cc@intermedia.bg>\n"
 "Language-Team: Bulgarian <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "invitation/bg/>\n"
@@ -425,3 +425,12 @@ msgstr "За добавени потребителски групи трябва
 msgid "invitation.userRoleAssignment.validation.error.addUserRoles.mastheadMandatory"
 msgstr ""
 "За добавени потребителски групи трябва да се предостави заглавна страница"
+
+msgid "invitation.unavailable.title"
+msgstr "Поканата не е налична"
+
+msgid "invitation.unavailable.description"
+msgstr ""
+"Тази покана вече не е налична. Възможно е вече да е приета, отхвърлена или "
+"да е изтекла. Моля, свържете се с мениджъра на списанието за допълнителна "
+"помощ."
