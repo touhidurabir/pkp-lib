@@ -1,4 +1,4 @@
-# Alexandra Fogtmann-Schulz <alfo@kb.dk>, 2021, 2022, 2023, 2024, 2025.
+# Alexandra Fogtmann-Schulz <alfo@kb.dk>, 2021, 2022, 2023, 2024, 2025, 2026.
 # Jesper B. Thestrup <jbt@kb.dk>, 2022, 2023.
 # "Jesper B. Thestrup" <jbt@kb.dk>, 2025.
 msgid ""
@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:43+00:00\n"
-"PO-Revision-Date: 2025-10-23 06:51+0000\n"
+"PO-Revision-Date: 2026-03-26 08:11+0000\n"
 "Last-Translator: Alexandra Fogtmann-Schulz <alfo@kb.dk>\n"
 "Language-Team: Danish <http://translate.pkp.sfu.ca/projects/pkp-lib/user/da/>"
 "\n"
@@ -611,10 +611,10 @@ msgid "orcid.about.display"
 msgstr ""
 "For at anerkende, at du har brugt dit iD, og at det er godkendt, viser vi "
 "ORCID iD-ikonet <img src=\"https://info.orcid.org/wp-content/uploads/2020/12/"
-"ORCIDiD_icon16x16.png\" alt=\"iD icon\" width=\"16\" height=\"16\" border=\""
-"0\"> ved siden af dit navn på din indsendelses artikelside og på din "
+"ORCIDiD_icon16x16.png\" alt=\"iD icon\" width=\"16\" height=\"16\" border=\"0"
+"\"> ved siden af dit navn på din indsendelses artikelside og på din "
 "offentlige brugerprofil. <br>\n"
-"  Lær mere i in <a href=\"https://info.orcid.org/"
+"\t\tLær mere i in <a href=\"https://info.orcid.org/"
 "how-should-an-orcid-id-be-displayed/\"> Hvordan skal en ORCID iD vises.</a>"
 
 msgid "orcid.about.display.title"
@@ -850,12 +850,11 @@ msgstr ""
 "allerede sendt dig en e-mail med information om hvordan du validerer den "
 "ændrede e-mail."
 
-#, fuzzy
 msgid "user.affiliations.description"
 msgstr ""
-"Udfyld det fulde navn på institutionen nedenfor og undgå brug af akronymer. "
-"Vælg navnet fra dropdown listen og klik 'Tilføj' for at inkludere "
-"tilhørsforholdet i din profil (fx \"Simon Fraser Universitet\")."
+"Udfyld det fulde navn på institutionen nedenfor og undlad at bruge "
+"akronymer. Vælg navnet fra dropdown-listen og klik 'Tilføj' for at inkludere "
+"det som tilhørsforhold på din profil (fx \"Simon Fraser Universitet\")."
 
 msgid "user.affiliations.institution"
 msgstr "Institution"
@@ -878,13 +877,11 @@ msgstr "Alle tilgængelige oversættelser"
 msgid "user.affiliations.translationsSomeAvailable"
 msgstr "{$count} af {$total} sprog afsluttet"
 
-#, fuzzy
 msgid "user.affiliations.typeTranslationNameInLanguageLabel"
-msgstr "Skriv instituttets navn på {$language}"
+msgstr "Skriv institutionens navn på {$language}"
 
-#, fuzzy
 msgid "user.affiliations.translationNameInLanguage"
-msgstr "Institutnavn på {$language}"
+msgstr "Institutionsnavn på {$language}"
 
 msgid "user.affiliations.deleteModal.title"
 msgstr "Er du sikker?"
@@ -892,9 +889,8 @@ msgstr "Er du sikker?"
 msgid "user.affiliations.deleteModal.message"
 msgstr "Tilhørsforholdet <strong>{$affiliation}</strong> vil blive slettet."
 
-#, fuzzy
 msgid "user.affiliations.searchPhraseLabel"
-msgstr "Skriv instituttets navn på {$language}"
+msgstr "Skriv institutionens navn på {$language}"
 
 msgid "user.affiliations.searchPhraseNothingFound"
 msgstr "Din søgning gav ingen resultater"
@@ -958,3 +954,15 @@ msgstr "E-mailen vil blive sendt når forfatteren er blevet oprettet."
 
 msgid "user.login.activate.description"
 msgstr "Bekræft og aktiver din brugerkonto"
+
+msgid "user.affiliations.error.rorApi"
+msgstr "ROR API Fejl"
+
+msgid "user.affiliations.error.rorApiDeprecated"
+msgstr ""
+"ROR API servicen i denne installation er forældet. Kontakt venligst din "
+"systemadministrator."
+
+msgid "user.affiliations.error.rorApiUnavailable"
+msgstr ""
+"ROR API servicen er pt. utilgængelig. Opdater siden eller prøv igen senere."
