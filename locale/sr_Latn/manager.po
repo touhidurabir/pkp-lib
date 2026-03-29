@@ -5,7 +5,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:50:04+00:00\n"
-"PO-Revision-Date: 2026-03-29 16:54+0000\n"
+"PO-Revision-Date: 2026-03-29 17:24+0000\n"
 "Last-Translator: lena bojcic <lenabojcicck@gmail.com>\n"
 "Language-Team: Serbian (latin) <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "manager/sr_Latn/>\n"
@@ -207,40 +207,44 @@ msgstr ""
 "stavku(e) za sve podobne stavke koje još nemaju dodeljen DOI?"
 
 msgid "manager.dois.actions.depositAll.label"
-msgstr ""
+msgstr "Deponuj sve DOI identifikatore"
 
 msgid "manager.dois.actions.depositAll.prompt"
 msgstr ""
+"Da li ste sigurni da želite da zakažete deponovanje svih preostalih "
+"metapodataka DOI identifikatora kod {$registrationAgency}? Samo će "
+"objavljene stavke koje već imaju DOI biti deponovane. Status svake stavke "
+"biće ažuriran kada stigne odgovor."
 
 msgid "manager.dois.actions.description"
-msgstr ""
+msgstr "Preduzmi akciju nad {$count} izabranim stavkama."
 
 msgid "manager.dois.actions.bulkActions"
-msgstr ""
+msgstr "Masovne akcije"
 
 msgid "manager.dois.depositStatus"
-msgstr ""
+msgstr "Status deponovanja"
 
 msgid "manager.dois.publicationStatus"
-msgstr ""
+msgstr "Status publikacije"
 
 msgid "manager.dois.registration.submittedDescription"
-msgstr ""
+msgstr "Metapodaci za ovu stavku su poslati kod {$registrationAgency}."
 
 msgid "manager.dois.registration.manuallyMarkedRegistered"
-msgstr ""
+msgstr "Ova stavka je ručno registrovana kod agencije za registraciju."
 
 msgid "manager.dois.registration.notSubmittedDescription"
-msgstr ""
+msgstr "Metapodaci za ovu stavku nisu poslati kod {$registrationAgency}."
 
 msgid "manager.dois.registration.notPublishedDescription"
-msgstr ""
+msgstr "Ova stavka ne može biti deponovana dok ne bude objavljena."
 
 msgid "manager.dois.registration.viewError"
-msgstr ""
+msgstr "Prikaži grešku"
 
 msgid "manager.dois.registration.viewError.title"
-msgstr ""
+msgstr "Poruka o grešci pri registraciji"
 
 msgid "manager.dois.registration.viewRecord"
 msgstr ""
