@@ -779,11 +779,11 @@ class Collector implements CollectorInterface
             switch (DB::getDriverName()) {
                 case 'mysql':
                 case 'mariadb':
-                    $userGroupOrderBy = implode(', ', $this->orderByUserGroupIds);
+                    $userGroupOrderBy = implode(', ', array_map(intval(...), $this->orderByUserGroupIds));
                     $query->orderByRaw("FIELD(uugob.user_group_id, {$userGroupOrderBy}) ASC");
                     break;
                 case 'pgsql':
-                    $userGroupOrderBy = array_map(fn ($item) => 'uugob.user_group_id=' . $item, $this->orderByUserGroupIds);
+                    $userGroupOrderBy = array_map(fn ($item) => 'uugob.user_group_id=' . (int) $item, $this->orderByUserGroupIds);
                     $userGroupOrderBy = implode(', ', $userGroupOrderBy);
                     $query->orderByRaw("({$userGroupOrderBy}) ASC");
                     break;
