@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2025-09-26 00:58+0000\n"
-"Last-Translator: rafael de andrade pereira <rafaelpontoandrade@gmail.com>\n"
+"PO-Revision-Date: 2026-03-30 14:11+0000\n"
+"Last-Translator: Diego José Macêdo <diegojmacedo@gmail.com>\n"
 "Language-Team: Portuguese (Brazil) <http://translate.pkp.sfu.ca/projects/"
 "pkp-lib/invitation/pt_BR/>\n"
 "Language: pt_BR\n"
@@ -409,3 +409,9 @@ msgstr ""
 
 msgid "invitation.management.options"
 msgstr "Opções de gerenciamento de convites"
+
+msgid "invitation.decline.confirm"
+msgstr "Confirmar recusa do convite"
+
+msgid "invitation.decline.confirm.title"
+msgstr "Recusar convite"
