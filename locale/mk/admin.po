@@ -1,8 +1,8 @@
 # Emilija Andonoska <emilija-andonoska@hotmail.com>, 2023.
-# Mirko Spiroski <mspiroski@id-press.eu>, 2023, 2024, 2025.
+# Mirko Spiroski <mspiroski@id-press.eu>, 2023, 2024, 2025, 2026.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2025-04-02 14:03+0000\n"
+"PO-Revision-Date: 2026-03-17 20:05+0000\n"
 "Last-Translator: Mirko Spiroski <mspiroski@id-press.eu>\n"
 "Language-Team: Macedonian <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "admin/mk/>\n"
@@ -980,7 +980,7 @@ msgid "admin.job.processLogFile.fileNotFound"
 msgstr "Датотеката {$file} не постои."
 
 msgid "admin.scheduledTask.UpdateRorRegistryDataset"
-msgstr "Ажурирајте го кешот на податоци на регистарот Ror"
+msgstr "Ажурирајте го кешот на податоци на регистарот ROR"
 
 msgid "admin.cli.tool.appKey.options.usage.description"
 msgstr "Прикажете ги параметрите за користење на AppKey"
@@ -1096,3 +1096,9 @@ msgstr ""
 
 msgid "admin.cli.tool.scheduler.tasks.notFound"
 msgstr "Не е пронајдена соодветна закажана задача."
+
+msgid "admin.scheduledTask.UpdateRorRegistryDataset.error.checksum"
+msgstr ""
+"Не може да се ажурира збирот на податоци од регистарот ROR поради "
+"несовпаѓање на контролната сума. Очекувана контролна сума: {$expected}. "
+"Вистинска контролна сума: {$actual}"

@@ -1,7 +1,7 @@
-# Cyril Kamburov <cc@intermedia.bg>, 2021, 2022, 2023, 2024, 2025.
+# Cyril Kamburov <cc@intermedia.bg>, 2021, 2022, 2023, 2024, 2025, 2026.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2025-10-27 07:51+0000\n"
+"PO-Revision-Date: 2026-03-26 10:27+0000\n"
 "Last-Translator: Cyril Kamburov <cc@intermedia.bg>\n"
 "Language-Team: Bulgarian <http://translate.pkp.sfu.ca/projects/pkp-lib/user/"
 "bg/>\n"
@@ -761,18 +761,16 @@ msgstr "Открити са неавтентифицирани ORCiD за сът
 msgid "user.authorization.submission.incomplete.workflowAccessRestrict"
 msgstr "Достъпът до работния процес за непълно подадени материали е ограничен."
 
-#, fuzzy
 msgid "user.affiliations.description"
 msgstr ""
 "Въведете пълното име на институцията по-долу, като избягвате всякакви "
 "съкращения. Изберете името от падащото меню и щракнете върху „Добавяне“, за "
-"да включите принадлежността към вашия профил. (напр. „Университет Саймън "
-"Фрейзър“)"
+"да включите принадлежността си към тази институция към вашия профил. (напр. „"
+"Университет Саймън Фрейзър“)"
 
 msgid "user.affiliations.translationActionsAriaLabel"
 msgstr "Кликнете, за да редактирате или изтриете"
 
-#, fuzzy
 msgid "user.affiliations.searchPhraseLabel"
 msgstr "Въведете името на институцията на {$language}"
 
@@ -860,7 +858,6 @@ msgstr "Всички налични преводи"
 msgid "user.affiliations.translationsSomeAvailable"
 msgstr "Завършени са {$count} от {$total} езика"
 
-#, fuzzy
 msgid "user.affiliations.typeTranslationNameInLanguageLabel"
 msgstr "Въведете името на институцията на {$language}"
 
@@ -870,7 +867,6 @@ msgstr "Вашата фраза за търсене не можа да бъде 
 msgid "user.affiliations.primaryLocaleRequired"
 msgstr "Изисква се исписване на основния език - {$primaryLocale}"
 
-#, fuzzy
 msgid "user.affiliations.translationNameInLanguage"
 msgstr "Име на институцията на {$language}"
 
@@ -929,3 +925,16 @@ msgstr "Имейлът ще бъде изпратен след като авто
 
 msgid "user.login.activate.description"
 msgstr "Потвърждаване и активация на вашия акаунт"
+
+msgid "user.affiliations.error.rorApi"
+msgstr "Грешка в ROR API"
+
+msgid "user.affiliations.error.rorApiUnavailable"
+msgstr ""
+"Услугата ROR API в момента не е налична. Моля, опреснете страницата или "
+"опитайте отново по-късно."
+
+msgid "user.affiliations.error.rorApiDeprecated"
+msgstr ""
+"Услугата ROR API в тази инсталация е изключена. Моля, свържете се със "
+"системния си администратор."

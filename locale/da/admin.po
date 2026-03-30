@@ -1,11 +1,11 @@
-# Alexandra Fogtmann-Schulz <alfo@kb.dk>, 2022, 2023, 2024, 2025.
+# Alexandra Fogtmann-Schulz <alfo@kb.dk>, 2022, 2023, 2024, 2025, 2026.
 # Jesper B. Thestrup <jbt@kb.dk>, 2022.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:41+00:00\n"
-"PO-Revision-Date: 2025-04-01 15:36+0000\n"
+"PO-Revision-Date: 2026-03-16 10:11+0000\n"
 "Last-Translator: Alexandra Fogtmann-Schulz <alfo@kb.dk>\n"
 "Language-Team: Danish <http://translate.pkp.sfu.ca/projects/pkp-lib/admin/da/"
 ">\n"
@@ -1075,3 +1075,9 @@ msgid "admin.cli.tool.appKeyVariable.success.writtenToConfig"
 msgstr ""
 "App key variablen blev indstillet korrekt i config filen. Kør kommandoen `"
 "php lib/pkp/tools/appKey.php generate` for at indstille en ny app key."
+
+msgid "admin.scheduledTask.UpdateRorRegistryDataset.error.checksum"
+msgstr ""
+"Opdateringen af ROR-registrets datasæt kunne ikke gennemføres pga. en "
+"uoverensstemmende kontrolsum. Forventet kontrolsum: {$expected}. Faktisk "
+"kontrolsum: {$actual}"

@@ -1,8 +1,8 @@
 # Hovhannes Harutyunyan <hharutyunyan@gmail.com>, 2022.
-# Tigran Zargaryan <tigran@flib.sci.am>, 2022, 2023, 2024, 2025.
+# Tigran Zargaryan <tigran@flib.sci.am>, 2022, 2023, 2024, 2025, 2026.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2025-03-09 05:50+0000\n"
+"PO-Revision-Date: 2026-03-15 09:47+0000\n"
 "Last-Translator: Tigran Zargaryan <tigran@flib.sci.am>\n"
 "Language-Team: Armenian <http://translate.pkp.sfu.ca/projects/pkp-lib/admin/"
 "hy/>\n"
@@ -971,7 +971,7 @@ msgstr ""
 "Աշխատողները նրբորեն կհեռանան ընթացիկ աշխատանքի կատարումն ավարտելուց հետո:"
 
 msgid "admin.scheduledTask.UpdateRorRegistryDataset"
-msgstr "Թարմացրեք Ror ռեեստրի տվյալների քեշը"
+msgstr "Թարմացրեք ROR ռեեստրի տվյալների քեշը"
 
 msgid "admin.cli.tool.appKey.options.usage.description"
 msgstr "Ցուցադրել AppKey-ի օգտագործման պարամետրերը"
@@ -1085,3 +1085,9 @@ msgstr ""
 
 msgid "admin.cli.tool.scheduler.tasks.empty"
 msgstr "Պլանավորված առաջադրանքներ չեն գրանցվել։"
+
+msgid "admin.scheduledTask.UpdateRorRegistryDataset.error.checksum"
+msgstr ""
+"Անհնար է թարմացնել ROR գրանցամատյանի տվյալների հավաքածուն՝ ստուգիչ գումարի "
+"անհամապատասխանության պատճառով: Ակնկալվող ստուգիչ գումար՝ {$expected}: Իրական "
+"ստուգիչ գումար՝ {$actual}"

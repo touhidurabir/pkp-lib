@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2025-11-03 16:40+0000\n"
+"PO-Revision-Date: 2026-03-25 09:35+0000\n"
 "Last-Translator: Petro Bilous <petrobilous@ukr.net>\n"
 "Language-Team: Ukrainian <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "invitation/uk/>\n"
@@ -422,3 +422,12 @@ msgstr "Не відображається в заголовку"
 
 msgid "userInvitation.cancel.message"
 msgstr "Ви впевнені, що хочете скасувати це запрошення?"
+
+msgid "invitation.unavailable.title"
+msgstr "Запрошення недоступне"
+
+msgid "invitation.unavailable.description"
+msgstr ""
+"Це запрошення більше не доступне. Можливо, його вже прийнято, відхилено або "
+"термін його дії минув. Будь ласка, зверніться до менеджера журналу для "
+"отримання додаткової допомоги."

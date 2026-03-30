@@ -1,8 +1,8 @@
-# Cyril Kamburov <cc@intermedia.bg>, 2021, 2022, 2023, 2024, 2025.
+# Cyril Kamburov <cc@intermedia.bg>, 2021, 2022, 2023, 2024, 2025, 2026.
 # Albena Vassileva <albena.ava@gmail.com>, 2022.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2025-03-08 03:51+0000\n"
+"PO-Revision-Date: 2026-03-26 10:27+0000\n"
 "Last-Translator: Cyril Kamburov <cc@intermedia.bg>\n"
 "Language-Team: Bulgarian <http://translate.pkp.sfu.ca/projects/pkp-lib/admin/"
 "bg/>\n"
@@ -968,7 +968,7 @@ msgid "admin.cli.tool.jobs.available.options.restart.description"
 msgstr "Рестартирайте работните процеси на опашка след текущата им работа."
 
 msgid "admin.scheduledTask.UpdateRorRegistryDataset"
-msgstr "Актуализиране на кеша на набора от данни в регистъра Ror"
+msgstr "Актуализиране на кеша на набора от данни от регистъра ROR"
 
 msgid "admin.cli.tool.appKey.options.usage.description"
 msgstr "Показване на параметрите за използване на AppKey"
@@ -1082,3 +1082,9 @@ msgid "admin.cli.tool.schedule.sandbox.message"
 msgstr ""
 "Не могат да се изпълняват планирани задачи, защото режимът на пясъчна среда ("
 "sandbox mode) на приложението е активиран."
+
+msgid "admin.scheduledTask.UpdateRorRegistryDataset.error.checksum"
+msgstr ""
+"Невъзможно е да се актуализира системния регистър на набора от данни от ROR "
+"поради несъответствие в контролната сума. Очаквана контролна сума: "
+"{$expected}. Действителна контролна сума: {$actual}"
