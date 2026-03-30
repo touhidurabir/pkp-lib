@@ -1,10 +1,10 @@
-# Petro Bilous <petrobilous@ukr.net>, 2023, 2024, 2025.
+# Petro Bilous <petrobilous@ukr.net>, 2023, 2024, 2025, 2026.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:50:08+00:00\n"
-"PO-Revision-Date: 2025-03-04 17:01+0000\n"
+"PO-Revision-Date: 2026-03-19 19:57+0000\n"
 "Last-Translator: Petro Bilous <petrobilous@ukr.net>\n"
 "Language-Team: Ukrainian <http://translate.pkp.sfu.ca/projects/pkp-lib/admin/"
 "uk/>\n"
@@ -1104,3 +1104,9 @@ msgstr "Виконання запланованих завдань щохвил�
 
 msgid "admin.cli.tool.scheduler.run.prompt"
 msgstr "Яку команду ви хочете виконати?"
+
+msgid "admin.scheduledTask.UpdateRorRegistryDataset.error.checksum"
+msgstr ""
+"Не вдалося оновити набір даних реєстру РДО через невідповідність контрольних "
+"сум. Очікувана контрольна сума: {$expected}. Фактична контрольна сума: "
+"{$actual}"

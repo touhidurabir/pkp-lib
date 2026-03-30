@@ -1,6 +1,6 @@
 # Stefan Schneider <mail@stefan-schneider.at>, 2023.
 # Germán Huélamo Bautista <germanhuelamo@gmail.com>, 2023, 2024.
-# Jean-Blaise Claivaz <jean-blaise.claivaz@unige.ch>, 2025.
+# Jean-Blaise Claivaz <jean-blaise.claivaz@unige.ch>, 2025, 2026.
 # Stéphanie Louison <stephanie.louison@u-bordeaux-montaigne.fr>, 2026.
 # Gwenn Dossmann Ritter <gwenn.dossmann@openedition.org>, 2026.
 msgid ""
@@ -8,8 +8,8 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:49+00:00\n"
-"PO-Revision-Date: 2026-02-27 16:32+0000\n"
-"Last-Translator: Gwenn Dossmann Ritter <gwenn.dossmann@openedition.org>\n"
+"PO-Revision-Date: 2026-03-20 19:09+0000\n"
+"Last-Translator: Jean-Blaise Claivaz <jean-blaise.claivaz@unige.ch>\n"
 "Language-Team: French <http://translate.pkp.sfu.ca/projects/pkp-lib/grid/fr/>"
 "\n"
 "Language: fr\n"
@@ -59,10 +59,10 @@ msgid "grid.action.updateQuery"
 msgstr "Mettre à jour la discussion"
 
 msgid "grid.action.addUser"
-msgstr "Ajouter un utilisateur"
+msgstr "Ajouter un/e utilisateur/ice"
 
 msgid "grid.action.unassignReviewer"
-msgstr "Désassigner le rapporteur"
+msgstr "Désassigner l'évaluateur/ice"
 
 msgid "grid.action.approveCopyedit"
 msgstr "Approuver ce fichier révisé afin qu'il soit envoyé à l'étape suivante"
@@ -167,7 +167,7 @@ msgid "grid.action.email"
 msgstr "Envoyer un courriel"
 
 msgid "grid.action.addReviewer"
-msgstr "Ajouter un rapporteur"
+msgstr "Ajouter un/e évaluateur/ice"
 
 msgid "grid.action.addFile"
 msgstr "Ajouter un fichier"
@@ -188,10 +188,10 @@ msgid "grid.action.decline"
 msgstr "Décliner"
 
 msgid "grid.action.internalReview"
-msgstr "Envoyer cette soumission à un rapporteur interne"
+msgstr "Envoyer cette soumission à un/e évaluateur/ice interne"
 
 msgid "grid.action.externalReview"
-msgstr "Envoyer cette soumission à un rapporteur externe"
+msgstr "Envoyer cette soumission à un/e évaluateur/ice externe"
 
 msgid "grid.action.sendToProduction"
 msgstr "Envoyer cette soumission à la production"
@@ -233,13 +233,13 @@ msgid "grid.action.notify"
 msgstr "Informer l'utilisateur/ice"
 
 msgid "grid.action.addUserGroup"
-msgstr "Ajouter un nouveau groupe d'utilisateurs"
+msgstr "Ajouter un nouveau groupe d'utilisateur/ices"
 
 msgid "grid.action.editUserGroup"
-msgstr "Modifier ce groupe d'utilisateurs"
+msgstr "Modifier ce groupe d'utilisateur/ices"
 
 msgid "grid.action.removeUserGroup"
-msgstr "Supprimer ce groupe d'utilisateurs-trices"
+msgstr "Supprimer ce groupe d'utilisateur/ices"
 
 msgid "grid.action.disable"
 msgstr "Désactiver"
@@ -248,10 +248,10 @@ msgid "grid.action.details"
 msgstr "Visionner cet item"
 
 msgid "grid.action.enrolExisting"
-msgstr "Inscrire un nouvel utilisateur à titre de rapporteur"
+msgstr "Inscrire un/e nouvel/le utilisateur/ice à titre d'évaluateur/ice"
 
 msgid "grid.action.selectCreate"
-msgstr "Créer un nouveau rapporteur"
+msgstr "Créer un/e évaluateur/ice"
 
 msgid "grid.action.search"
 msgstr "Rechercher"
@@ -266,7 +266,7 @@ msgid "grid.action.viewMetadata"
 msgstr "Voir les métadonnées de cette soumission"
 
 msgid "grid.action.sendReminder"
-msgstr "Envoyer un rappel de tâche à cet utilisateur"
+msgstr "Envoyer un rappel de tâche à cet/te utilisateur/ice"
 
 msgid "grid.action.newRound"
 msgstr "Créer un nouveau cycle"
@@ -278,7 +278,7 @@ msgid "grid.action.viewCompetingInterestGuidelines"
 msgstr "Voir la politique concernant les intérêts opposés"
 
 msgid "grid.action.thankReviewer"
-msgstr "Envoyer un message de remerciement à cet utilisateur"
+msgstr "Envoyer un message de remerciement à cet/te utilisateur/ice"
 
 msgid "grid.action.uploadFile"
 msgstr "Transférer un fichier"
@@ -293,10 +293,10 @@ msgid "grid.action.addInstitution"
 msgstr "Ajouter un établissement"
 
 msgid "grid.action.mergeUser"
-msgstr "Fusionner l'utilisateur"
+msgstr "Fusionner l'utilisateur/ice"
 
 msgid "grid.action.unassignUser"
-msgstr "Désattribuer l'utilisateur"
+msgstr "Supprimer le rôle de l'utilisateur/ice"
 
 msgid "grid.action.history"
 msgstr "Voir l'historique"
@@ -315,10 +315,11 @@ msgid "grid.action.logInAs"
 msgstr "Connexion sous"
 
 msgid "grid.action.exportAllUsers"
-msgstr "Exporter tous les utilisateurs"
+msgstr "Exporter tous/tes les utilisateur/ices"
 
 msgid "grid.users.confirmExportAllUsers"
-msgstr "Vous voulez vraiment exporter tous les utilisateurs et utilisatrices ?"
+msgstr ""
+"Vous voulez vraiment exporter tous/tes les utilisateurs et utilisatrices ?"
 
 msgid "grid.action.activate"
 msgstr "Activer"
@@ -339,7 +340,7 @@ msgid "grid.action.moreItems"
 msgstr "Voir plus"
 
 msgid "grid.action.users"
-msgstr "Afficher/Sélectionner les utilisateurs-trices"
+msgstr "Afficher/Sélectionner les utilisateur/ices"
 
 msgid "grid.task.status.completed"
 msgstr "Cette tâche est complétée"
@@ -409,15 +410,15 @@ msgid "grid.contributor.title"
 msgstr "Contributeur"
 
 msgid "grid.action.addContributor"
-msgstr "Ajouter un contributeur"
+msgstr "Ajouter un/e contributeur/ice"
 
 msgid "grid.action.deleteContributor"
-msgstr "Supprimer un contributeur"
+msgstr "Supprimer un/e contributeur/ice"
 
 msgid "grid.action.deleteContributor.confirmationMessage"
 msgstr ""
-"Voulez-vous vraiment supprimer {$name} en tant que contributeur/trice ? "
-"Cette action ne peut pas être annulée."
+"Voulez-vous vraiment supprimer {$name} en tant que contributeur/ice ? Cette "
+"action ne peut pas être annulée."
 
 msgid "grid.action.newVersion"
 msgstr "Créer une nouvelle version"
@@ -466,7 +467,7 @@ msgstr "Aperçu"
 
 msgid "contributor.listPanel.preview.description"
 msgstr ""
-"Les contributeurs/trices à cette publication seront identifié.es dans les "
+"Les contributeur/ices à cette publication seront identifié/es dans les "
 "formats suivants."
 
 msgid "contributor.listPanel.preview.format"
@@ -494,7 +495,7 @@ msgid "grid.roles.stageAssignment"
 msgstr "Affectation d'étape"
 
 msgid "grid.user.currentUsers"
-msgstr "Utilisateurs actuels"
+msgstr "Utilisateur/ices actuel/les"
 
 msgid "grid.user.currentEnrollment"
 msgstr "Inscriptions actuelles"
@@ -506,13 +507,13 @@ msgid "grid.user.allPermissionLevels"
 msgstr "Toutes les permissions"
 
 msgid "grid.user.add"
-msgstr "Ajouter un utilisateur"
+msgstr "Ajouter un/e utilisateur/ice"
 
 msgid "grid.user.enroll"
-msgstr "Inscrire un utilisateur"
+msgstr "Inscrire un/e utilisateur/ice"
 
 msgid "grid.user.edit"
-msgstr "Modifier un utilisateur"
+msgstr "Modifier un/e utilisateur/ice"
 
 msgid "grid.user.email"
 msgstr "Courriel"
@@ -524,15 +525,15 @@ msgid "grid.user.disable"
 msgstr "Désactiver"
 
 msgid "grid.user.disableReason"
-msgstr "Raison de la désactivation de l'utilisateur"
+msgstr "Raison de la désactivation de l'utilisateur/ice"
 
 msgid "grid.user.enableReason"
-msgstr "Raison de l'activation de l'utilisateur"
+msgstr "Raison de l'activation de l'utilisateur/ice"
 
 msgid "grid.user.error"
 msgstr ""
-"Une erreur est survenue pendant la gestion de cet utilisateur. Essayez de "
-"nouveau."
+"Une erreur est survenue pendant la gestion de cet/te utilisateur/ice. "
+"Essayez de nouveau."
 
 msgid "grid.user.errorEmail"
 msgstr ""
@@ -542,54 +543,55 @@ msgstr ""
 
 msgid "grid.user.cannotAdminister"
 msgstr ""
-"Vous n'avez pas les autorisations nécessaires pour modifier cet utilisateur."
+"Vous n'avez pas les autorisations nécessaires pour modifier cet/te "
+"utilisateur/ice."
 
 msgid "grid.user.mustProvideName"
 msgstr ""
-"Veuillez d'abord indiquer au moins un nom de famille pour l'utilisateur ."
+"Veuillez d'abord indiquer au moins un nom de famille pour l'utilisateur/ice."
 
 msgid "grid.user.generatePassword"
 msgstr "Créer un mot de passe"
 
 msgid "grid.user.generatePasswordDescription"
-msgstr "Générer un mot de passe aléatoire pour cet utilisateur."
+msgstr "Générer un mot de passe aléatoire pour cet/te utilisateur/ice."
 
 msgid "grid.user.notifyUser"
 msgstr "Informer l'utilisateur/ice"
 
 msgid "grid.user.notifyUserDescription"
-msgstr "Envoyer un courriel de bienvenue à l'utilisateur ou l'utilisatrice."
+msgstr "Envoyer un courriel de bienvenue à l'utilisateur/ice."
 
 msgid "grid.user.mustChangePassword"
 msgstr "Changer le mot de passe"
 
 msgid "grid.user.mustChangePasswordDescription"
 msgstr ""
-"L'utilisateur doit changer son mot de passe à la prochaine ouverture de "
+"L'utilisateur/ice doit changer son mot de passe à la prochaine ouverture de "
 "session."
 
 msgid "grid.user.mustChangePasswordDescriptionOld"
 msgstr ""
-"Exige que l'utilisateur change son mot de passe la prochaine fois qu'il "
-"ouvrira une session."
+"Demander à l'utilisateur/ice de changer son mot de passe la prochaine fois "
+"qu'il/elle ouvrira une session."
 
 msgid "grid.user.moreDetails"
-msgstr "Plus de détails sur l'utilisateur"
+msgstr "Plus de détails sur l'utilisateur/ice"
 
 msgid "grid.user.lessDetails"
-msgstr "Moins de détails sur l'utilisateur"
+msgstr "Moins de détails sur l'utilisateur/ice"
 
 msgid "grid.user.userDetails"
-msgstr "Détails de l'utilisateur"
+msgstr "Détails de l'utilisateur/ice"
 
 msgid "grid.user.userRoles"
-msgstr "Rôles de l'utilisateur"
+msgstr "Rôles de l'utilisateur/ice"
 
 msgid "grid.user.userNoRoles"
-msgstr "Cet utilisateur n'a aucun rôle."
+msgstr "Cet/te utilisateur/ice n'a aucun rôle."
 
 msgid "grid.user.step1"
-msgstr "Étape #1 : Ajouter les détails de l'utilisateur"
+msgstr "Étape #1 : Ajouter les détails de l'utilisateur/ice"
 
 msgid "grid.user.step2"
 msgstr "Étape #2 : Ajouter des rôles à {$userFullName}"
@@ -601,34 +603,33 @@ msgid "grid.user.addRole"
 msgstr "Ajouter le rôle"
 
 msgid "grid.user.selectUser"
-msgstr "Sélectionner l'utilisateur"
+msgstr "Sélectionner l'utilisateur/ice"
 
 msgid "grid.user.pleaseSelectUser"
-msgstr "Veuillez sélectionner un utilisateur"
+msgstr "Veuillez sélectionner un/e utilisateur/ice"
 
 msgid "grid.user.confirmLogInAs"
 msgstr ""
-"Ouvrir une session sous cette identité d'utilisateur ou d'utilisatrice ? "
-"Toutes les actions seront attribuées à cet utilisateur ou cette utilisatrice."
+"Ouvrir une session sous cette identité d'utilisateur/ice ? Toutes les "
+"actions seront attribuées à cette personne."
 
 msgid "grid.user.mergeUsers"
-msgstr "Fusionner les utilisateurs"
+msgstr "Fusionner les utilisateur/ices"
 
 msgid "grid.user.mergeUsers.mergeUser"
-msgstr "Fusionner l'utilisateur"
+msgstr "Fusionner l'utilisateur/ice"
 
 msgid "grid.user.mergeUsers.mergeIntoUser"
-msgstr "Fusionner dans cet utilisateur"
+msgstr "Fusionner sous cet/te utilisateur/ice"
 
 msgid "grid.user.mergeUsers.allUsers"
-msgstr "Tous les utilisateurs inscrits"
+msgstr "Tous/tes les utilisateur/ices inscrit/es"
 
 msgid "grid.user.mergeUsers.confirm"
 msgstr ""
-"Vous voulez vraiment fusionner le compte dont le nom d'utilisateur ou "
-"d'utilisatrice est « {$oldUsername} » au compte dont le nom d'utilisateur ou "
-"d'utilisatrice est « {$newUsername} » ? Le compte « {$oldUsername} » "
-"n'existera plus. Cette action n'est pas réversible."
+"Voulez-vous vraiment fusionner le compte avec le nom d'utilisateur « "
+"{$oldUsername} » au compte avec le nom d'utilisateur « {$newUsername} » ? Le "
+"compte « {$oldUsername} » n'existera plus. Cette action n'est pas réversible."
 
 msgid "grid.preparedEmails.title"
 msgstr "Modèles de courriels préparés"
@@ -737,7 +738,7 @@ msgid "author.users.contributor.includeInBrowse"
 msgstr "Dans la liste de navigation"
 
 msgid "grid.action.editContributor"
-msgstr "Modifier un contributeur"
+msgstr "Modifier un/e contributeur/ice"
 
 #~ msgid "grid.action.viewSignoffNotes"
 #~ msgstr "Visionner les notes de certification de conformité"
@@ -788,12 +789,13 @@ msgid "grid.user.logInAs"
 msgstr "Se connecter en tant que"
 
 msgid "grid.user.remove"
-msgstr "Retirer l'utilisateur"
+msgstr "Retirer l'utilisateur/ice"
 
 msgid "grid.user.disableReasonDescription"
 msgstr ""
-"Veuillez noter qu'une fois qu'un utilisateur est désactivé, vous ne pourrez "
-"plus l'ajouter à aucun rôle tant qu'il n'aura pas été réactivé."
+"Veuillez noter qu'une fois qu'un/e utilisateur/ice est désactivé/e, vous ne "
+"pourrez plus l'ajouter à aucun rôle tant qu'il/elle n'aura pas été "
+"réactivé/e."
 
 msgid "grid.action.deleteReviewerSuggestion.confirmationMessage"
 msgstr ""
@@ -804,9 +806,9 @@ msgid "grid.action.addReviewerSuggestion"
 msgstr "Suggérer un rapporter"
 
 msgid "grid.action.deleteReviewerSuggestion"
-msgstr "Supprimer la suggestion d'un nouveau rapporteur"
+msgstr "Supprimer la suggestion d'un/e nouveau/elle évaluateur/ice"
 
 msgid "grid.user.enableReasonDescription"
 msgstr ""
-"Une fois que l'utilisateur est activé, il retrouvera l'accès au site et vous "
-"pourrez l'inviter à occuper des rôles selon vos besoins."
+"Une fois que l'utilisateur/ice est activé/e, il/elle retrouvera l'accès au "
+"site et vous pourrez l'inviter à occuper des rôles selon vos besoins."

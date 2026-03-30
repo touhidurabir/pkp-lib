@@ -1,10 +1,11 @@
-# Jiří Dlouhý <jiri.dlouhy@czp.cuni.cz>, 2021, 2022, 2023, 2024, 2025.
+# Jiří Dlouhý <jiri.dlouhy@czp.cuni.cz>, 2021, 2022, 2023, 2024, 2025, 2026.
+# Michal Jelínek <jelinek@synetix.cz>, 2026.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:40+00:00\n"
-"PO-Revision-Date: 2025-11-29 13:00+0000\n"
+"PO-Revision-Date: 2026-03-25 17:56+0000\n"
 "Last-Translator: Jiří Dlouhý <jiri.dlouhy@czp.cuni.cz>\n"
 "Language-Team: Czech <http://translate.pkp.sfu.ca/projects/pkp-lib/common/cs/"
 ">\n"
@@ -658,7 +659,7 @@ msgid "common.orderUp"
 msgstr "Zvýšit pozici o {$itemTitle}"
 
 msgid "common.orderDown"
-msgstr "Snížit pozici o {$ itemTitle}"
+msgstr "Snížit pozici o {$itemTitle}"
 
 msgid "common.originalFileName"
 msgstr "Původní jméno souboru"
@@ -891,7 +892,7 @@ msgid "common.type"
 msgstr "Typ"
 
 msgid "common.uploadedBy"
-msgstr "Nahrál/a {$jméno}"
+msgstr "Nahrál/a {$name}"
 
 msgid "common.uploadedByAndWhen"
 msgstr "Nahrál/a {$name} dne {$date}"
@@ -1638,9 +1639,11 @@ msgstr "Nastavení oznámení"
 
 msgid "notification.settingsDescription"
 msgstr ""
-"Zvolte systémové události, o kterých chcete být informován. Zrušení "
-"zaškrtnutí u položky zabrání tomu, aby se oznámení události zobrazovalo ve "
-"Vašem seznamu oznámení."
+"Vyberte systémové události, o kterých chcete dostávat oznámení. Pokud "
+"položku odškrtnete, oznámení o této události se nebude zobrazovat v systému "
+"ani vám nebude zasíláno e-mailem. U zaškrtnutých událostí se oznámení "
+"zobrazí v systému a můžete navíc zvolit, zda je chcete dostávat také "
+"e-mailem."
 
 msgid "notification.reminderError"
 msgstr ""
@@ -2197,13 +2200,13 @@ msgid "validator.required_unless"
 msgstr "Toto pole je povinné, pokud {$other} není v {$values}."
 
 msgid "validator.required_with"
-msgstr "Toto pole je povinné, pokud je k dispozici {$hodnoty}."
+msgstr "Toto pole je povinné, pokud je vyplněno {$values}."
 
 msgid "validator.required_with_all"
-msgstr "Toto pole je povinné, pokud je k dispozici {$hodnoty}."
+msgstr "Toto pole je povinné, pokud je vyplněno {$values}."
 
 msgid "validator.required_without"
-msgstr "Toto pole je povinné, pokud není k dispozici {$value}."
+msgstr "Toto pole je povinné, pokud není k dispozici {$values}."
 
 msgid "validator.required_without_all"
 msgstr "Toto pole je povinné, pokud není přítomna žádná z {$values}."
@@ -2406,3 +2409,6 @@ msgstr "Ano, pokračovat"
 
 msgid "common.changeLanguage"
 msgstr "Změna jazyka"
+
+msgid "common.openLinkNewTab"
+msgstr "Otevřít odkaz v nové záložce."

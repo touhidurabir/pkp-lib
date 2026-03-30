@@ -1,5 +1,5 @@
 # Felipe Geremia Nievinski <fgnievinski@gmail.com>, 2021.
-# Diego José Macêdo <diegojmacedo@gmail.com>, 2021, 2022, 2023, 2024, 2025.
+# Diego José Macêdo <diegojmacedo@gmail.com>, 2021, 2022, 2023, 2024, 2025, 2026.
 # Alex Mendonça <alex.mendonca@scielo.org>, 2022, 2023.
 # Daniel Caixeta <daniel.caixeta@inep.gov.br>, 2022.
 # Danilo Silva <profdanilocsilva@outlook.com>, 2023.
@@ -11,8 +11,8 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-09-30T11:54:13-07:00\n"
-"PO-Revision-Date: 2025-11-08 01:06+0000\n"
-"Last-Translator: Lívia Carolina Gouvêa de Faria <livia@mail.mayfirst.org>\n"
+"PO-Revision-Date: 2026-03-30 14:34+0000\n"
+"Last-Translator: Diego José Macêdo <diegojmacedo@gmail.com>\n"
 "Language-Team: Portuguese (Brazil) <http://translate.pkp.sfu.ca/projects/"
 "pkp-lib/manager/pt_BR/>\n"
 "Language: pt_BR\n"
@@ -2940,7 +2940,6 @@ msgstr "Os arquivos enviados pelo avaliador"
 msgid "emailTemplate.variable.review.name"
 msgstr "O nome do avaliador"
 
-#, fuzzy
 msgid "emailTemplate.variable.reviewType"
 msgstr ""
 "Uma descrição do método de avaliação padrão, como duplo anônimo ou aberto."
@@ -3955,3 +3954,13 @@ msgstr "Número mínimo de avaliações confirmadas exigidas para uma submissão
 # fuzzy
 msgid "manager.navigationMenus.items.form.title.required"
 msgstr "O título do item do menu é obrigatório."
+
+msgid "manager.categories.form.removeCoverImageOnDifferentContextNowAllowed"
+msgstr ""
+"A categoria não existe ou pertence a um contexto diferente. Certifique-se de "
+"que você está trabalhando no contexto correto e tente novamente."
+
+msgid "manager.categories.form.removeCoverImageFileNotFound"
+msgstr ""
+"Não foi possível encontrar os arquivos da imagem de capa e da miniatura. "
+"Eles podem já ter sido excluídos. Tente recarregar a página."

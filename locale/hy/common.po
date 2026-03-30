@@ -1,10 +1,10 @@
 # Hovhannes Harutyunyan <hharutyunyan@gmail.com>, 2022.
-# Tigran Zargaryan <tigran@flib.sci.am>, 2022, 2023, 2024, 2025.
+# Tigran Zargaryan <tigran@flib.sci.am>, 2022, 2023, 2024, 2025, 2026.
 # Artashes Mirzoyan <amirzoyan@sci.am>, 2022.
 # Martin Brändle <martin.braendle@uzh.ch>, 2023.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2025-11-28 16:34+0000\n"
+"PO-Revision-Date: 2026-03-26 06:48+0000\n"
 "Last-Translator: Tigran Zargaryan <tigran@flib.sci.am>\n"
 "Language-Team: Armenian <http://translate.pkp.sfu.ca/projects/pkp-lib/common/"
 "hy/>\n"
@@ -2408,3 +2408,6 @@ msgstr "Այո, շարունակեք"
 
 msgid "common.changeLanguage"
 msgstr "Փոխել լեզուն"
+
+msgid "common.openLinkNewTab"
+msgstr "Բացել հղումը նոր ներդիրում։"

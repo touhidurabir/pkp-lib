@@ -2,7 +2,7 @@
 # Mathias Vitalis <mathias.vitalis@u-bordeaux.fr>, 2023.
 # Stefan Schneider <mail@stefan-schneider.at>, 2023.
 # Germán Huélamo Bautista <germanhuelamo@gmail.com>, 2023, 2024, 2025.
-# Jean-Blaise Claivaz <jean-blaise.claivaz@unige.ch>, 2023, 2025.
+# Jean-Blaise Claivaz <jean-blaise.claivaz@unige.ch>, 2023, 2025, 2026.
 # Kay <kay.pepping@huygens.knaw.nl>, 2024.
 # Klaus Rummler <klaus@oapublishing.ch>, 2025.
 # Henri De Plaen <henri.deplaen@gmail.com>, 2025.
@@ -14,8 +14,8 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:50+00:00\n"
-"PO-Revision-Date: 2026-02-27 16:32+0000\n"
-"Last-Translator: Gwenn Dossmann Ritter <gwenn.dossmann@openedition.org>\n"
+"PO-Revision-Date: 2026-03-20 19:09+0000\n"
+"Last-Translator: Jean-Blaise Claivaz <jean-blaise.claivaz@unige.ch>\n"
 "Language-Team: French <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "submission/fr/>\n"
 "Language: fr\n"
@@ -522,7 +522,7 @@ msgid "submission.comments.addReviews"
 msgstr "Ajouter les rapports au mail"
 
 msgid "submission.comments.importPeerReviews.reviewerLetter"
-msgstr "Relecteur {$reviewerLetter} :"
+msgstr "Évaluateur/ice {$reviewerLetter} :"
 
 msgid "submission.comments.noComments"
 msgstr "Aucun commentaire"
@@ -534,7 +534,7 @@ msgid "submission.comments.review"
 msgstr "Évaluation"
 
 msgid "submission.comments.sendDecisionToReviewers"
-msgstr "Envoyer la décision éditoriale aux relecteurs"
+msgstr "Envoyer la décision éditoriale aux évaluateur/ices"
 
 msgid "submission.comments.subject"
 msgstr "Objet"
@@ -543,7 +543,7 @@ msgid "submission.complete"
 msgstr "Terminé"
 
 msgid "submission.contributors"
-msgstr "Liste des contributeurs"
+msgstr "Liste des contributeur/ices"
 
 msgid "submission.copyedited"
 msgstr "Version(s) éditée(s)"
@@ -662,13 +662,13 @@ msgid "submission.event.reviewer.reviewDueDate"
 msgstr "Date d'échéance de l'évaluation modifiée"
 
 msgid "submission.event.reviewer.reviewerAssigned"
-msgstr "Relecteur assigné à une soumission"
+msgstr "Évaluateur/ice assigné/e à une soumission"
 
 msgid "submission.event.reviewer.reviewerRated"
-msgstr "Note du relecteur soumise"
+msgstr "Note de l'évaluateur/ice soumise"
 
 msgid "submission.event.reviewer.reviewerUnassigned"
-msgstr "Relecteur non assigné à une soumission"
+msgstr "Évaluateur/ice non assigné/e à une soumission"
 
 msgid "submission.event.reviewer.reviewFile"
 msgstr "Fichier d'évaluation mis à jour"
@@ -686,7 +686,7 @@ msgid "submission.event.reviewer.reviewResubmitted"
 msgstr "Nouvelle soumission de l'évaluation"
 
 msgid "submission.event.reviewer.reviewRevision"
-msgstr "Fichiers de révision du relecteur mis à jour"
+msgstr "Fichiers de révision de l'évaluateur/ice mis à jour"
 
 msgid "submission.event.reviewer.reviewerReminded"
 msgstr ""
@@ -1092,8 +1092,8 @@ msgstr "Fichier ajouté"
 
 msgid "submission.submit.includeInBrowse"
 msgstr ""
-"Inclure ce contributeur lors de l'identification des auteurs dans les listes "
-"de publications."
+"Inclure cette personne lors de l'identification des auteur/ices dans les "
+"listes de publications."
 
 msgid "submission.submit.includeInBrowse.title"
 msgstr "Listes de publications"
@@ -1186,10 +1186,10 @@ msgid "submission.date.yyyymmdd"
 msgstr "AAAA-MM-JJ"
 
 msgid "submission.submit.contributorRole"
-msgstr "Rôle du contributeur"
+msgstr "Rôle du contributeur/ice"
 
 msgid "submission.submit.addAuthor"
-msgstr "Ajouter un contributeur"
+msgstr "Ajouter un/e contributeur/ice"
 
 msgid "submission.submit.form.languagesRequired"
 msgstr "Merci de renseigner une langue."
@@ -1354,7 +1354,7 @@ msgstr ""
 "doit être créé."
 
 msgid "editor.submission.roundStatus.sentToExternal"
-msgstr "Envoyé à un relecteur externe."
+msgstr "Envoyé à un/e évaluateur/ice externe."
 
 msgid "editor.submission.roundStatus.accepted"
 msgstr "Soumission acceptée."
@@ -1363,7 +1363,7 @@ msgid "editor.submission.roundStatus.declined"
 msgstr "Soumission refusée."
 
 msgid "editor.submission.roundStatus.pendingReviewers"
-msgstr "En attente de l'assignation de relecteurs."
+msgstr "En attente d'assignation d'évaluateur/ices."
 
 msgid "editor.submission.roundStatus.pendingReviews"
 msgstr "En attente des réponses des évaluateur·rice·s."
@@ -2116,26 +2116,26 @@ msgid "submission.review.status.awaitingResponse"
 msgstr "En attente de réponse de l'évaluateur/ice"
 
 msgid "submission.review.status.declined"
-msgstr "Le relecteur a décliné la demande d'évaluation."
+msgstr "L'évaluateur/ice a décliné la demande d'évaluation."
 
 msgid "submission.review.status.responseOverdue"
 msgstr "L'évaluateur/ice est en retard pour répondre."
 
 msgid "submission.review.status.reviewOverdue"
-msgstr "Le relecteur a dépassé la date de retour de l'évaluation."
+msgstr "L'évaluateur/ice a dépassé la date de retour de l'évaluation."
 
 msgid "submission.review.status.accepted"
 msgstr "Le rapport a été accepté."
 
 msgid "submission.review.status.received"
-msgstr "Le relecteur a soumis son rapport."
+msgstr "L'évaluateur/ice a soumis son rapport."
 
 msgid "submission.review.status.complete"
 msgstr "L'évaluation est complète."
 
 msgid "submission.review.status.thanked"
 msgstr ""
-"Cette évaluation est terminée et le relecteur a été remercié pour sa "
+"Cette évaluation est terminée et l'évaluateur/ice a été remercié/e pour sa "
 "contribution."
 
 msgid "submission.document"
@@ -2157,7 +2157,7 @@ msgid "submission.supplementary.publisher"
 msgstr "Éditeur"
 
 msgid "submission.supplementary.sponsor"
-msgstr "Contributeur ou commenditaire"
+msgstr "Contributeur ou commanditaire"
 
 msgid "grid.action.itemWorkflow"
 msgstr "Aller au flux des travaux de cette soumission"
@@ -2545,12 +2545,12 @@ msgid "submission.wizard.titleWithStep"
 msgstr "Faire une soumission : {$step}"
 
 msgid "submission.wizard.noContributors"
-msgstr "Cette soumission n'inclut aucun contributeur ou contributrice."
+msgstr "Cette soumission n'inclut aucun/e contributeur ou contributrice."
 
 msgid "submission.wizard.missingContributorLanguage"
 msgstr ""
-"Le prénom est manquant en {$langue} pour un ou plusieurs des contributeurs "
-"ou contributrices."
+"Le prénom est manquant en {$langue} pour un ou plusieurs des contributeur/"
+"ice."
 
 msgid "submission.wizard.notAllowed"
 msgstr "Non autorisé"
@@ -2618,7 +2618,7 @@ msgid "catalog.category.subcategories"
 msgstr "Sous-catégories"
 
 msgid "publication.contributors"
-msgstr "Contributeurs & contributrices"
+msgstr "Contributeurs et contributrices"
 
 msgid "publication.createVersion"
 msgstr "Créer une nouvelle version"
@@ -2926,7 +2926,7 @@ msgid "submission.dashboard.view.production"
 msgstr "Étape de production"
 
 msgid "dashboard.reviewAssignment.acceptOrDeclineRequestDate"
-msgstr "Merci d'accepter ou de refuser d'évaluer la soumission avant le {$date}"
+msgstr "Merci d'accepter ou de refuser la demande d'évaluation avant le {$date}"
 
 msgid "submission.dashboard.view.scheduled"
 msgstr "Programmées pour publication"
@@ -2935,13 +2935,13 @@ msgid "fileManager.copyeditedFiles"
 msgstr "Fichiers édités"
 
 msgid "dashboard.reviewAssignment.statusCancelled.title"
-msgstr "Le relecteur a annulé la demande d'évaluation"
+msgstr "L'évaluateur/ice a annulé la demande d'évaluation"
 
 msgid "dashboard.reviewAssignment.action.editDueDate"
 msgstr "Modifier la date d'échéance"
 
 msgid "submission.wizard.noReviewerSuggestions"
-msgstr "Aucun relecteur n'a été proposé pour cette soumission."
+msgstr "Aucun/e évaluateur/ice n'a été proposé/e pour cette soumission."
 
 msgid "dashboard.declinedDuringStage"
 msgstr "Refusé pendant la phase {$stageName}."
@@ -2952,7 +2952,7 @@ msgstr ""
 "être prise."
 
 msgid "dashboard.reviewAssignment.action.sendReviewToOrcid.confirm"
-msgstr "Envoyer cette évaluation à l'ORCID du relecteur ?"
+msgstr "Envoyer cette évaluation dans le profil ORCID du l'évaluateur/ice ?"
 
 msgid "dashboard.reviewAssignment.action.viewUnreadRecommendation"
 msgstr "Afficher les recommandations non lues"
@@ -2987,10 +2987,10 @@ msgid "fileManager.draftFilesDescription"
 msgstr "Ces fichiers sont prêts à être édités"
 
 msgid "submission.forReviewerSuggestion"
-msgstr "Pour suggestion du relecteur"
+msgstr "Pour suggestion de l'évaluateur/ice"
 
 msgid "submission.reviewerSuggestions"
-msgstr "Suggestions des relecteurs"
+msgstr "Suggestions des évaluateur/ices"
 
 msgid "submission.review.status.viewed"
 msgstr "L'éditeur a pris connaissance de l'évaluation."
@@ -3020,7 +3020,7 @@ msgid "dashboard.toBePublishedInIssue"
 msgstr "À publier dans {$issue}"
 
 msgid "dashboard.recommendOnly.pendingRecommendations"
-msgstr "En attente de décision par le(s) responsable(s)"
+msgstr "En attente de décision par les responsables"
 
 msgid "publication.editorEditWarning"
 msgstr ""
@@ -3043,8 +3043,8 @@ msgstr "Filtrer"
 
 msgid "dashboard.reviewAssignment.statusAwaitingResponse.description"
 msgstr ""
-"La demande d'évaluation a été transmise au relecteur. En attente d'une "
-"réponse dans <b>{$days} jours à compter du {$date}</b>"
+"La demande d'évaluation a été transmise. En attente d'une réponse dans "
+"<b>{$days} jours à compter du {$date}</b>"
 
 msgid "editor.submission.roundStatus.recommendationMadeByYou"
 msgstr "La recommandation a été faite par vous."
@@ -3069,7 +3069,7 @@ msgid "submission.list.completeSubmission"
 msgstr "Finaliser la soumission"
 
 msgid "submission.dashboard.view.active"
-msgstr "Toutes les soumissions en cours"
+msgstr "Contributions en cours"
 
 msgid "submission.dashboard.view.needsEditor"
 msgstr "Assigner des responsables"
@@ -3081,7 +3081,7 @@ msgid "submission.dashboard.view.reviewExternal"
 msgstr "Tout en phase d'évaluation par les pairs"
 
 msgid "submission.dashboard.view.needsReviews"
-msgstr "Évaluation(s) requise(s)"
+msgstr "Évaluations requises"
 
 msgid "submission.dashboard.view.awaitingReviews"
 msgstr "En attente d'évaluation (0 reçue)"
@@ -3090,7 +3090,7 @@ msgid "submission.dashboard.view.reviewsSubmitted"
 msgstr "Évaluations déposées (au moins 1 reçue)"
 
 msgid "submission.dashboard.view.reviewsOverdue"
-msgstr "Évaluation(s) en retard"
+msgstr "Évaluations en retard"
 
 msgid "submission.dashboard.view.copyediting"
 msgstr "Étape d'édition"
@@ -3183,10 +3183,10 @@ msgid "dashboard.copyEditedFilesUploaded"
 msgstr "Fichiers édités déposés : {$count}"
 
 msgid "reviewerSuggestion.suggestionReason"
-msgstr "Raisons pour lesquelles vous suggérez ce relecteur"
+msgstr "Raisons pour lesquelles vous suggérez cet/te évaluateur/ice"
 
 msgid "dashboard.reviewersAssigned"
-msgstr "Relecteurs désignés"
+msgstr "Évaluateur/ices désigné/es"
 
 msgid "dashboard.assignReviewers"
 msgstr "Désigner des évaluateur/ices"
@@ -3244,16 +3244,16 @@ msgid "dashboard.reviewAssignment.statusComplete.description"
 msgstr "L'évaluation a été acceptée par l'éditeur le <b>{$date}</b>."
 
 msgid "dashboard.reviewAssignment.statusAwaitingResponse.title"
-msgstr "En attente de la réponse du relecteur"
+msgstr "En attente de la réponse de l'évaluateur/ice"
 
 msgid "dashboard.reviewAssignment.statusDeclined.description"
 msgstr "L'évaluateur/ice a refusé d'évaluer la soumission le <b>{$date}</b>"
 
 msgid "dashboard.reviewAssignment.statusCancelled.description"
-msgstr "Le relecteur a annulé la demande d'évaluation le <b>{$date}</b>."
+msgstr "L'évaluateur/ice a annulé la demande d'évaluation le <b>{$date}</b>."
 
 msgid "dashboard.reviewAssignment.statusRequestResend.title"
-msgstr "En attente de la réponse du relecteur"
+msgstr "En attente de la réponse de l'évaluateur/ice"
 
 msgid "dashboard.reviewAssignment.action.viewDetails"
 msgstr "Voir les détails"
@@ -3345,9 +3345,9 @@ msgid "submission.list.changeSubmissionLanguage.metadataDescription"
 msgstr ""
 "<strong>Avant de modifier la langue de soumission, assurez-vous d'avoir "
 "rempli les champs de métadonnées suivants afin de préserver l'intégrité du "
-"système. Notez également que les informations relatives aux contributeurs et "
-"les noms de fichiers seront copiés à partir des informations précédemment "
-"saisies.</strong>"
+"système. Notez également que les informations relatives aux contributeur/"
+"ices et les noms de fichiers seront copiés à partir des informations "
+"précédemment saisies.</strong>"
 
 msgid "submission.wizard.cancel.confirmation"
 msgstr ""
@@ -3358,7 +3358,7 @@ msgstr ""
 msgid "submission.wizard.missingContributorAffiliationLanguage"
 msgstr ""
 "Le nom de l'affiliation est manquant en {$language} pour une ou plusieurs "
-"affiliations pour un ou plusieurs contributeurs."
+"affiliations pour un/e ou plusieurs contributeur/ices."
 
 msgid "publication.jats.confirmDeleteFileMessage"
 msgstr ""
@@ -3403,21 +3403,21 @@ msgstr ""
 
 msgid "reviewerSuggestion.suggestionReason.description"
 msgstr ""
-"Veuillez expliquer pourquoi vous recommandez ce relecteur et mentionner s'il "
-"existe un conflit d'intérêts potentiel."
+"Veuillez expliquer pourquoi vous recommandez cet/te évaluateur/ice et "
+"mentionner s'il existe un conflit d'intérêts potentiel."
 
 msgid "dashboard.reviewAssignment.statusAccepted.description"
 msgstr ""
-"Ce relecteur a accepté la demande de révision. Sa révision est prévue dans "
-"<b>{$days} jours, soit le {$date}.</b>"
+"Cet/te évaluateur/ice a accepté la demande d'évaluation. Celle-ci est prévue "
+"dans <b>{$days} jours, soit le {$date}.</b>"
 
 msgid "dashboard.reviewAssignment.statusRequestResend.description"
 msgstr ""
-"La demande de révision a été renvoyée au relecteur. En attente d'une réponse "
-"dans {$days} jours, le {$date}"
+"La demande d'évaluation a été renvoyée. En attente d'une réponse dans {$days}"
+" jours, le {$date}"
 
 msgid "dashboard.noAccessBeingReviewer"
 msgstr ""
-"Vous ne pouvez pas accéder à cette soumission en tant que directeur de la "
-"revue, car vous êtes le relecteur. Pour la consulter, rendez-vous dans « "
-"Attributions d'évaluations »"
+"Vous ne pouvez pas accéder à cette soumission en tant que directeur /ice de "
+"la revue, car vous êtes évaluateur/ice. Pour la consulter, rendez-vous dans «"
+" Attributions d'évaluations »"

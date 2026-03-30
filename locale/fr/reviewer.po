@@ -2,14 +2,14 @@
 # Germán Huélamo Bautista <germanhuelamo@gmail.com>, 2024, 2025.
 # Henri De Plaen <henri.deplaen@gmail.com>, 2025.
 # Stéphanie Louison <stephanie.louison@u-bordeaux-montaigne.fr>, 2026.
+# Jean-Blaise Claivaz <jean-blaise.claivaz@unige.ch>, 2026.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:50+00:00\n"
-"PO-Revision-Date: 2026-02-27 14:26+0000\n"
-"Last-Translator: Stéphanie Louison <stephanie.louison@u-bordeaux-montaigne."
-"fr>\n"
+"PO-Revision-Date: 2026-03-20 19:09+0000\n"
+"Last-Translator: Jean-Blaise Claivaz <jean-blaise.claivaz@unige.ch>\n"
 "Language-Team: French <http://translate.pkp.sfu.ca/projects/pkp-lib/reviewer/"
 "fr/>\n"
 "Language: fr\n"
@@ -88,7 +88,8 @@ msgid "reviewer.submission.guidelines"
 msgstr "Lire les consignes d'évaluation"
 
 msgid "reviewer.submission.noGuidelines"
-msgstr "Cet éditeur n'a pas établi de lignes directrices pour les rapporteurs."
+msgstr ""
+"Cet éditeur n'a pas établi de lignes directrices pour les évaluateur/ices."
 
 msgid "reviewer.submission.downloadDescription"
 msgstr ""
@@ -141,11 +142,11 @@ msgstr "Envoyer aux évaluateur·rice·s"
 
 msgid "user.authorization.submissionReviewer"
 msgstr ""
-"L'utilisateur courant n'est pas assigné comme rapporteur pour le document "
-"demandé."
+"L'utilisateur/ice courant/e n'est pas assigné/e comme évaluateur/ice pour le "
+"document demandé."
 
 msgid "reviewer.submission.reviewRound.info"
-msgstr "Relecteurs précédents"
+msgstr "Évaluateur/ices précédent/es"
 
 msgid "reviewer.submission.reviewRound.info.modal.title"
 msgstr "Tour d'évaluation {$round} soumis par vous pour"
@@ -160,7 +161,7 @@ msgid "reviewer.submission.reviewRound.info.read"
 msgstr "Consulter le tour d'évaluation {$round}"
 
 msgid "reviewer.submission.reviewRound.comments"
-msgstr "Commentaires des relecteurs"
+msgstr "Commentaires des évaluateur/ices"
 
 msgid "reviewer.submission.reviewRound.comments.authorAndEditor"
 msgstr "Pour les éditeurs et les auteurs"

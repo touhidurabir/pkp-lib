@@ -2,7 +2,7 @@
 # Rudy Hahusseau <rudy.hahusseau@univ-lorraine.fr>, 2023.
 # Stefan Schneider <mail@stefan-schneider.at>, 2023.
 # Germán Huélamo Bautista <germanhuelamo@gmail.com>, 2023, 2024, 2025.
-# Jean-Blaise Claivaz <jean-blaise.claivaz@unige.ch>, 2023, 2025.
+# Jean-Blaise Claivaz <jean-blaise.claivaz@unige.ch>, 2023, 2025, 2026.
 # Rodolphe Lemétayer <rlemetayer@protonmail.com>, 2024.
 # Henri De Plaen <henri.deplaen@gmail.com>, 2025.
 # Gwenn Dossmann Ritter <gwenn.dossmann@openedition.org>, 2025, 2026.
@@ -12,8 +12,8 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:49+00:00\n"
-"PO-Revision-Date: 2026-02-27 16:32+0000\n"
-"Last-Translator: Gwenn Dossmann Ritter <gwenn.dossmann@openedition.org>\n"
+"PO-Revision-Date: 2026-03-20 19:09+0000\n"
+"Last-Translator: Jean-Blaise Claivaz <jean-blaise.claivaz@unige.ch>\n"
 "Language-Team: French <http://translate.pkp.sfu.ca/projects/pkp-lib/common/"
 "fr/>\n"
 "Language: fr\n"
@@ -801,7 +801,7 @@ msgid "common.role"
 msgstr "Rôle"
 
 msgid "common.saveAndContinue"
-msgstr "Enregistrer et continuer"
+msgstr "Enregistrer et poursuivre"
 
 msgid "common.saveAndEmail"
 msgstr "Enregistrer et envoyer par courriel"
@@ -1600,7 +1600,7 @@ msgid "notification.reviewAcknowledged"
 msgstr "On a accusé réception de l'évaluation. Aucun courriel envoyé."
 
 msgid "notification.reviewerThankedEmail"
-msgstr "Le mail de remerciements a été envoyé au rapporteur."
+msgstr "Le courriel de remerciements a été envoyé à l'évaluateur/ice."
 
 msgid "notification.updatedReviewFiles"
 msgstr "Fichiers à évaluer mis à jour."
@@ -1871,7 +1871,7 @@ msgstr ""
 "de courriel de notification."
 
 msgid "notification.removedReviewer"
-msgstr "Le rapporteur a été supprimé."
+msgstr "L'évaluateur/ice a été supprimé/e."
 
 msgid "notification.cancelledReviewer"
 msgstr "L'évaluatrice ou évaluateur a été annulé."
@@ -1918,7 +1918,7 @@ msgid "notification.type.pendingRevisions.title"
 msgstr "Révisions soumises à {$stage}."
 
 msgid "notification.type.reviewerComment"
-msgstr "Un rapporteur a laissé un commentaire sur « {$title} »."
+msgstr "Un/e évaluateur/ice a laissé un commentaire sur « {$title} »."
 
 msgid "notification.signedFile"
 msgstr "Fichier considéré."
@@ -1987,11 +1987,10 @@ msgstr "Statut du cycle {$round}"
 msgid "notification.type.editorialReport"
 msgstr "Résumé du rapport de statistiques."
 
-#, fuzzy
 msgid "notification.type.editorialReport.contents"
 msgstr ""
-"Ceci est un rappel amical pour vous inciter à vérifier la bonne marche de "
-"votre revue via le rapport éditorial."
+"Ceci est un petit rappel pour vous inviter à consulter le rapport éditorial "
+"de votre revue."
 
 msgid "notification.type.editorialReminder"
 msgstr "E-mail hebdomadaire des tâches en attente"
@@ -2461,14 +2460,15 @@ msgid "common.editorialMasthead"
 msgstr "Équipe éditoriale"
 
 msgid "common.editorialMasthead.peerReviewers"
-msgstr "Relecteurs de l'année précédente"
+msgstr "Évaluateur/ices de l'année précédente"
 
 msgid "common.editorialHistory.peerReviewers"
-msgstr "Relecteurs au cours des années précédentes"
+msgstr "Évaluateur/ices au cours des années précédentes"
 
 msgid "common.editorialMasthead.peerReviewers.description"
 msgstr ""
-"Les éditeurs remercient les relecteurs de {$year} mentionnés ci-dessous."
+"Les éditeur/ices remercient les évaluateur/ices de {$year} mentionnés ci-"
+"dessous."
 
 msgid "common.editorialHistory"
 msgstr "Historique"
@@ -2477,7 +2477,8 @@ msgid "common.editorialHistory.page"
 msgstr "Page d'historique éditorial"
 
 msgid "common.editorialHistory.page.description"
-msgstr "Cette section répertorie les contributeurs passés."
+msgstr ""
+"Cette section répertorie les ancien/nes contributeurs et contributrices."
 
 msgid "common.editorialHistory.page.orcidLink"
 msgstr "Afficher le profil ORCID de {$name}"
