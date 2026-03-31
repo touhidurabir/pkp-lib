@@ -23,6 +23,7 @@ use APP\core\Application;
 use APP\core\Request;
 use PKP\core\PKPRequest;
 use PKP\note\Note;
+use PKP\security\Role;
 
 class NoteAccessPolicy extends AuthorizationPolicy
 {
@@ -89,10 +90,28 @@ class NoteAccessPolicy extends AuthorizationPolicy
             return AuthorizationPolicy::AUTHORIZATION_DENY;
         }
 
-        // Notes can only be edited by their original creators
-        if ($this->_accessMode === self::NOTE_ACCESS_WRITE
-                && $note->userId != $this->_request->getUser()->getId()) {
-            return AuthorizationPolicy::AUTHORIZATION_DENY;
+
+        // Headnotes can be edited by managers, site admins and sub editors anytime.
+        // Other users can only edit their own headnotes within 1 hour of creation.
+        if ($this->_accessMode === self::NOTE_ACCESS_WRITE) {
+            $user = $this->_request->getUser();
+
+            if (!$note->isHeadnote) {
+                return AuthorizationPolicy::AUTHORIZATION_DENY;
+            }
+
+            if (array_intersect($assignedStages[$query->stageId], [Role::ROLE_ID_MANAGER, Role::ROLE_ID_SITE_ADMIN, Role::ROLE_ID_SUB_EDITOR])) {
+                $this->addAuthorizedContextObject(Application::ASSOC_TYPE_NOTE, $note);
+                return AuthorizationPolicy::AUTHORIZATION_PERMIT;
+            }
+
+            if ($note->userId != $user->getId()) {
+                return AuthorizationPolicy::AUTHORIZATION_DENY;
+            }
+
+            if (time() - strtotime($note->dateCreated) >= 3600) {
+                return AuthorizationPolicy::AUTHORIZATION_DENY;
+            }
         }
 
         $this->addAuthorizedContextObject(Application::ASSOC_TYPE_NOTE, $note);

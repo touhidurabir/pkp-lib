@@ -74,7 +74,42 @@ class EditTask extends FormRequest
                 Rule::date()->format('Y-m-d'),
                 'after_or_equal:today',
             ],
-            EditorialTask::ATTRIBUTE_HEADNOTE => ['sometimes', 'string'],
+            EditorialTask::ATTRIBUTE_HEADNOTE => [
+                'sometimes',
+                'string',
+                function (string $attribute, string $value, Closure $fail) {
+                    if (!$this->task) {
+                        return;
+                    }
+
+                    $currentUser = Application::get()->getRequest()?->getUser();
+                    if (!$currentUser) {
+                        return;
+                    }
+
+                    if (
+                        $currentUser->hasRole([Role::ROLE_ID_MANAGER, Role::ROLE_ID_SUB_EDITOR], $this->submission->getData('contextId'))
+                        || $currentUser->hasRole([Role::ROLE_ID_SITE_ADMIN], Application::CONTEXT_SITE)
+                    ) {
+                        return;
+                    }
+
+                    $headnote = $this->task->notes()->withHeadnote()->first();
+
+                    if (!$headnote) {
+                        return;
+                    }
+
+                    if ($headnote->userId != $currentUser->getId()) {
+                        $fail(__('submission.task.validation.error.headnote.author'));
+                        return;
+                    }
+
+                    if (time() - strtotime($headnote->dateCreated) >= 3600) {
+                        $fail(__('submission.task.validation.error.headnote.editExpired'));
+                    }
+                },
+            ],
             EditorialTask::ATTRIBUTE_PARTICIPANTS => [
                 'required',
                 'array',
