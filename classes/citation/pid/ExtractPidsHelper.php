@@ -3,8 +3,8 @@
 /**
  * @file classes/citation/pid/ExtractPidsHelper.php
  *
- * Copyright (c) 2025 Simon Fraser University
- * Copyright (c) 2025 John Willinsky
+ * Copyright (c) 2025-2026 Simon Fraser University
+ * Copyright (c) 2025-2026 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class ExtractPidsHelper
@@ -17,6 +17,11 @@
 namespace PKP\citation\pid;
 
 use PKP\citation\Citation;
+use PKP\pid\Doi;
+use PKP\pid\Arxiv;
+use PKP\pid\Handle;
+use PKP\pid\Url;
+use PKP\pid\Urn;
 
 class ExtractPidsHelper
 {

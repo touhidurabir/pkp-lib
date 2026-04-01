@@ -1,25 +1,28 @@
 <?php
 
 /**
- * @file classes/citation/pid/BasePid.php
+ * @file classes/pid/BasePid.php
  *
- * Copyright (c) 2025 Simon Fraser University
- * Copyright (c) 2025 John Willinsky
+ * Copyright (c) 2025-2026 Simon Fraser University
+ * Copyright (c) 2025-2026 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class BasePid
  *
- * @ingroup citation
+ * @ingroup pid
  *
  * @brief BasePid abstract class
  */
 
-namespace PKP\citation\pid;
+namespace PKP\pid;
 
 abstract class BasePid
 {
-    /** @var string Regexes to extract PIDs */
+    /** @var array Regexes to extract PIDs */
     public const regexes = [];
+
+    /** @var array Strict regexes for validating bare identifiers (without prefix or URL). Used by isValid(). */
+    public const validationRegexes = [];
 
     /** @var string Default prefix, e.g. doi: arxiv: handle: */
     public const prefix = '';
@@ -141,6 +144,35 @@ abstract class BasePid
         }
 
         return trim($class::removePrefix($match), $class::defaultTrimCharacters);
+    }
+
+    /**
+     * Check if a bare identifier value is valid.
+     *
+     * @param string|null $value e.g. 10.123/tib123 (bare, no prefix)
+     *
+     * @return bool
+     *
+     */
+    public static function isValid(?string $value): bool
+    {
+        if (empty($value)) {
+            return false;
+        }
+
+        /* @var BasePid $class */
+        $class = get_called_class();
+
+        if (!empty($class::validationRegexes)) {
+            foreach ($class::validationRegexes as $regex) {
+                if (preg_match($regex, $value)) {
+                    return true;
+                }
+            }
+            return false;
+        }
+
+        return $class::removePrefix($value) !== '';
     }
 
     /**

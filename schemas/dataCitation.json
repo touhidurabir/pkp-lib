@@ -47,8 +47,9 @@
             "description": "The identifier for the dataset.",
             "apiSummary": true,
             "validation": [
-				"nullable"
-			]
+                "nullable",
+                "required_with:identifierType"
+            ]
         },
         "identifierType": {
             "type": "string",
@@ -58,6 +59,7 @@
             "apiSummary": true,
             "validation": [
                 "nullable",
+                "required_with:identifier",
                 "in:DOI,Accession,PURL,ARK,URI,ARXIV,ECLI,Handle,ISSN,ISBN,PMID,PMCID,UUID"
             ]
         },

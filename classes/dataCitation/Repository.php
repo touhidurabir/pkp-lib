@@ -16,6 +16,8 @@ namespace PKP\dataCitation;
 use APP\core\Application;
 use APP\core\Request;
 use PKP\context\Context;
+use PKP\dataCitation\DataCitation;
+use PKP\dataCitation\pid\PidResolver;
 use PKP\plugins\Hook;
 use PKP\services\PKPSchemaService;
 use PKP\validation\ValidatorFactory;
@@ -66,6 +68,30 @@ class Repository
             [],
             ''
         );
+
+        // Validate identifier format based on identifierType
+        $validator->after(function ($validator) use ($props) {
+            $identifierType = $props['identifierType'] ?? null;
+            $identifier = $props['identifier'] ?? null;
+
+            if (!$identifierType || !$identifier || $validator->errors()->get('identifier')) {
+                return;
+            }
+
+            $pidClass = PidResolver::resolveByIdentifierType($identifierType);
+            if (!$pidClass) {
+                return;
+            }
+
+            $parsedIdentifier = $pidClass::extractFromString($identifier) ?: $pidClass::removePrefix($identifier);
+
+            if (!$pidClass::isValid($parsedIdentifier)) {
+                $validator->errors()->add('identifier', __('submission.dataCitations.identifier.invalid', [
+                    'type'  => $identifierType,
+                    'value' => $identifier,
+                ]));
+            }
+        });
 
         $errors = [];
 
