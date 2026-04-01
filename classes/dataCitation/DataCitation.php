@@ -18,7 +18,7 @@ namespace PKP\dataCitation;
 use Illuminate\Database\Eloquent\Builder as EloquentBuilder;
 use Illuminate\Database\Eloquent\Model;
 use PKP\core\traits\ModelWithSettings;
-use PKP\plugins\Hook;
+use PKP\dataCitation\pid\PidResolver;
 use PKP\services\PKPSchemaService;
 
 /**
@@ -58,7 +58,40 @@ class DataCitation extends Model
     }
 
     /**
+     * Override saving to strip known prefixes and Base URL's from identifier
+     * 
+     * @return static
+     * 
+     */
+    protected static function boot()
+    {
+        parent::boot();
+
+        static::saving(function (self $model) {
+            $dirty = $model->getDirty();
+            $identifierType = $dirty['identifier_type'] ?? $model->identifierType;
+
+            if ((isset($dirty['identifier']) || isset($dirty['identifier_type'])) && !empty($model->identifier) && !empty($identifierType)) {
+                $pidClass = PidResolver::resolveByIdentifierType($identifierType);
+
+                if ($pidClass) {
+                    $identifier = $pidClass::extractFromString($model->identifier);
+
+                    if ($identifier !== '') {
+                        $model->identifier = $identifier;
+                    } else {
+                        $model->identifier = $pidClass::removePrefix($model->identifier);
+                    }
+                }
+            }
+        });
+    }
+
+    /**
      * Filter by publication ID
+     * 
+     * @return EloquentBuilder
+     * 
      */
     protected function scopeWithPublicationId(EloquentBuilder $builder, int $publicationId): EloquentBuilder
     {
@@ -67,6 +100,9 @@ class DataCitation extends Model
 
     /**
      * Order by seq
+     * 
+     * @return EloquentBuilder
+     * 
      */
     protected function scopeOrderBySeq(EloquentBuilder $builder): EloquentBuilder
     {
