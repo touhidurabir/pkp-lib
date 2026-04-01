@@ -142,9 +142,9 @@ class SubmissionsMigration extends \PKP\migration\Migration
         });
 
         // Load en json, and fill table with values
-        $creditRoles = json_decode(file_get_contents(Core::getBaseDir() . '/' . PKP_LIB_PATH . '/lib/creditRoles/translations/en.json') ?: '', true);
+        $creditRoles = json_decode(file_get_contents(Core::getBaseDir() . '/' . PKP_LIB_PATH . '/lib/creditRoles/translations/en_Latn.json') ?: '', true);
         if (!$creditRoles) {
-            throw new \Exception(PKP_LIB_PATH . '/lib/creditRoles/translations/en.json not found');
+            throw new \Exception(PKP_LIB_PATH . '/lib/creditRoles/translations/en_Latn.json not found');
         }
         $creditRolesData = Arr::map(array_keys($creditRoles['translations'] ?? []), fn (string $role): array => ['credit_role_identifier' => $role]);
         DB::table('credit_roles')

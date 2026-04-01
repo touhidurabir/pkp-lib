@@ -39,9 +39,9 @@ class I857_CreditRoles extends Migration
         });
 
         // Load en json, and fill table with values
-        $creditRoles = json_decode(file_get_contents(Core::getBaseDir() . '/' . PKP_LIB_PATH . '/lib/creditRoles/translations/en.json') ?: "", true);
+        $creditRoles = json_decode(file_get_contents(Core::getBaseDir() . '/' . PKP_LIB_PATH . '/lib/creditRoles/translations/en_Latn.json') ?: "", true);
         if (!$creditRoles) {
-            throw new \Exception(PKP_LIB_PATH . '/lib/creditRoles/translations/en.json not found');
+            throw new \Exception(PKP_LIB_PATH . '/lib/creditRoles/translations/en_Latn.json not found');
         }
         $creditRolesData = Arr::map(array_keys($creditRoles['translations'] ?? []), fn (string $role): array => ['credit_role_identifier' => $role]);
         DB::table('credit_roles')
@@ -61,7 +61,7 @@ class I857_CreditRoles extends Migration
             $table->unique(['contributor_id', 'contributor_role_id'], 'contributor_id_contributor_role_id_unique');
         });
 
-        // Add contstraint to only allow either credit or contributor role per row
+        // Add constraint to only allow either credit or contributor role per row
         DB::statement('
             ALTER TABLE credit_contributor_roles
             ADD CONSTRAINT check_xor_credit_contributor_role

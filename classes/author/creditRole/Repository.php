@@ -3,8 +3,8 @@
 /**
  * @file classes/author/creditRole/Repository.php
  *
- * Copyright (c) 2025 Simon Fraser University
- * Copyright (c) 2025 John Willinsky
+ * Copyright (c) 2025-2026 Simon Fraser University
+ * Copyright (c) 2025-2026 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class Repository
@@ -16,22 +16,20 @@ namespace PKP\author\creditRole;
 
 use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\Cache;
-use PKP\author\creditRole\CreditRoleDegree;
 use APP\core\Application;
 use PKP\core\Core;
 use PKP\facades\Locale;
 
-class Repository {
+class Repository
+{
     /** @var string Max lifetime for the cache */
     protected const MAX_CACHE_LIFETIME = '1 year';
     protected array $localeMapping = [
         'cs' => 'cz',
         'da' => 'dk',
-        'zh_Hans' => 'cn',
         'el' => 'gr',
-        'nb_NO' => 'no_bk',
-        'nn' => 'no_nn',
-        'zh_Hant' => 'tc',
+        'nb_NO' => 'nob',
+        'nn' => 'nno',
     ];
     // One of the credit role file locales
     protected string $defaultLocale = 'en';
@@ -78,7 +76,10 @@ class Repository {
 
         // Init with ui locales and default locale
         if (!$this->creditRoleTerms) {
-            $this->creditRoleTerms = Cache::remember($key, $expiration, fn () =>
+            $this->creditRoleTerms = Cache::remember(
+                $key,
+                $expiration,
+                fn () =>
                 collect(Application::get()->getRequest()->getContext()->getSupportedLocales())
                     ->push($this->defaultLocale)
                     ->unique()
@@ -103,7 +104,7 @@ class Repository {
         static $filenames;
         $prefix = Core::getBaseDir() . '/' . PKP_LIB_PATH . "/lib/creditRoles/translations/";
         $suffix = '.json';
-        $filenames ??= collect(glob("{$prefix}*{$suffix}"));
+        $filenames ??= collect(glob("{$prefix}*{$suffix}") ?: []);
         // Determine the language we're looking for from $locale
         $language = \Locale::getPrimaryLanguage($locale);
         // Get a list of available options from the filesystem and return file name
@@ -111,10 +112,10 @@ class Repository {
             ->first(fn (string $filename) =>
                 // 1. Look for an exact match and return it.
                 ($filename === "{$prefix}{$locale}{$suffix}") ||
-                // 2. Look in the preference list for a preferred fallback.
-                (isset($this->localeMapping[$locale]) && $filename === "{$prefix}{$this->localeMapping[$locale]}{$suffix}") ||
+                // 2. Look in the mapping list for a fallback.
+                (isset($this->localeMapping[$locale]) && str_starts_with($filename, "{$prefix}{$this->localeMapping[$locale]}_")) ||
                 // 3. Find the first match by language.
-                (strpos($filename, "{$prefix}{$language}{$suffix}") === 0 || strpos($filename, "{$prefix}{$language}_") === 0)
+                (str_starts_with($filename, "{$prefix}{$language}_"))
             );
     }
 }
