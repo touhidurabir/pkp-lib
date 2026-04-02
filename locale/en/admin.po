@@ -212,7 +212,46 @@ msgstr "Update ROR registry dataset cache"
 msgid "admin.scheduledTask.UpdateRorRegistryDataset.error.checksum"
 msgstr ""
 "Unable to update the ROR Registry dataset due to a checksum mismatch."
-" Expected checksum: {$expected}. Actual checksum: {$actual}"
+" Expected checksum: {$expected}. Actual checksum: {$actual}."
+
+msgid "admin.scheduledTask.UpdateRorRegistryDataset.error.checksumVerify"
+msgstr "Unable to verify the checksum of the downloaded ROR Registry dataset ZIP file."
+
+msgid "admin.scheduledTask.UpdateRorRegistryDataset.error.checksumAlgorithm"
+msgstr "Unable to verify the ROR Registry dataset ZIP file: unsupported checksum algorithm. Only MD5 and SHA256 are supported."
+
+msgid "admin.scheduledTask.UpdateRorRegistryDataset.error.statusCode"
+msgstr "Unable to retrieve the ROR Registry dataset metadata. Unexpected HTTP status code: {$statusCode}."
+
+msgid "admin.scheduledTask.UpdateRorRegistryDataset.error.noDownloadFile"
+msgstr "Unable to retrieve the ROR Registry dataset metadata. No download file found in the API response."
+
+msgid "admin.scheduledTask.UpdateRorRegistryDataset.error.download"
+msgstr "Unable to download the ROR Registry dataset ZIP file."
+
+msgid "admin.scheduledTask.UpdateRorRegistryDataset.error.zipOpen"
+msgstr "Unable to open the ROR Registry dataset ZIP file. Error code: {$code}."
+
+msgid "admin.scheduledTask.UpdateRorRegistryDataset.error.extract"
+msgstr "Unable to extract the ROR Registry dataset ZIP file."
+
+msgid "admin.scheduledTask.UpdateRorRegistryDataset.error.jsonNotFound"
+msgstr "Unable to find a JSON data file with schema version {$version} in the extracted ROR Registry dataset."
+
+msgid "admin.scheduledTask.UpdateRorRegistryDataset.error.missingFields"
+msgstr "ROR Registry record with id \"{$id}\" is missing one or more required fields (id, names, status) and has been skipped."
+
+msgid "admin.scheduledTask.UpdateRorRegistryDataset.error.schemaVersionRead"
+msgstr "Unable to read schema version from ROR Registry JSON file {$file}. Error: {$error}."
+
+msgid "admin.scheduledTask.UpdateRorRegistryDataset.error.noRecordsProcessed"
+msgstr "No records were processed from the ROR Registry dataset. The dataset may be empty or all records failed validation."
+
+msgid "admin.scheduledTask.UpdateRorRegistryDataset.warning.missingNameValue"
+msgstr "ROR Registry record \"{$id}\" has a name entry with types [{$types}] missing the required 'value' field and has been skipped."
+
+msgid "admin.scheduledTask.UpdateRorRegistryDataset.warning.noValidName"
+msgstr "ROR Registry record \"{$id}\" has no valid name and has been skipped."
 
 msgid "admin.scheduledTask.usageStatsLoader"
 msgstr "Usage statistics file loader task"
