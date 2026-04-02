@@ -275,3 +275,6 @@ msgstr "Read Response"
 
 msgid "openReview.hideResponse"
 msgstr "Hide Response"
+
+msgid "reviewer.submission.reviewFormResponse.form.notFilledIn"
+msgstr "Some required fields are not filled in. Please complete them before submitting your review."

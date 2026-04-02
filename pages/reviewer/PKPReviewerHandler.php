@@ -23,13 +23,12 @@ use APP\submission\Submission;
 use APP\template\TemplateManager;
 use Exception;
 use Illuminate\Support\Facades\Mail;
-use PKP\config\Config;
 use PKP\core\JSONMessage;
 use PKP\core\PKPApplication;
 use PKP\core\PKPRequest;
 use PKP\db\DAORegistry;
-use PKP\editorialTask\enums\EditorialTaskType;
 use PKP\editorialTask\enums\EditorialTaskStatus;
+use PKP\editorialTask\enums\EditorialTaskType;
 use PKP\facades\Locale;
 use PKP\notification\Notification;
 use PKP\submission\reviewAssignment\ReviewAssignment;
@@ -106,6 +105,15 @@ class PKPReviewerHandler extends Handler
             'selected' => $step - 1,
             'submission' => $reviewSubmission,
         ]);
+
+        // Ensure Step 3 custom required validation script is loaded in the page header
+        if ((int)$reviewAssignment->getReviewFormId() > 0) {
+            $templateMgr->addJavaScript(
+                'reviewStep3Required',
+                $request->getBaseUrl() . '/lib/pkp/js/pages/reviewer/reviewStep3Required.js',
+                ['contexts' => ['backend']]
+            );
+        }
 
         $templateMgr->setState([
             'pageInitConfig' => [
