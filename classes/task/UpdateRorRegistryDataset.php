@@ -33,8 +33,6 @@ use DirectoryIterator;
 use Exception;
 use GuzzleHttp\Exception\GuzzleException;
 use Illuminate\Support\Facades\DB;
-use JsonMachine\Items;
-use JsonMachine\JsonDecoder\ExtJsonDecoder;
 use PKP\file\PrivateFileManager;
 use PKP\scheduledTask\ScheduledTask;
 use PKP\scheduledTask\ScheduledTaskHelper;
@@ -274,13 +272,13 @@ class UpdateRorRegistryDataset extends ScheduledTask
      * Uses admin.last_modified.schema_version, which reflects the file's schema format
      * (admin.created.schema_version may still reference an older version).
      *
-     * This reads only the first top-level item from the dump via JsonMachine,
+     * This reads only the first top-level item from the dump via readJsonRecords(),
      * so it stays lightweight while avoiding brittle checks against raw JSON text.
      */
     private function hasSchemaVersion(string $pathJson, int $version): bool
     {
         try {
-            foreach (Items::fromFile($pathJson, ['decoder' => new ExtJsonDecoder(assoc: true)]) as $record) {
+            foreach ($this->readJsonRecords($pathJson) as $record) {
                 $schemaVersion = $record['admin']['last_modified']['schema_version'] ?? null;
                 return (int)$schemaVersion === $version;
             }
@@ -432,7 +430,7 @@ class UpdateRorRegistryDataset extends ScheduledTask
      * Read top-level JSON objects from a JSON array file using chunked I/O.
      *
      * The ROR data dump is a single JSON array: [{...}, {...}, ...].
-     * Instead of using JsonMachine's pure-PHP tokenizer, this reads large
+     * Instead of using a pure-PHP streaming tokenizer, this reads large
      * chunks with fread() and finds object boundaries by tracking brace
      * depth — both fread() and the final json_decode() per record are
      * native C, making this significantly faster.
