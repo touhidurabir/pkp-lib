@@ -32,6 +32,7 @@ use PKP\invitation\core\ReceiveInvitationController;
 use PKP\invitation\core\traits\HasMailable;
 use PKP\invitation\invitations\userRoleAssignment\rules\UserMustExistRule;
 use PKP\invitation\models\InvitationModel;
+use PKP\security\authorization\PublicAccessPolicy;
 use PKP\security\Role;
 use PKP\validation\ValidatorFactory;
 
@@ -74,6 +75,13 @@ class InvitationController extends PKPBaseController
         'finalize',
         'refine',
         'decline',
+    ];
+
+    public $publicActions = [
+        'receive',
+        'finalize',
+        'refine',
+        'decline'
     ];
 
     private ?Invitation $invitation = null;
@@ -238,6 +246,11 @@ class InvitationController extends PKPBaseController
 
         if (!method_exists($this->selectedHandler, $actionName)) {
             throw new Exception("The handler does not support the method: {$actionName}");
+        }
+
+        if (in_array($actionName, $this->publicActions)) {
+            $this->setEnforceRestrictedSite(false);
+            $this->addPolicy(new PublicAccessPolicy());
         }
 
         $this->selectedHandler->authorize($this, $request, $args, $roleAssignments);
