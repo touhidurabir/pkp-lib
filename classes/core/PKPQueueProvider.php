@@ -201,8 +201,6 @@ class PKPQueueProvider extends IlluminateQueueServiceProvider
                     return;
                 }
 
-                error_log('Shutdown function started at: ' . microtime(true));
-
                 $jobRunner = app('jobRunner'); /** @var \PKP\queue\JobRunner $jobRunner */
                 $jobRunner
                     ->setCurrentContextId(Application::get()->getRequest()->getContext()?->getId())
@@ -211,8 +209,6 @@ class PKPQueueProvider extends IlluminateQueueServiceProvider
                     ->withMaxMemoryConstrain()
                     ->withEstimatedTimeToProcessNextJobConstrain()
                     ->processJobs();
-
-                error_log('Shutdown function ended at: ' . microtime(true));
             });
         }
 
@@ -285,11 +281,14 @@ class PKPQueueProvider extends IlluminateQueueServiceProvider
                 Application::get()->setCliContext($context);
             }
 
-            if (!app()->runningUnitTests()) {
-                // Initialize the locale and load generic plugins for context or no context
-                // But will not load when running unit tests as part of the application lifecycle 
-                // to avoid any unintended side effect on tests that are not related to queue jobs
+            // Load generic plugins once per worker lifecycle.
+            // The Looping listener ensures the worker quits on context change,
+            // so plugins only need to be loaded once per process.
+            // Skip when running unit tests to avoid unintended side effects.
+            static $pluginsLoaded = false;
+            if (!$pluginsLoaded && !app()->runningUnitTests()) {
                 \PKP\plugins\PluginRegistry::loadCategory('generic', false, $contextId);
+                $pluginsLoaded = true;
             }
         });
 
