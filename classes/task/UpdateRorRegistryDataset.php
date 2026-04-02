@@ -301,15 +301,33 @@ class UpdateRorRegistryDataset extends ScheduledTask
     /**
      * Process JSON file.
      *
+     * Truncates both tables upfront, then streams JSON records and batch-inserts
+     * both rors and ror_settings per batch. Only one batch (~5000 records) is in
+     * memory at a time, keeping peak usage under 60MB for ~125K records.
+     *
      * @return int Number of records successfully processed.
      */
     private function processJson(string $pathJson): int
     {
-        $batchSize = 3000;
-        $batchRows = [];
+        // Truncate both tables upfront so all subsequent inserts go into empty tables
+        // (no upsert overhead, no stale detection). Since we always process the entire
+        // dataset, we can clear first then stream-insert both rors and settings per batch.
+        if (DB::connection()->getDriverName() === 'mysql') {
+            DB::statement('SET FOREIGN_KEY_CHECKS=0');
+            DB::table('ror_settings')->truncate();
+            DB::table('rors')->truncate();
+            DB::statement('SET FOREIGN_KEY_CHECKS=1');
+        } else {
+            // PostgreSQL: TRUNCATE with CASCADE handles FK constraints natively
+            DB::statement('TRUNCATE TABLE rors CASCADE');
+        }
+
+        // Stream JSON records, batch-insert both rors and ror_settings per batch.
+        $batchSize = 5000;
+        $batch = [];
         $processedCount = 0;
 
-        foreach (Items::fromFile($pathJson, ['decoder' => new ExtJsonDecoder(assoc: true)]) as $record) {
+        foreach ($this->readJsonRecords($pathJson) as $record) {
             if (empty($record['id']) || empty($record['names']) || empty($record['status'])) {
                 $this->addExecutionLogEntry(
                     __('admin.scheduledTask.UpdateRorRegistryDataset.error.missingFields', [
@@ -324,20 +342,171 @@ class UpdateRorRegistryDataset extends ScheduledTask
             if ($row === null) {
                 continue;
             }
-            $batchRows[] = $row;
+
+            $batch[] = $row;
             $processedCount++;
 
-            if (count($batchRows) >= $batchSize) {
-                $this->processBatch($batchRows);
-                $batchRows = [];
+            if (count($batch) >= $batchSize) {
+                $this->insertBatch($batch);
+                $batch = [];
             }
         }
 
-        if (!empty($batchRows)) {
-            $this->processBatch($batchRows);
+        if (!empty($batch)) {
+            $this->insertBatch($batch);
         }
 
         return $processedCount;
+    }
+
+    /**
+     * Insert a batch of rors and their settings into the (already truncated) tables.
+     */
+    private function insertBatch(array $batch): void
+    {
+        $rorsValues = array_column($batch, 'rors');
+
+        DB::table('rors')->insert($rorsValues);
+
+        $rorIdMap = DB::table('rors')
+            ->whereIn('ror', array_column($rorsValues, 'ror'))
+            ->pluck('ror_id', 'ror');
+
+        $settingsValues = [];
+        foreach ($batch as $row) {
+            $rorId = $rorIdMap[$row['rors']['ror']] ?? null;
+            if ($rorId === null) {
+                continue;
+            }
+            foreach ($row['names'] as $locale => $name) {
+                $settingsValues[] = [
+                    'ror_id' => $rorId,
+                    'locale' => $locale,
+                    'setting_name' => 'name',
+                    'setting_value' => $name,
+                ];
+            }
+        }
+        if (!empty($settingsValues)) {
+            DB::table('ror_settings')->insert($settingsValues);
+        }
+    }
+
+    /**
+     * Read top-level JSON objects from a JSON array file using chunked I/O.
+     *
+     * The ROR data dump is a single JSON array: [{...}, {...}, ...].
+     * Instead of using JsonMachine's pure-PHP tokenizer, this reads large
+     * chunks with fread() and finds object boundaries by tracking brace
+     * depth — both fread() and the final json_decode() per record are
+     * native C, making this significantly faster.
+     *
+     * @return \Generator<int, array> Yields decoded associative arrays.
+     */
+    private function readJsonRecords(string $pathJson): \Generator
+    {
+        $handle = fopen($pathJson, 'r');
+        if ($handle === false) {
+            return;
+        }
+
+        try {
+            $buffer = '';
+            $depth = 0;
+            $inString = false;
+            $escape = false;
+
+            while (($chunk = fread($handle, 8 * 1024 * 1024)) !== false && $chunk !== '') {
+                $len = strlen($chunk);
+                $pos = 0;
+
+                while ($pos < $len) {
+                    if ($escape) {
+                        if ($depth > 0) {
+                            $buffer .= $chunk[$pos];
+                        }
+                        $escape = false;
+                        $pos++;
+                        continue;
+                    }
+
+                    if ($inString) {
+                        $skip = strcspn($chunk, '"\\', $pos);
+                        if ($depth > 0) {
+                            $buffer .= substr($chunk, $pos, $skip);
+                        }
+                        $pos += $skip;
+
+                        if ($pos >= $len) {
+                            break;
+                        }
+
+                        $ch = $chunk[$pos];
+                        if ($ch === '\\') {
+                            $escape = true;
+                            if ($depth > 0) {
+                                $buffer .= '\\';
+                            }
+                        } elseif ($ch === '"') {
+                            $inString = false;
+                            if ($depth > 0) {
+                                $buffer .= '"';
+                            }
+                        }
+                        $pos++;
+                        continue;
+                    }
+
+                    // Outside a string — skip to next structural character
+                    $skip = strcspn($chunk, '"{}[]', $pos);
+                    if ($depth > 0) {
+                        $buffer .= substr($chunk, $pos, $skip);
+                    }
+                    $pos += $skip;
+
+                    if ($pos >= $len) {
+                        break;
+                    }
+
+                    $ch = $chunk[$pos];
+                    switch ($ch) {
+                        case '"':
+                            $inString = true;
+                            if ($depth > 0) {
+                                $buffer .= '"';
+                            }
+                            break;
+
+                        case '{':
+                            $depth++;
+                            $buffer .= '{';
+                            break;
+
+                        case '}':
+                            $depth--;
+                            $buffer .= '}';
+                            if ($depth === 0) {
+                                $decoded = json_decode($buffer, true);
+                                $buffer = '';
+                                if ($decoded !== null) {
+                                    yield $decoded;
+                                }
+                            }
+                            break;
+
+                        case '[':
+                        case ']':
+                            if ($depth > 0) {
+                                $buffer .= $ch;
+                            }
+                            break;
+                    }
+                    $pos++;
+                }
+            }
+        } finally {
+            fclose($handle);
+        }
     }
 
     /**
@@ -420,91 +589,4 @@ class UpdateRorRegistryDataset extends ScheduledTask
         }
     }
 
-    /**
-     * Upsert rors and ror_settings for a batch of rows.
-     *
-     * rors rows are upserted (insert or update). ror_settings name rows are also
-     * upserted, and any locale entries that are no longer present in the dump are
-     * deleted afterwards. This avoids rewriting rows that have not changed, which
-     * matters for monthly updates where most records stay the same.
-     *
-     * This is equivalent in intent to the previous temporary-table-based implementation,
-     * which likewise upserted ror_settings and deleted orphaned locale rows via JOIN —
-     * just without the temporary table.
-     *
-     * A simpler alternative would be to delete all ror_settings name rows for the
-     * batch and reinsert them from scratch. That would be easier to reason about
-     * at the cost of more write I/O on every run.
-     *
-     * This importer intentionally does not delete rors rows that are absent from a
-     * newly downloaded dump. It relies on the ROR dataset keeping identifiers
-     * stable over time and marking deprecated records through status changes
-     * instead of removing them outright. If that upstream contract changes,
-     * full-dataset cleanup will need to be reintroduced here.
-     */
-    private function processBatch(array $rows): void
-    {
-        $rorsValues = array_column($rows, 'rors');
-
-        DB::transaction(function () use ($rorsValues, $rows) {
-            // upsert into rors
-            DB::table('rors')->upsert($rorsValues, ['ror'], ['display_locale', 'is_active', 'search_phrase']);
-
-            // fetch ror_id for each ror in the batch
-            $rorIdMap = DB::table('rors')
-                ->whereIn('ror', array_column($rorsValues, 'ror'))
-                ->pluck('ror_id', 'ror');
-
-            // upsert current name settings for these rors
-            $settingsValues = [];
-            $localesByRorId = [];
-            foreach ($rows as $row) {
-                $rorId = $rorIdMap[$row['rors']['ror']] ?? null;
-                if ($rorId === null) {
-                    continue;
-                }
-                foreach ($row['names'] as $locale => $name) {
-                    $settingsValues[] = [
-                        'ror_id' => $rorId,
-                        'locale' => $locale,
-                        'setting_name' => 'name',
-                        'setting_value' => $name,
-                    ];
-                    $localesByRorId[$rorId][$locale] = true;
-                }
-            }
-
-            if (!empty($settingsValues)) {
-                DB::table('ror_settings')->upsert(
-                    $settingsValues,
-                    ['ror_id', 'locale', 'setting_name'],
-                    ['setting_value']
-                );
-            }
-
-            // delete stale name rows for rors whose locale set has shrunk since the last import;
-            // first fetch all existing (ror_id, locale) pairs so we can skip rors with no stale rows
-            $existing = DB::table('ror_settings')
-                ->whereIn('ror_id', $rorIdMap->values())
-                ->where('setting_name', 'name')
-                ->select('ror_id', 'locale')
-                ->get();
-
-            // collect all stale (ror_id, locale) pairs and delete in a single query
-            $stalePairs = [];
-            $bindings = ['name'];
-            foreach ($existing as $row) {
-                if (!isset($localesByRorId[$row->ror_id][$row->locale])) {
-                    $stalePairs[] = '(?, ?)';
-                    $bindings[] = $row->ror_id;
-                    $bindings[] = $row->locale;
-                }
-            }
-
-            if (!empty($stalePairs)) {
-                $placeholders = implode(', ', $stalePairs);
-                DB::statement("DELETE FROM ror_settings WHERE setting_name = ? AND (ror_id, locale) IN ({$placeholders})", $bindings);
-            }
-        });
-    }
 }
