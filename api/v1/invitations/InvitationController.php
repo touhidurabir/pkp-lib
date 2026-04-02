@@ -32,6 +32,7 @@ use PKP\invitation\core\ReceiveInvitationController;
 use PKP\invitation\core\traits\HasMailable;
 use PKP\invitation\invitations\userRoleAssignment\rules\UserMustExistRule;
 use PKP\invitation\models\InvitationModel;
+use PKP\security\authorization\PublicAccessPolicy;
 use PKP\security\Role;
 use PKP\validation\ValidatorFactory;
 
@@ -74,6 +75,13 @@ class InvitationController extends PKPBaseController
         'finalize',
         'refine',
         'decline',
+    ];
+
+    public $publicActions = [
+        'receive',
+        'finalize',
+        'refine',
+        'decline'
     ];
 
     private ?Invitation $invitation = null;
@@ -183,7 +191,6 @@ class InvitationController extends PKPBaseController
         $invitationType = $this->getParameter(self::PARAM_TYPE);
         $invitationId = (int) $this->getParameter(self::PARAM_ID);
         $invitationKey = $this->getParameter(self::PARAM_KEY);
-
         if (in_array($actionName, $this->requiresType)) {
             if (!isset($invitationType)) {
                 throw new Exception("Parameter with the name '" . self::PARAM_TYPE . "' needs to be declared");
@@ -240,6 +247,11 @@ class InvitationController extends PKPBaseController
             throw new Exception("The handler does not support the method: {$actionName}");
         }
 
+        if (in_array($actionName, $this->publicActions)) {
+            $this->setEnforceRestrictedSite(false);
+            $this->addPolicy(new PublicAccessPolicy());
+        }
+        
         $this->selectedHandler->authorize($this, $request, $args, $roleAssignments);
 
         return parent::authorize($request, $args, $roleAssignments);
