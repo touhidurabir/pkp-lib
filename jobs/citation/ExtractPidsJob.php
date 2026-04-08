@@ -24,12 +24,13 @@ use PKP\jobs\BaseJob;
 
 class ExtractPidsJob extends BaseJob
 {
+    protected int $contextId;
     protected int $citationId;
 
-    public function __construct(int $citationId)
+    public function __construct(int $contextId, int $citationId)
     {
         parent::__construct();
-
+        $this->contextId = $contextId;
         $this->citationId = $citationId;
     }
 

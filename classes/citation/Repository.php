@@ -25,12 +25,12 @@ use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Bus;
 use PKP\citation\enum\CitationProcessingStatus;
 use PKP\citation\filter\CitationListTokenizerFilter;
-use PKP\citation\pid\Doi;
 use PKP\jobs\citation\CrossrefJob;
 use PKP\jobs\citation\ExtractPidsJob;
 use PKP\jobs\citation\IsProcessedJob;
 use PKP\jobs\citation\OpenAlexJob;
 use PKP\jobs\citation\OrcidJob;
+use PKP\pid\Doi;
 use PKP\plugins\Hook;
 use PKP\services\PKPSchemaService;
 use PKP\validation\ValidatorFactory;
@@ -341,11 +341,11 @@ class Repository
         $contactEmail = $context->getContactEmail();
 
         $jobs = [
-            new ExtractPidsJob($citation->getId()),
-            new CrossrefJob($citation->getId(), $contactEmail),
-            new OpenAlexJob($citation->getId(), $contactEmail),
-            new OrcidJob($citation->getId(), $contactEmail),
-            new IsProcessedJob($citation->getId())
+            new ExtractPidsJob($context->getId(), $citation->getId()),
+            new CrossrefJob($context->getId(), $citation->getId(), $contactEmail),
+            new OpenAlexJob($context->getId(), $citation->getId(), $contactEmail),
+            new OrcidJob($context->getId(), $citation->getId(), $contactEmail),
+            new IsProcessedJob($context->getId(), $citation->getId())
         ];
 
         Bus::chain($jobs)
