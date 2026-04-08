@@ -17,7 +17,7 @@
 namespace PKP\citation\externalServices\orcid;
 
 use PKP\citation\externalServices\ExternalServicesHelper;
-use PKP\citation\pid\Orcid;
+use PKP\pid\Orcid;
 
 class Inbound
 {
