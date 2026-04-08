@@ -24,12 +24,14 @@ use PKP\jobs\BaseJob;
 
 class OpenAlexJob extends BaseJob
 {
+    protected int $contextId;
     protected int $citationId;
     protected string $contactEmail = '';
 
-    public function __construct(int $citationId, string $contactEmail)
+    public function __construct(int $contextId, int $citationId, string $contactEmail)
     {
         parent::__construct();
+        $this->contextId = $contextId;
         $this->citationId = $citationId;
         $this->contactEmail = $contactEmail;
     }
