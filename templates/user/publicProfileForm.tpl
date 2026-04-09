@@ -40,11 +40,11 @@
 </script>
 
 {* Form for deleting the profile image (placed here to avoid nesting forms) *}
-<form type="post" action="{url op="deleteProfileImage"}" id="deleteProfileImageForm">
+<form method="POST" action="{url op="deleteProfileImage"}" id="deleteProfileImageForm">
 	{csrf}
 </form>
 
-<form class="pkp_form" id="publicProfileForm" method="post" action="{url op="savePublicProfile"}" enctype="multipart/form-data">
+<form class="pkp_form" id="publicProfileForm" method="POST" action="{url op="savePublicProfile"}" enctype="multipart/form-data">
 	{csrf}
 
 	{include file="controllers/notification/inPlaceNotification.tpl" notificationId="publicProfileNotification"}

@@ -15,6 +15,7 @@
 namespace PKP\core;
 
 use Carbon\Carbon;
+use PKP\config\Config;
 use PKP\user\User;
 use APP\facades\Repo;
 use DateTimeInterface;
@@ -31,6 +32,9 @@ use Illuminate\Contracts\Auth\Authenticatable as AuthenticatableContract;
 
 class PKPSessionGuard extends SessionGuard
 {
+    // Session key to store the timestamp when a user reauthenticated.
+    private const SESSION_KEY_REAUTHENTICATED_AT = 'reauthenticated_at';
+
     /**
      * @copydoc \Illuminate\Auth\SessionGuard::$user
      *
@@ -117,6 +121,8 @@ class PKPSessionGuard extends SessionGuard
             ->setUserDataToSession($user)
             ->updateUser($user)
             ->updateSession($user->getId());
+
+        $this->stopElevatedSession();
     }
 
     /**
@@ -300,5 +306,59 @@ class PKPSessionGuard extends SessionGuard
         return $config['expire_on_close'] ? 0 : Date::instance(
             Carbon::now()->addRealMinutes($config['lifetime'])
         );
+    }
+
+    /**
+     * Check if user currently has access to sensitive area(Administration) of the app.
+     * This is only applicable for site admins.
+     */
+    public function isElevatedSessionActive(): bool
+    {
+        if (!Validation::isSiteAdmin()) {
+            return false;
+        }
+
+        // If reauthentication is not required then Admin always has elevated access.
+        if (!Validation::isReauthenticationRequired()) {
+            return true;
+        }
+
+        $timeoutMinutes = (int)Config::getVar('security', 'password_timeout');
+        $lastReauthenticationTimestamp = (int)$this->getSession()->get(self::SESSION_KEY_REAUTHENTICATED_AT);
+
+        if (!$lastReauthenticationTimestamp) {
+            return false;
+        }
+
+        $timeoutSeconds = $timeoutMinutes * 60;
+        $elapsedSeconds = time() - $lastReauthenticationTimestamp;
+        $isWithinWindow = $elapsedSeconds < $timeoutSeconds;
+
+        // Keep elevated access active while the user is interacting with the restricted area of app.
+        if ($isWithinWindow) {
+            $this->startElevatedSession();
+        }
+
+        return $isWithinWindow;
+    }
+
+    /**
+     * Starts the elevated session for site admins. Granting access to sensitive area(Administration) of the app for a limited time.
+     */
+    public function startElevatedSession(): void
+    {
+        if (Validation::isReauthenticationRequired() && Validation::isSiteAdmin()) {
+            $this->getSession()->put(self::SESSION_KEY_REAUTHENTICATED_AT, time());
+        }
+    }
+
+    /**
+     * Stops the elevated session for logged in site admin.
+     */
+    public function stopElevatedSession(): void
+    {
+        if (Validation::isSiteAdmin()) {
+            $this->getSession()->forget(self::SESSION_KEY_REAUTHENTICATED_AT);
+        }
     }
 }

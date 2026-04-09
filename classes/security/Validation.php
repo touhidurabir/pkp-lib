@@ -587,4 +587,13 @@ class Validation
         }
         return self::getAdministrationLevel($targetUserId, $currentUserId, $contextId) === self::ADMINISTRATION_FULL;
     }
+
+    /**
+     * Check if user is required to reauthenticate when accessing restricted area of the app.
+     */
+    public static function isReauthenticationRequired(): bool
+    {
+        $timeout = Config::getVar('security', 'password_timeout');
+        return $timeout !== null && $timeout > 0;
+    }
 }

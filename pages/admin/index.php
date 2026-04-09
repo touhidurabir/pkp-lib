@@ -33,5 +33,7 @@ switch ($op) {
     case 'jobs':
     case 'failedJobs':
     case 'failedJobDetails':
+    case 'confirmAccessSubmit':
+    case 'confirmAccess':
         return new PKP\pages\admin\AdminHandler();
 }

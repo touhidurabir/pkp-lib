@@ -542,7 +542,7 @@ class PKPRequest
     }
 
     /**
-     * Get the session guard resposible for managing session
+     * Get the session guard responsible for managing session
      */
     public function getSessionGuard(): PKPSessionGuard
     {
@@ -783,5 +783,21 @@ class PKPRequest
                 ? $publicFileManager->getContextFilesPath($context->getId())
                 : $publicFileManager->getSiteFilesPath()
         ]);
+    }
+
+    /**
+     * Get the path of the referer URL.
+     * @return string|null The referer path along with any available query params, or null if the referer is not set.
+     */
+    public function getRefererPath(): ?string
+    {
+        $referer = $_SERVER['HTTP_REFERER'] ?? null;
+        if (!$referer) {
+            return null;
+        }
+
+        $path = parse_url($referer, PHP_URL_PATH);
+        $query = parse_url($referer, PHP_URL_QUERY);
+        return $query ? $path . '?' . $query : $path;
     }
 }

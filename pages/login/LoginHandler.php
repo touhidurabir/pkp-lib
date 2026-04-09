@@ -299,7 +299,7 @@ class LoginHandler extends Handler
         if ($rateLimiter->isRateLimitEnabled()) {
             $rateLimiter->recordPasswordResetAttempt($ip, $email);
         }
-        
+
         $user = $email ? Repo::user()->getByEmail($email, true) : null;
         if ($user !== null) {
             if ($user->getDisabled()) {
