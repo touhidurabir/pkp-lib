@@ -298,8 +298,8 @@ abstract class Repository
             $submission,
             $this->schemaService->getRequiredProps(PKPSchemaService::SCHEMA_SUBMISSION),
             $this->schemaService->getMultilingualProps(PKPSchemaService::SCHEMA_SUBMISSION),
-            $primaryLocale,
-            $allowedLocales
+            $allowedLocales,
+            $primaryLocale
         );
 
         // Check for input from disallowed locales
