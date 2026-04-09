@@ -78,10 +78,10 @@ class VersionDAO extends \PKP\db\DAO
     public function _returnVersionFromRow($row): Version
     {
         $version = new Version(
-            $row['major'],
-            $row['minor'],
-            $row['revision'],
-            $row['build'],
+            (int) $row['major'],
+            (int) $row['minor'],
+            (int) $row['revision'],
+            (int) $row['build'],
             $this->datetimeFromDB($row['date_installed']),
             $row['current'],
             ($row['product_type'] ?? null),
