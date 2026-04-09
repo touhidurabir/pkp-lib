@@ -3,8 +3,8 @@
 /**
  * @file classes/user/DAO.php
  *
- * Copyright (c) 2014-2021 Simon Fraser University
- * Copyright (c) 2000-2021 John Willinsky
+ * Copyright (c) 2014-2026 Simon Fraser University
+ * Copyright (c) 2000-2026 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class DAO
@@ -100,7 +100,7 @@ class DAO extends EntityDAO
         $row = DB::table($this->table)
             ->where($this->primaryKeyColumn, $id)
             ->first();
-        /** @var User */
+        /** @var User $user */
         $user = $row ? $this->fromRow($row) : null;
         if (!$allowDisabled && $user?->getDisabled()) {
             return null;
@@ -295,12 +295,23 @@ class DAO extends EntityDAO
      */
     public function changeSitePrimaryLocale(string $oldLocale, string $newLocale): void
     {
-        // remove all empty user names in the new locale
-        // so that we do not have to take care if we should insert or update them -- we can then only insert them if needed
-        $settingNames = [Identity::IDENTITY_SETTING_GIVENNAME, Identity::IDENTITY_SETTING_FAMILYNAME, 'preferredPublicName'];
-        foreach ($settingNames as $settingName) {
-            DB::delete("DELETE from user_settings WHERE locale = ? AND setting_name = ? AND setting_value = ''", [$newLocale, $settingName]);
-        }
+        // Remove empty or null values in the target locale before copying so they can be recreated
+        // with the source locale's values through a single insert operation.
+        $settingNames = [
+            Identity::IDENTITY_SETTING_GIVENNAME,
+            Identity::IDENTITY_SETTING_FAMILYNAME,
+            'preferredPublicName'
+        ];
+
+        DB::table('user_settings')
+            ->where('locale', $newLocale)
+            ->whereIn('setting_name', $settingNames)
+            ->where(function (Builder $query) {
+                $query->where('setting_value', '')
+                    ->orWhereNull('setting_value');
+            })
+            ->delete();
+
 
         // escape new locale value
         $newLocaleEscaped = DB::getPdo()->quote($newLocale);
@@ -317,7 +328,7 @@ class DAO extends EntityDAO
                 })
                 ->where('us_old.locale', '=', $oldLocale)
                 ->whereIn('us_old.setting_name', $settingNames)
-                ->whereNull('us_new.setting_value')
+                ->whereNull('us_new.user_id')
         );
     }
 
