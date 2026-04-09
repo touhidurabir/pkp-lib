@@ -347,12 +347,6 @@ class PKPString
             '</i>' => '</italic>',
             '<u>' => '<underline>',
             '</u>' => '</underline>',
-            '<b>' => '<bold>',
-            '</b>' => '</bold>',
-            '<i>' => '<italic>',
-            '</i>' => '</italic>',
-            '<u>' => '<underline>',
-            '</u>' => '</underline>',
         ];
 
         return str_replace(array_keys($mappings), array_values($mappings), $htmlTitle);
@@ -377,8 +371,4 @@ class PKPString
 
         return null;
     }
-}
-
-if (!PKP_STRICT_MODE) {
-    class_alias('\PKP\core\PKPString', '\PKPString');
 }
