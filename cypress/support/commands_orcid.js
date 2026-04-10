@@ -34,7 +34,7 @@ Cypress.Commands.add('enableOrcid', (language, contextPath) => {
 		.check();
 	cy.get('select[name="orcidLogLevel"]').should('be.visible').select('INFO');
 	cy.get('button:contains("Save")').eq(1).should('be.visible').click();
-
+	cy.get('#orcidSettings [role="status"]').contains('Saved');
 	cy.reload();
 
 	cy.get('input[name="orcidClientId"]')
