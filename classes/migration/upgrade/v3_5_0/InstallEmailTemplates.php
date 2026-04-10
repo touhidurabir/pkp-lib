@@ -33,6 +33,7 @@ class InstallEmailTemplates extends Migration
             'REVIEW_COMPLETE',
             'REVIEW_EDIT',
             'USER_ROLE_ASSIGNMENT_INVITATION',
+            'USER_ROLE_MASTHEAD_UPDATE',
         ];
     }
 
