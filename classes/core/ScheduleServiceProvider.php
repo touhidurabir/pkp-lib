@@ -85,6 +85,12 @@ class ScheduleServiceProvider extends ServiceProvider implements DeferrableProvi
                     
                     $scheduler = $this->app->get(Scheduler::class); /** @var \APP\scheduler\Scheduler $scheduler */
                     $scheduler->registerPluginSchedules();
+
+                    // Flush the output buffer to send the response to the client before
+                    // running scheduled tasks, preventing page load delays.
+                    // This replicates behavior from the legacy Acron plugin.
+                    PKPContainer::getInstance()->flushOutputBuffer();
+
                     $scheduler->runWebBasedScheduleTaskRunner();
                 });
             }
