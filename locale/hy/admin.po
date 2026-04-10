@@ -2,7 +2,7 @@
 # Tigran Zargaryan <tigran@flib.sci.am>, 2022, 2023, 2024, 2025, 2026.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2026-03-15 09:47+0000\n"
+"PO-Revision-Date: 2026-04-03 05:32+0000\n"
 "Last-Translator: Tigran Zargaryan <tigran@flib.sci.am>\n"
 "Language-Team: Armenian <http://translate.pkp.sfu.ca/projects/pkp-lib/admin/"
 "hy/>\n"
@@ -1090,4 +1090,64 @@ msgid "admin.scheduledTask.UpdateRorRegistryDataset.error.checksum"
 msgstr ""
 "Անհնար է թարմացնել ROR գրանցամատյանի տվյալների հավաքածուն՝ ստուգիչ գումարի "
 "անհամապատասխանության պատճառով: Ակնկալվող ստուգիչ գումար՝ {$expected}: Իրական "
-"ստուգիչ գումար՝ {$actual}"
+"ստուգիչ գումար՝ {$actual}:"
+
+msgid "admin.scheduledTask.UpdateRorRegistryDataset.error.checksumVerify"
+msgstr ""
+"Անհնար է ստուգել ներբեռնված ROR գրանցամատյանի տվյալների հավաքածուի ZIP նիշքի "
+"ստուգիչ գումարը։"
+
+msgid "admin.scheduledTask.UpdateRorRegistryDataset.error.checksumAlgorithm"
+msgstr ""
+"Հնարավոր չէ ստուգել ROR գրանցամատյանի տվյալների հավաքածուի ZIP նիշքը՝ "
+"չաջակցվող ստուգիչ գումարի ալգորիթմ: Աջակցվում են միայն MD5-ը և SHA256-ը:"
+
+msgid "admin.scheduledTask.UpdateRorRegistryDataset.error.noDownloadFile"
+msgstr ""
+"Անհնար է ստանալ ROR գրանցամատյանի տվյալների հավաքածուի մետատվյալները: API "
+"պատասխանում ներբեռնման նիշք չի գտնվել:"
+
+msgid "admin.scheduledTask.UpdateRorRegistryDataset.error.download"
+msgstr "Անհնար է ներբեռնել ROR գրանցամատյանի տվյալների հավաքածուի ZIP նիշքը։"
+
+msgid "admin.scheduledTask.UpdateRorRegistryDataset.error.extract"
+msgstr ""
+"Անհնար է արդյունահանել ROR գրանցամատյանի տվյալների հավաքածուի ZIP նիշքը։"
+
+msgid "admin.scheduledTask.UpdateRorRegistryDataset.error.schemaVersionRead"
+msgstr ""
+"Հնարավոր չէ կարդալ սխեմայի տարբերակը ROR գրանցամատյանի JSON նիշքից՝ {$file}: "
+"Սխալ՝ {$error}:"
+
+msgid "admin.scheduledTask.UpdateRorRegistryDataset.warning.noValidName"
+msgstr "ROR գրանցամատյանի \"{$id}\" գրառումը վավեր անուն չունի և բաց է թողնվել։"
+
+msgid "admin.scheduledTask.UpdateRorRegistryDataset.error.missingFields"
+msgstr ""
+"ROR գրանցամատյանի \"{$id}\" id-ով գրառման մեջ բացակայում է մեկ կամ մի քանի "
+"պարտադիր դաշտեր (id, անուններ, կարգավիճակ) և այն բաց է թողնվել։"
+
+msgid "admin.scheduledTask.UpdateRorRegistryDataset.error.statusCode"
+msgstr ""
+"Անհնար է ստանալ ROR գրանցամատյանի տվյալների հավաքածուի մետատվյալները: "
+"Անսպասելի HTTP կարգավիճակի կոդ՝ {$statusCode}:"
+
+msgid "admin.scheduledTask.UpdateRorRegistryDataset.error.zipOpen"
+msgstr ""
+"Անհնար է բացել ROR գրանցամատյանի տվյալների հավաքածուի ZIP նիշքը: Սխալի կոդ՝ "
+"{$code}:"
+
+msgid "admin.scheduledTask.UpdateRorRegistryDataset.error.jsonNotFound"
+msgstr ""
+"ROR գրանցամատյանի արդյունահանված տվյալների հավաքածուում հնարավոր չէ գտնել "
+"JSON տվյալների նիշք՝ սխեմայի {$version} տարբերակով։"
+
+msgid "admin.scheduledTask.UpdateRorRegistryDataset.error.noRecordsProcessed"
+msgstr ""
+"ROR գրանցամատյանի տվյալների հավաքածուից գրառումներ չեն մշակվել: Տվյալների "
+"հավաքածուն կարող է դատարկ լինել, կամ բոլոր գրառումները չեն անցել վավերացումը:"
+
+msgid "admin.scheduledTask.UpdateRorRegistryDataset.warning.missingNameValue"
+msgstr ""
+"ROR գրանցամատյանի \"{$id}\" գրառումը պարունակում է [{$types}] տեսակներով "
+"անվանման գրառում, որտեղ բացակայում է պարտադիր 'value' դաշտը և բաց է թողնվել։"

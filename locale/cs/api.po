@@ -1,7 +1,7 @@
-# Jiří Dlouhý <jiri.dlouhy@czp.cuni.cz>, 2022, 2023, 2024, 2025.
+# Jiří Dlouhý <jiri.dlouhy@czp.cuni.cz>, 2022, 2023, 2024, 2025, 2026.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2025-12-13 08:58+0000\n"
+"PO-Revision-Date: 2026-04-09 19:49+0000\n"
 "Last-Translator: Jiří Dlouhý <jiri.dlouhy@czp.cuni.cz>\n"
 "Language-Team: Czech <http://translate.pkp.sfu.ca/projects/pkp-lib/api/cs/>\n"
 "Language: cs\n"
@@ -441,3 +441,9 @@ msgstr ""
 "Přiřazení ORCiD ID autora prostřednictvím koncových bodů Editovat/Přidat "
 "autora není povoleno. Chcete-li požádat autora o aktualizaci jeho ORCID iD, "
 "použijte koncový bod „orcid/requestAuthorVerification/{authorId}“."
+
+msgid "api.400.invalidMastheadParameter"
+msgstr "Neplatný parametr v hlavičce."
+
+msgid "api.400.reviewerMastheadCannotBeChanged"
+msgstr "Viditelnost záhlaví pro role recenzentů nelze změnit."

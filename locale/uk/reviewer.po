@@ -1,10 +1,10 @@
-# Petro Bilous <petrobilous@ukr.net>, 2023, 2025.
+# Petro Bilous <petrobilous@ukr.net>, 2023, 2025, 2026.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:50:09+00:00\n"
-"PO-Revision-Date: 2025-08-25 16:17+0000\n"
+"PO-Revision-Date: 2026-04-02 20:58+0000\n"
 "Last-Translator: Petro Bilous <petrobilous@ukr.net>\n"
 "Language-Team: Ukrainian <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "reviewer/uk/>\n"
@@ -204,3 +204,8 @@ msgstr "Ці файли надіслано вам на рецензування"
 
 msgid "reviewer.submission.reviewRound.reviewNotCompleted"
 msgstr "Рецензування не завершено."
+
+msgid "reviewer.submission.reviewFormResponse.form.notFilledIn"
+msgstr ""
+"Деякі обов'язкові поля не заповнені. Будь ласка, заповніть їх, перш ніж "
+"надсилати рецензію."
