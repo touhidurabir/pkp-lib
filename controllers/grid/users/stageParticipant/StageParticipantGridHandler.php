@@ -336,6 +336,11 @@ class StageParticipantGridHandler extends CategoryGridHandler
         $form = new AddParticipantForm($submission, $stageId, $assignmentId);
         $form->readInputData();
         if ($form->validate()) {
+            $stageAssignment = $assignmentId ? StageAssignment::find($assignmentId) : null;
+            if ($stageAssignment && !Validation::canEditParticipant($request->getUser(), $submission, $stageAssignment)) {
+                return new JSONMessage(true, $form->fetch($request));
+            }
+
             [$userGroupId, $userId, $stageAssignmentId] = $form->execute();
 
             $notificationMgr = new NotificationManager();
