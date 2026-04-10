@@ -1,8 +1,8 @@
 # Hovhannes Harutyunyan <hharutyunyan@gmail.com>, 2022.
-# Tigran Zargaryan <tigran@flib.sci.am>, 2022, 2025.
+# Tigran Zargaryan <tigran@flib.sci.am>, 2022, 2025, 2026.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2025-03-04 12:41+0000\n"
+"PO-Revision-Date: 2026-04-03 05:32+0000\n"
 "Last-Translator: Tigran Zargaryan <tigran@flib.sci.am>\n"
 "Language-Team: Armenian <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "reviewer/hy/>\n"
@@ -197,3 +197,8 @@ msgstr "Ընդհանուր տեղեկություններ"
 
 msgid "reviewer.submission.reviewRound.attachments.description"
 msgstr "Սրանք նիշքեր են, որոնք դուք կցել եք ձեր գրախոսման հետ միասին"
+
+msgid "reviewer.submission.reviewFormResponse.form.notFilledIn"
+msgstr ""
+"Որոշ պարտադիր դաշտեր լրացված չեն։ Խնդրում ենք լրացնել դրանք նախքան ձեր "
+"կարծիքը ներկայացնելը։"

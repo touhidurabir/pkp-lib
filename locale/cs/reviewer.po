@@ -1,11 +1,11 @@
 # Michal Jelínek <jelinek@synetix.cz>, 2021.
-# Jiří Dlouhý <jiri.dlouhy@czp.cuni.cz>, 2025.
+# Jiří Dlouhý <jiri.dlouhy@czp.cuni.cz>, 2025, 2026.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:41+00:00\n"
-"PO-Revision-Date: 2025-03-03 19:43+0000\n"
+"PO-Revision-Date: 2026-04-03 18:57+0000\n"
 "Last-Translator: Jiří Dlouhý <jiri.dlouhy@czp.cuni.cz>\n"
 "Language-Team: Czech <http://translate.pkp.sfu.ca/projects/pkp-lib/reviewer/"
 "cs/>\n"
@@ -198,3 +198,8 @@ msgstr "Tyto soubory vám byly zaslány k recenzi"
 
 msgid "reviewer.submission.reviewRound.reviewNotCompleted"
 msgstr "Recenze nebyla dokončena."
+
+msgid "reviewer.submission.reviewFormResponse.form.notFilledIn"
+msgstr ""
+"Některá povinná pole nebyla vyplněna. Před odesláním recenze je prosím "
+"vyplňte."

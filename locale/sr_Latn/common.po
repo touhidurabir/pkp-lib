@@ -1,11 +1,12 @@
 # Marko Simendic <marko.simendic@gmail.com>, 2026.
+# lena bojcic <lenabojcicck@gmail.com>, 2026.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:50:04+00:00\n"
-"PO-Revision-Date: 2026-02-24 09:55+0000\n"
-"Last-Translator: Marko Simendic <marko.simendic@gmail.com>\n"
+"PO-Revision-Date: 2026-04-02 10:33+0000\n"
+"Last-Translator: lena bojcic <lenabojcicck@gmail.com>\n"
 "Language-Team: Serbian (latin) <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "common/sr_Latn/>\n"
 "Language: sr_Latn\n"
@@ -127,28 +128,28 @@ msgid "common.active"
 msgstr "Aktivno"
 
 msgid "common.inactive"
-msgstr ""
+msgstr "Neaktivan"
 
 msgid "common.add"
 msgstr "Dodaj"
 
 msgid "common.addCCBCC"
-msgstr ""
+msgstr "Dodaj CC/BCC"
 
 msgid "common.addFiles"
-msgstr ""
+msgstr "Dodaj fajlove"
 
 msgid "common.addSelf"
 msgstr "Dodelite sebi"
 
 msgid "common.attachedFiles"
-msgstr ""
+msgstr "Priloženi fajlovi"
 
 msgid "common.attachFiles"
-msgstr ""
+msgstr "Priloži fajlove"
 
 msgid "common.attachSelected"
-msgstr ""
+msgstr "Priloži označeno"
 
 msgid "common.name"
 msgstr "Ime"
@@ -2215,3 +2216,31 @@ msgstr "Autor je izmenjen."
 
 msgid "common.showingXofX"
 msgstr "Prikazujemo <strong>{$start} do {$finish}</strong> od {$total}"
+
+msgid "about.editorialMasthead.linkToEditorialHistory"
+msgstr "Pogledajte <a href=\"{$url}\">istoriju uređivanja</a>"
+
+msgid "common.moreActions"
+msgstr "Više opcija"
+
+msgid "common.editorialMasthead"
+msgstr "Urednički tim"
+
+msgid "common.editorialMasthead.peerReviewers"
+msgstr "Recenzenti iz prethodne godine"
+
+msgid "common.editorialHistory.peerReviewers"
+msgstr "Recenzenti iz prethodnih godina"
+
+msgid "common.editorialMasthead.peerReviewers.description"
+msgstr ""
+"Urednici izražavaju zahvalnost recenzentima za {$year}, navedenim u nastavku."
+
+msgid "common.editorialHistory"
+msgstr "Istorija uređivanja"
+
+msgid "common.editorialHistory.page"
+msgstr "Stranica istorije uređivanja"
+
+msgid "common.editorialHistory.page.description"
+msgstr "Ovaj odeljak navodi dosadašnje saradnike."
