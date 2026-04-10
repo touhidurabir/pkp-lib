@@ -18,6 +18,7 @@ namespace PKP\security;
 
 use APP\core\Application;
 use APP\facades\Repo;
+use APP\submission\Submission;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Str;
 use PKP\config\Config;
@@ -26,6 +27,7 @@ use PKP\core\PKPApplication;
 use PKP\db\DAORegistry;
 use PKP\site\Site;
 use PKP\site\SiteDAO;
+use PKP\stageAssignment\StageAssignment;
 use PKP\user\User;
 use PKP\userGroup\UserGroup;
 
@@ -586,6 +588,52 @@ class Validation
             return false;
         }
         return self::getAdministrationLevel($targetUserId, $currentUserId, $contextId) === self::ADMINISTRATION_FULL;
+    }
+
+    /**
+     * Check if the user can edit another user stage assignment in the participants grid
+     *
+     * @return bool
+     */
+    public static function canEditParticipant(User $user, Submission $submission, StageAssignment $stageAssignment): bool
+    {
+        // Admins and managers always can edit stage participants
+        if ($user->hasRole([Role::ROLE_ID_SITE_ADMIN, Role::ROLE_ID_MANAGER], $submission->getData('contextId'))) {
+            return true;
+        }
+
+        /**
+         * Check user's assignments within given submission and stage
+         */
+
+        $stageAssignments = StageAssignment::with('userGroup')
+            ->withSubmissionIds([$submission->getId()])
+            ->withStageIds([$stageAssignment->stageId])
+            ->withUserId($user->getId())
+            ->get();
+
+        if ($stageAssignments->isEmpty()) {
+            return false;
+        }
+
+        $isEditor = $stageAssignments->contains(fn (StageAssignment $stageAssignment) => $stageAssignment->userGroup->roleId == Role::ROLE_ID_SUB_EDITOR);
+
+        if (!$isEditor) {
+            return false;
+        }
+
+        // Don't allow to edit own assignments
+        if ($user->getId() === $stageAssignment->userId) {
+            return false;
+        }
+
+        // Editors aren't allowed to edit managers' assignments
+        $editableUser = Repo::user()->getCollector()->filterByUserIds([$stageAssignment->getUserId()])->getMany()->first();
+        if ($editableUser->hasRole([Role::ROLE_ID_MANAGER, Role::ROLE_ID_SITE_ADMIN], $submission->getData('contextId'))) {
+            return false;
+        }
+
+        return true;
     }
 }
 

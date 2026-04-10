@@ -68,6 +68,10 @@ class StageParticipantGridRow extends GridRow
         // Is this a new row or an existing row?
         $rowId = $this->getId();
         if (!empty($rowId) && is_numeric($rowId)) {
+            $submission = $this->getSubmission();
+            $stageId = $this->getStageId();
+            $stageAssignment = $this->getData();
+
             // Only add row actions if this is an existing row.
             $router = $request->getRouter();
             if ($this->_canAdminister) {
@@ -86,22 +90,21 @@ class StageParticipantGridRow extends GridRow
                     )
                 );
 
-                $this->addAction(
-                    new LinkAction(
-                        'requestAccount',
-                        new AjaxModal(
-                            $router->url($request, null, null, 'addParticipant', null, $this->getRequestArgs()),
-                            __('editor.submission.editStageParticipant'),
-                        ),
-                        __('common.edit'),
-                        'edit_user'
-                    )
-                );
+                if (Validation::canEditParticipant($request->getUser(), $submission, $stageAssignment)) {
+                    $this->addAction(
+                        new LinkAction(
+                            'requestAccount',
+                            new AjaxModal(
+                                $router->url($request, null, null, 'addParticipant', null, $this->getRequestArgs()),
+                                __('editor.submission.editStageParticipant'),
+                            ),
+                            __('common.edit'),
+                            'edit_user'
+                        )
+                    );
+                }
             }
 
-            $submission = $this->getSubmission();
-            $stageId = $this->getStageId();
-            $stageAssignment = $this->getData();
             $userId = $stageAssignment->userId;
             $userGroupId = $stageAssignment->userGroupId;
             $context = $request->getContext();

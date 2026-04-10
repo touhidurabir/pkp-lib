@@ -120,6 +120,16 @@ class AddParticipantForm extends PKPStageParticipantNotifyForm
             return false;
         }
 
+        $isRecommendOnly = StageAssignment::withSubmissionIds([$this->_submission->getId()])
+            ->withUserId($currentUser->getId())
+            ->withStageIds([$this->_stageId])
+            ->get()
+            ->contains(fn (StageAssignment $stageAssignment) => $stageAssignment->recommendOnly == true);
+
+       if ($isRecommendOnly) {
+           return false;
+       }
+
         return in_array($userGroup->roleId, [Role::ROLE_ID_MANAGER, Role::ROLE_ID_SUB_EDITOR]);
     }
 
@@ -254,25 +264,28 @@ class AddParticipantForm extends PKPStageParticipantNotifyForm
         $submission = $this->getSubmission();
         $userGroup = Repo::userGroup()->get((int) $this->getData('userGroupId'));
         $userId = (int) $this->getData('userId');
-        $recommendOnly = $this->_isChangeRecommendOnlyAllowed($userGroup, $userId) ? (bool) $this->getData('recommendOnly') : false;
-        $canChangeMetadata = $this->_isChangePermitMetadataAllowed($userGroup, $userId) ? (bool) $this->getData('canChangeMetadata') : true;
+        $isChangeRecommendOnlyAllowed = $this->_isChangeRecommendOnlyAllowed($userGroup, $userId);
+        $isChangePermitMetadataAllowed = $this->_isChangePermitMetadataAllowed($userGroup, $userId);
+        $recommendOnly = (bool) $this->getData('recommendOnly');
+        $canChangeMetadata = (bool) $this->getData('canChangeMetadata');
 
         // sanity check
         if (UserGroupStage::withStageId($this->getStageId())->withUserGroupId($userGroup->id)->get()->isNotEmpty()) {
-            $updated = false;
 
             if ($this->_assignmentId) {
+                /** @var StageAssignment $stageAssignment */
                 $stageAssignment = StageAssignment::find($this->_assignmentId);
 
-                if ($stageAssignment) {
-                    $stageAssignment->recommendOnly = $recommendOnly;
-                    $stageAssignment->canChangeMetadata = $canChangeMetadata;
+                if ($stageAssignment && ($isChangeRecommendOnlyAllowed || $isChangePermitMetadataAllowed)) {
+                    if ($isChangeRecommendOnlyAllowed) {
+                        $stageAssignment->recommendOnly = $recommendOnly;
+                    }
+                    if ($isChangePermitMetadataAllowed) {
+                        $stageAssignment->canChangeMetadata = $canChangeMetadata;
+                    }
                     $stageAssignment->save();
-                    $updated = true;
                 }
-            }
-
-            if (!$updated) {
+            } else {
                 // insert the assignment
                 $stageAssignment = Repo::stageAssignment()
                     ->build(
