@@ -923,6 +923,7 @@ msgstr ""
 msgid "orcid.field.deleteOrcidModal.title"
 msgstr "Видалити ORCID"
 
+#, fuzzy
 msgid "user.removeRole.message"
 msgstr ""
 "Ви впевнені, що хочете видалити цю роль? Користувач втратить доступ і пов’"
