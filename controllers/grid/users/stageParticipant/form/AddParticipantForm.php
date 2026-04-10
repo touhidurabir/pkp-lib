@@ -100,7 +100,7 @@ class AddParticipantForm extends PKPStageParticipantNotifyForm
     {
         $currentUser = Application::get()->getRequest()->getUser();
 
-        if ($currentUser->getId() === $userId && $userGroup->roleId === Role::ROLE_ID_SUB_EDITOR) {
+        if ($currentUser->getId() == $userId && $userGroup->roleId == Role::ROLE_ID_SUB_EDITOR) {
             return false;
         }
 
@@ -116,7 +116,7 @@ class AddParticipantForm extends PKPStageParticipantNotifyForm
     {
         $currentUser = Application::get()->getRequest()->getUser();
 
-        if ($currentUser->getId() === $userId && $userGroup->roleId === Role::ROLE_ID_SUB_EDITOR) {
+        if ($currentUser->getId() == $userId && $userGroup->roleId == Role::ROLE_ID_SUB_EDITOR) {
             return false;
         }
 
@@ -267,7 +267,7 @@ class AddParticipantForm extends PKPStageParticipantNotifyForm
         $isChangeRecommendOnlyAllowed = $this->_isChangeRecommendOnlyAllowed($userGroup, $userId);
         $isChangePermitMetadataAllowed = $this->_isChangePermitMetadataAllowed($userGroup, $userId);
         $recommendOnly = (bool) $this->getData('recommendOnly');
-        $canChangeMetadata = (bool) $this->getData('canChangeMetadata');
+        $canChangeMetadata = $userGroup->roleId == Role::ROLE_ID_MANAGER ? true : (bool) $this->getData('canChangeMetadata');
 
         // sanity check
         if (UserGroupStage::withStageId($this->getStageId())->withUserGroupId($userGroup->id)->get()->isNotEmpty()) {
