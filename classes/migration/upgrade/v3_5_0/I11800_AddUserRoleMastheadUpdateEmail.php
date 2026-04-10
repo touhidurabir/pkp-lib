@@ -14,30 +14,12 @@
 
 namespace PKP\migration\upgrade\v3_5_0;
 
-use APP\facades\Repo;
-use PKP\install\DowngradeNotSupportedException;
-use PKP\migration\Migration;
-
-class I11800_AddUserRoleMastheadUpdateEmail extends Migration
+class I11800_AddUserRoleMastheadUpdateEmail extends InstallEmailTemplates
 {
-    /**
-     * @inheritDoc
-     */
-    public function up(): void
+    protected function getEmailTemplateKeys(): array
     {
-        Repo::emailTemplate()->dao->installEmailTemplates(
-            Repo::emailTemplate()->dao->getMainEmailTemplatesFilename(),
-            [],
+        return [
             'USER_ROLE_MASTHEAD_UPDATE',
-            true,
-        );
-    }
-
-    /**
-     * @inheritDoc
-     */
-    public function down(): void
-    {
-        throw new DowngradeNotSupportedException();
+        ];
     }
 }
