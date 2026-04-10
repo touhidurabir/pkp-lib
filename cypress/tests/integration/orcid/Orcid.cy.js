@@ -106,6 +106,7 @@ describe('ORCID tests', function() {
 	      cy.get('input[name="orcidSendMailToAuthorsOnPublication"]').should('not.exist');
 	      cy.get('select[name="orcidLogLevel"]').should('not.exist');
 	      cy.get('button:contains("Save")').eq(1).should('be.visible').click();
+	      cy.get('#orcidSettings [role="status"]').contains('Saved');
 
 	      // reload to check that data was saved
 	      cy.reload();
