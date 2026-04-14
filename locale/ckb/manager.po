@@ -1184,6 +1184,7 @@ msgstr ""
 "تەواوبوونیان لێبدرێت پێش ئەوەی نوسەرەکە بتوانێت بەردەوام بێت لە سەر "
 "پێشکەشکردنی بابەتەکەی/ توێژینەوەکەی."
 
+#, fuzzy
 msgid "manager.sections.form.deactivateSection"
 msgstr ""
 

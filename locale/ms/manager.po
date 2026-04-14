@@ -1249,6 +1249,7 @@ msgstr ""
 "semua item dalam senarai memerlukan tanda semak sebelum pengarang dapat "
 "meneruskan penyerahannya."
 
+#, fuzzy
 msgid "manager.sections.form.deactivateSection"
 msgstr ""
 "Nyahaktifkan bahagian ini dan jangan benarkan penyerahan baharu dibuat "

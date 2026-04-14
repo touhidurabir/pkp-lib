@@ -1319,6 +1319,7 @@ msgstr ""
 "naprošeni, da potrdijo, da prispevek ustreza vsem zahtevam, preden začnejo "
 "oddajati prispevek."
 
+#, fuzzy
 msgid "manager.sections.form.deactivateSection"
 msgstr "Deaktivirajte to rubriko in ne dovolite oddajo novih prispevkov vanjo."
 

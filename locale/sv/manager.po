@@ -1293,6 +1293,7 @@ msgstr ""
 "Checklistan kan redigeras nedan men alla delmoment på listan måste markeras "
 "av författaren innan bidraget skickas in."
 
+#, fuzzy
 msgid "manager.sections.form.deactivateSection"
 msgstr ""
 "Avaktivera denna sektion och förbjud att nya bidrag skickas in till den."

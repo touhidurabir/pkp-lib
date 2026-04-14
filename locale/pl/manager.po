@@ -1332,6 +1332,7 @@ msgstr ""
 "proszeni są o potwierdzenie, że spełnia ono wszelkie wymienione tutaj "
 "wymagania czasopisma."
 
+#, fuzzy
 msgid "manager.sections.form.deactivateSection"
 msgstr ""
 "Wyłącz tę sekcję i nie pozwalaj autorom na dalsze zgłaszanie tekstów do niej."

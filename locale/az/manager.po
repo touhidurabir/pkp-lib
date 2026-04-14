@@ -2600,6 +2600,7 @@ msgstr ""
 "amma, siyahıdakı bütün elementlərin növbəti addıma keçə bilmək üçün "
 "Müəlliflər tərfindən işarələnməsi gərəklidir."
 
+#, fuzzy
 msgid "manager.sections.form.deactivateSection"
 msgstr ""
 "Bu bölməni sıradan çıxarın və buraya yeni məqalə göndərilməsini ləğv edin."

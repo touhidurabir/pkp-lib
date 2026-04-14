@@ -1381,6 +1381,7 @@ msgstr ""
 "Einreichung zu vergewissern, dass ihr Beitrag den hier genannten "
 "Anforderungen entspricht."
 
+#, fuzzy
 msgid "manager.sections.form.deactivateSection"
 msgstr ""
 "Diese Sektion deaktivieren und keine neuen Einreichungen zu dieser Sektion "

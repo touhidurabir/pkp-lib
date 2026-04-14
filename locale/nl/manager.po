@@ -1360,6 +1360,7 @@ msgstr ""
 "aan alle vereisten die hier zijn gespecificeerd voordat ze met hun inzending "
 "beginnen."
 
+#, fuzzy
 msgid "manager.sections.form.deactivateSection"
 msgstr ""
 "Deactiveer dit gedeelte en laat geen nieuwe of nieuw te maken inzendingen "

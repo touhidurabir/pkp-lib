@@ -1279,6 +1279,7 @@ msgstr ""
 "editar la llista de verificació, però tingueu en compte que els autors/ores "
 "n’han d’activar tots els elements per poder continuar amb la tramesa."
 
+#, fuzzy
 msgid "manager.sections.form.deactivateSection"
 msgstr "Desactivar aquesta secció i no permetre que s'hi facin noves trameses."
 
