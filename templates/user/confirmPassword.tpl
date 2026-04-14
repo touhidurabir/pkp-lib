@@ -19,18 +19,20 @@
 	</h1>
 	<div class="app__contentPanel">
 
-	<form class="pkp_form" id="confirmPassword" method="POST" action="{$submitUrl}">
+	<form class="pkp_form" id="confirmPassword" method="POST" action="{$submitUrl}" autocomplete="off">
 		{csrf}
 		<input hidden name="cancelUrl" value="{$cancelUrl|escape}" />
 		<input hidden name="source" value="{$source|escape}" />
-		<input hidden name="isActionRequest" value="{$isActionRequest|escape}"/>
+		{if $isActionRequest}
+			<input hidden name="isActionRequest" value="{$isActionRequest|escape}"/>
+		{/if}
 
 		<p class="mb-2"><span>{translate key="user.confirmAccess.description" userFullName=$currentUser->getFullName()}</span></p>
 
 		{fbvFormArea id="confirmPassword"}
 		    {fbvFormSection }
 			    {fieldLabel translate=true for=password key="user.password"}
-			    {fbvElement type="text" required=true password=true id="password" maxlength="32" size=$fbvStyles.size.MEDIUM}
+			    {fbvElement type="text" autocomplete="off" required=true password=true id="password" maxlength="32" size=$fbvStyles.size.MEDIUM}
 		    {/fbvFormSection}
 
 			<div>
