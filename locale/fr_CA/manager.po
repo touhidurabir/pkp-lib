@@ -1385,6 +1385,7 @@ msgstr ""
 "remplies. Tous les éléments de la liste devront être approuvés par les "
 "auteurs-es afin de poursuivre la procédure de soumission."
 
+#, fuzzy
 msgid "manager.sections.form.deactivateSection"
 msgstr ""
 "Désactiver cette rubrique et ne pas y autoriser de nouvelles soumissions."

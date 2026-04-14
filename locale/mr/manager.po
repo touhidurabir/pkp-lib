@@ -1136,6 +1136,7 @@ msgstr "लेखकांसाठी मार्गदर्शन"
 msgid "manager.setup.submissionPreparationChecklist"
 msgstr "सादरीकरण प्रक्रियेदरम्यान कराव्या लागणार्‍या कामांची यादी (Checklist)"
 
+#, fuzzy
 msgid "manager.sections.form.deactivateSection"
 msgstr "हा विभाग निष्क्रिय करा आणि त्यात सादरीकरण करण्याची परवानगी देऊ नका."
 

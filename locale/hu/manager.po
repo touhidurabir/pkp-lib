@@ -1251,6 +1251,7 @@ msgstr ""
 "de a szerzőnek minden tételnél tennie kell egy pipát, mielőtt a folytathatja "
 "a beküldést."
 
+#, fuzzy
 msgid "manager.sections.form.deactivateSection"
 msgstr ""
 "Tiltsa le ezt a rovatot, és ne engedélyezze új kéziratok benyújtását ide."

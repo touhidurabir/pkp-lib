@@ -1251,6 +1251,7 @@ msgstr ""
 "jurnal. Lista poate fi editată mai jos, dar toate elementele din listă vor "
 "necesita o bifă înainte ca autorii să poată continua trimiterea lor."
 
+#, fuzzy
 msgid "manager.sections.form.deactivateSection"
 msgstr ""
 

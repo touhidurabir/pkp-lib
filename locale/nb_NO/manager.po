@@ -1331,6 +1331,7 @@ msgstr ""
 "Sjekklisten kan redigeres nedenfor, men alle elementene på listen må krysses "
 "av før forfatteren kan gå videre med innsendingen."
 
+#, fuzzy
 msgid "manager.sections.form.deactivateSection"
 msgstr "Deaktiver denne seksjonen og ikke tillat nye innleveringer til den."
 

@@ -1354,6 +1354,7 @@ msgstr ""
 "Pede-se aos autores que confirmem que sua submissão está de acordo com "
 "quaisquer requisitos aqui especificados antes de iniciar sua submissão."
 
+#, fuzzy
 msgid "manager.sections.form.deactivateSection"
 msgstr ""
 "Desativar esta seção e não permitir que novas submissões sejam feitas a ela."

@@ -1209,6 +1209,7 @@ msgstr ""
 "به‌دلخواه آن را ویرایش کنید. تمام موارد این چک‌لیست می‌بایست توسط نویسنده تیک "
 "بخورد تا وی قادر به ادامه ارسال مقاله باشد."
 
+#, fuzzy
 msgid "manager.sections.form.deactivateSection"
 msgstr ""
 
