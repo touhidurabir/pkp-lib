@@ -251,6 +251,14 @@
 			"validation": [
 				"nullable"
 			]
+		},
+		"rorId": {
+			"type": "string",
+			"description": "The ROR ID for ORGANIZATION contributor type.",
+			"apiSummary": true,
+			"validation": [
+				"nullable"
+			]
 		}
 	}
 }
