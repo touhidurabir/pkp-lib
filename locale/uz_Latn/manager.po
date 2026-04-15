@@ -1160,6 +1160,7 @@ msgstr ""
 "tahrir qilish mumkin, lekin mualliflar topshirishni davom ettirishdan oldin "
 "ro'yxatdagi barcha elementlarga belgi qo'yish kerak bo'ladi."
 
+#, fuzzy
 msgid "manager.sections.form.deactivateSection"
 msgstr ""
 

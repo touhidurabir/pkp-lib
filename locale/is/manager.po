@@ -1240,6 +1240,7 @@ msgstr ""
 "undir \"Um tímaritið\".  Hægt er er að breyta listanum hér fyrir neðan, en "
 "merkja þarf við öll atriðin áður en höfundur getur haldið áfram innsendingu."
 
+#, fuzzy
 msgid "manager.sections.form.deactivateSection"
 msgstr "Afvirkja þennan hluta og ekki leyfa nýjar innsendingar hér."
 

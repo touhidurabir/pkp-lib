@@ -1329,6 +1329,7 @@ msgstr ""
 "mengecek kelengkapan item di daftar ini, sebelum melanjutkan proses kirim "
 "naskah."
 
+#, fuzzy
 msgid "manager.sections.form.deactivateSection"
 msgstr ""
 "Nonaktifkan bagian ini dan jangan izinkan pengiriman baru untuk seksi ini."

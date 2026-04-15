@@ -1252,6 +1252,7 @@ msgstr ""
 "ispunjenosti označavanjem svakog pitanja pre nego autor nastavi sa procesom "
 "prijave."
 
+#, fuzzy
 msgid "manager.sections.form.deactivateSection"
 msgstr ""
 

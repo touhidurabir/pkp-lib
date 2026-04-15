@@ -1351,6 +1351,7 @@ msgstr ""
 "bliver bedt om at bekræfte, at deres indsendelse overholder de krav, der er "
 "angivet her, før de begynder deres indsendelse."
 
+#, fuzzy
 msgid "manager.sections.form.deactivateSection"
 msgstr ""
 "Deaktivér denne sektion, og tillad ikke, at der indsendes nye bidrag til den."

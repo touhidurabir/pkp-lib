@@ -1338,6 +1338,7 @@ msgstr ""
 "požádáni, aby před zahájením předkládání potvrdili, že jejich příspěvek "
 "splňuje všechny zde uvedené požadavky."
 
+#, fuzzy
 msgid "manager.sections.form.deactivateSection"
 msgstr ""
 "Deaktivujte tuto sekce a nedovolte, aby do ní bylo možné odesílat nové "

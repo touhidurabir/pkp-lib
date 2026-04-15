@@ -1134,6 +1134,7 @@ msgstr ""
 msgid "manager.setup.submissionPreparationChecklistDescription"
 msgstr ""
 
+#, fuzzy
 msgid "manager.sections.form.deactivateSection"
 msgstr ""
 

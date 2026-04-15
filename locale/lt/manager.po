@@ -1323,6 +1323,7 @@ msgstr ""
 "darbą. Prieš pradėdami teikti darbą, autorių prašoma patvirtinti, kad jų "
 "pateiktas darbas atitinka visus čia nurodytus reikalavimus."
 
+#, fuzzy
 msgid "manager.sections.form.deactivateSection"
 msgstr "Išjungti šią skiltį ir neleisti į ją pateikti naujų įrašų."
 

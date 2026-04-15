@@ -1257,6 +1257,7 @@ msgstr ""
 "elementos da lista requirirán unha verificación antes de que os autores "
 "poidan continuar co envío."
 
+#, fuzzy
 msgid "manager.sections.form.deactivateSection"
 msgstr "Desactive esta sección e non permita que se lle fagan novas entregas."
 

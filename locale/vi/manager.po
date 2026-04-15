@@ -1312,6 +1312,7 @@ msgstr ""
 "được yêu cầu xác nhận rằng bài nộp của họ tuân thủ bất kỳ yêu cầu nào được "
 "quy định tại đây trước khi bắt đầu nộp bài."
 
+#, fuzzy
 msgid "manager.sections.form.deactivateSection"
 msgstr "Tắt phần này và không cho phép nộp bài mới vào đó."
 

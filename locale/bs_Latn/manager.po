@@ -1178,6 +1178,7 @@ msgstr ""
 "\". Popis uvjeta se može nadopuniti ili prilagoditi, a autori će uz svaku "
 "navedenu stavku svoju suglasnost morati označiti kvačicom."
 
+#, fuzzy
 msgid "manager.sections.form.deactivateSection"
 msgstr ""
 
