@@ -1323,6 +1323,7 @@ msgstr ""
 "materiāla iesniegšanas sākuma autori tiek lūgti apstiprināt, ka viņu "
 "materiāls atbilst šeit norādītajām prasībām."
 
+#, fuzzy
 msgid "manager.sections.form.deactivateSection"
 msgstr "Deaktivizējiet šo sadaļu un neļaujiet tajā iesniegt jaunus pieteikumus."
 

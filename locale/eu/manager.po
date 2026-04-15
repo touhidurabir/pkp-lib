@@ -1335,6 +1335,7 @@ msgstr ""
 "eskatzen zaie baieztatzeko beren bidalketak hemen zehaztutako baldintza "
 "guztiak betetzen dituela bidalketa hasi aurretik."
 
+#, fuzzy
 msgid "manager.sections.form.deactivateSection"
 msgstr "Desaktibatu atal hau eta ez utzi bidalketa berririk bertara egiten."
 

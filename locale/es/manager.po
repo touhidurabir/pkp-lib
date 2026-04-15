@@ -1368,6 +1368,7 @@ msgstr ""
 "les solicitará que confirmen que el envío cumple todos los requisitos "
 "especificados en este apartado antes de empezar el proceso."
 
+#, fuzzy
 msgid "manager.sections.form.deactivateSection"
 msgstr ""
 "Desactivar esta sección y no permitir que se hagan nuevos envíos a ella."

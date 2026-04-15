@@ -1305,6 +1305,7 @@ msgstr ""
 "Questa lista può essere modificata qui di seguito, ma tutte le voci della "
 "lista dovranno essere spuntate dall'autore per proseguire con la submission."
 
+#, fuzzy
 msgid "manager.sections.form.deactivateSection"
 msgstr "Disattivate questa sezione e non permettete che vi siano nuovi invii."
 

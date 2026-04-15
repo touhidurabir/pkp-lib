@@ -1180,6 +1180,7 @@ msgstr ""
 "栏位中。这份清单能够在下面进行编辑，而所有的项目将会需要作者进行检查后，才能"
 "继续他们的投稿流程。"
 
+#, fuzzy
 msgid "manager.sections.form.deactivateSection"
 msgstr "停用此栏目，不允许对其进行新的提交。"
 

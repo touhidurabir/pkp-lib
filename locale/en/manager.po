@@ -1416,7 +1416,7 @@ msgstr "The following is shown to authors when they begin their submission. Auth
 
 msgid "manager.sections.form.deactivateSection"
 msgstr ""
-"Deactivate this section and do not allow new submissions to be made to it."
+"Mark this section as inactive and do not allow new submissions to be made to it."
 
 msgid "manager.sections.confirmDeactivateSection"
 msgstr "Are you sure you wish to deactivate this section?"

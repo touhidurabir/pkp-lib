@@ -1387,6 +1387,7 @@ msgstr ""
 "dessous, mais tous les éléments de la liste devront être cochés avant que "
 "les auteurs puissent poursuivre la procédure de soumission."
 
+#, fuzzy
 msgid "manager.sections.form.deactivateSection"
 msgstr ""
 "Désactiver cette rubrique et ne pas y autoriser de nouvelles soumissions."

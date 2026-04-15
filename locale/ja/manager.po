@@ -1226,6 +1226,7 @@ msgstr ""
 "て」の「著者ガイドライン」にも掲載されています。チェックリストは以下で編集可"
 "能ですが，すべての項目にチェックが入っていないと投稿できません。"
 
+#, fuzzy
 msgid "manager.sections.form.deactivateSection"
 msgstr "このセクションを非アクティブにして、新しい投稿を許可しない。"
 
