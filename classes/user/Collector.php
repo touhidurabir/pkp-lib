@@ -753,11 +753,11 @@ class Collector implements CollectorInterface
                             ->whereRaw('LOWER(cves.setting_value) LIKE LOWER(?)', [$word])
                     )
                     ->orWhereExists(
-                        fn(Builder $query) => $query->from('user_user_groups', 'uug')
+                        fn (Builder $query) => $query->from('user_user_groups', 'uug')
                             ->join('user_groups AS ug', 'uug.user_group_id', '=', 'ug.user_group_id')
                             ->whereColumn('uug.user_id', '=', 'u.user_id')
                             ->whereExists(
-                                fn(Builder $query) => $query->from('user_group_settings', 'ugs')
+                                fn (Builder $query) => $query->from('user_group_settings', 'ugs')
                                     ->whereColumn('ugs.user_group_id', '=', 'ug.user_group_id')
                                     ->where('ugs.setting_name', '=', 'name')
                                     ->whereRaw('LOWER(ugs.setting_value) LIKE LOWER(?)', [$word])
@@ -809,22 +809,21 @@ class Collector implements CollectorInterface
                     : array_values($this->orderLocales)
             );
             $sortedSettings = array_values($this->orderBy === self::ORDERBY_GIVENNAME ? $nameSettings : array_reverse($nameSettings));
-            // Build the ORDER BY using scalar correlated subqueries instead of LEFT JOINs,
-            // because MySQL does not allow references to outer query tables in JOIN ON clauses
-            // inside subqueries (Unknown column 'u.user_id' in 'on clause').
-            $coalesceParts = [];
-            $bindings = [];
-            foreach ($sortedSettings as $setting) {
-                $subqueries = [];
-                foreach ($locales as $locale) {
-                    $subqueries[] = '(SELECT setting_value FROM user_settings WHERE user_id = u.user_id AND setting_name = ? AND locale = ? LIMIT 1)';
-                    $bindings[] = $setting;
-                    $bindings[] = $locale;
+            $coalesceExpressions = [];
+            foreach ($sortedSettings as $i => $setting) {
+                $parts = [];
+                foreach ($locales as $j => $locale) {
+                    $alias = "us_{$i}_{$j}";
+                    $parts[] = "{$alias}.setting_value";
+                    $query->leftJoin("user_settings AS {$alias}", function (JoinClause $join) use ($alias, $setting, $locale) {
+                        $join->on("{$alias}.user_id", '=', 'u.user_id')
+                            ->where("{$alias}.setting_name", '=', $setting)
+                            ->where("{$alias}.locale", '=', $locale);
+                    });
                 }
-                $coalesceParts[] = 'COALESCE(' . implode(', ', $subqueries) . ", '')";
+                $coalesceExpressions[] = sprintf("COALESCE(%s, '')", implode(', ', $parts));
             }
-            $direction = strtoupper($this->orderDirection) === 'DESC' ? 'DESC' : 'ASC';
-            $query->orderByRaw('CONCAT(' . implode(', ', $coalesceParts) . ') ' . $direction, $bindings);
+            $query->orderByRaw(sprintf('CONCAT(%s) %s', implode(', ', $coalesceExpressions), $this->orderDirection));
         }
 
         return $this;
