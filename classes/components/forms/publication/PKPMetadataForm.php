@@ -1,9 +1,10 @@
 <?php
+
 /**
  * @file classes/components/form/publication/PKPMetadataForm.php
  *
- * Copyright (c) 2014-2021 Simon Fraser University
- * Copyright (c) 2000-2021 John Willinsky
+ * Copyright (c) 2014-2026 Simon Fraser University
+ * Copyright (c) 2000-2026 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class PKPMetadataForm
@@ -18,12 +19,12 @@ namespace PKP\components\forms\publication;
 use APP\core\Application;
 use APP\facades\Repo;
 use APP\publication\Publication;
-use PKP\controlledVocab\ControlledVocab;
 use PKP\components\forms\FieldControlledVocab;
 use PKP\components\forms\FieldRichTextarea;
 use PKP\components\forms\FieldText;
 use PKP\components\forms\FormComponent;
 use PKP\context\Context;
+use PKP\controlledVocab\ControlledVocab;
 
 class PKPMetadataForm extends FormComponent
 {
@@ -145,6 +146,14 @@ class PKPMetadataForm extends FormComponent
                 'value' => $publication->getData('pub-id::publisher-id'),
             ]));
         }
+
+        if ($this->enabled('articleNumber')) {
+            $this->addField(new FieldText('articleNumber', [
+                'label' => __('submission.articleNumber'),
+                'tooltip' => __('submission.articleNumber.description'),
+                'value' => $publication->getData('articleNumber'),
+            ]));
+        }
     }
 
     /**
@@ -152,10 +161,11 @@ class PKPMetadataForm extends FormComponent
      */
     protected function enabled(string $setting): bool
     {
-        if ($setting === 'pub-id::publisher-id') {
-            return in_array('publication', (array) $this->context->getData('enablePublisherId'));
-        }
-        return (bool) $this->context->getData($setting);
+        return match ($setting) {
+            'pub-id::publisher-id' => in_array('publication', (array)$this->context->getData('enablePublisherId')),
+            'articleNumber' => (bool)$this->context->getData('enableArticleNumber'),
+            default => (bool)$this->context->getData($setting),
+        };
     }
 
     /**
